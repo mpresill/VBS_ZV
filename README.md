@@ -9,7 +9,7 @@ Nice talks on the topic:
 - WV analysis update: 
 
 
-##Logbook 
+## Logbook 
 
 /2017_test2 directory is the first prototype working with basic cuts for VBS ZV SR and one signal.
 /2017 is the directory currently used for future studies
