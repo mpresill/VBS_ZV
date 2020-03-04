@@ -1,5 +1,7 @@
 # VBS_ZV
 
+Clone this folder in PlotsConfigurations/Configurations/
+
 Useful link:
 https://github.com/latinos/PlotsConfigurations
 https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolPisa2019ScalarToWW
