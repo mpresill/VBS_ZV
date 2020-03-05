@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_4Mar2020'
+date='_5Mar2020'
 
 tag = 'VBS_ZV_aQGC'+date
 
@@ -21,7 +21,7 @@ cutsFile = 'cuts.py'
 #cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples
-samplesFile = 'samples_v4.py'
+samplesFile = 'samples_ZV_SignalOnly.py'
 
 # file with list of samples
 plotFile = 'plot_VBSonly.py'
@@ -43,4 +43,4 @@ structureFile = 'structure.py'
 
 
 # nuisances file for mkDatacards and for mkShape
-nuisancesFile = 'nuisances_v2.py'
+nuisancesFile = 'nuisances_StatOnly.py'

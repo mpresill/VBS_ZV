@@ -58,13 +58,21 @@ variables['mjj_v3']  = {  'name': 'mjj',
                           'fold': 3
                           }
 
+variable['mVV'] = {
+                          'name': 'pow((Alt$(Jet_pt[0],-9999.)+Alt$(Jet_pt[1],-9999.)+Alt$(FatJet_pt[0],-9999.),2))',
+                          'range': (2500, 0. ,2500),  #for 0  < mVV < 2500
+                          'xaxis': 'M_{VV} [GeV]',
+                          'fold': 3
+                          }
+
+
 variables['pt1']  = {   'name': 'Alt$(Lepton_pt[0],-9999.)',
                         'range' : (10,0.,100),
                         'xaxis' : 'p_{T} 1st lep',
                         'fold'  : 3
                         }
 
-variables['pt2']  = {   'name': 'Alt$(Lepton_pt[0],-9999.)',
+variables['pt2']  = {   'name': 'Alt$(Lepton_pt[1],-9999.)',
                         'range' : (10,0.,150),
                         'xaxis' : 'p_{T} 2nd lep',
                         'fold'  : 3
