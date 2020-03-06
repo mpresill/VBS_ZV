@@ -58,22 +58,29 @@ variables['mjj_v3']  = {  'name': 'mjj',
                           'fold': 3
                           }
 
-variable['mVV'] = {
-                          'name': 'pow((Alt$(Jet_pt[0],-9999.)+Alt$(Jet_pt[1],-9999.)+Alt$(FatJet_pt[0],-9999.),2))',
-                          'range': (2500, 0. ,2500),  #for 0  < mVV < 2500
-                          'xaxis': 'M_{VV} [GeV]',
-                          'fold': 3
-                          }
+variables['M_leplepBjet'] = { 'name': 'M_leplepBjet(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],FatJet_pt[0],FatJet_phi[0],FatJet_eta[0])',
+                             'range': (300, 0.,3000),  #for 0  < mVV < 3000
+                             'xaxis': 'M_{ZV} [GeV]',
+                             'fold': 3,
+                             'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_leplepBjet.C+'] 
+                        }
+
+variables['M_leplep'] = { 'name': 'M_leplep(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1])',  #formula defined in aliases.py  
+                             'range': (80, 0.,800),  #for 0  < mVV < 3000
+                             'xaxis': 'M_{ll} [GeV]',
+                             'fold': 3,
+                             'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_leplep.C+']
+                        }
 
 
 variables['pt1']  = {   'name': 'Alt$(Lepton_pt[0],-9999.)',
-                        'range' : (10,0.,100),
+                        'range' : (20,0.,500),
                         'xaxis' : 'p_{T} 1st lep',
                         'fold'  : 3
                         }
 
 variables['pt2']  = {   'name': 'Alt$(Lepton_pt[1],-9999.)',
-                        'range' : (10,0.,150),
+                        'range' : (20,0.,300),
                         'xaxis' : 'p_{T} 2nd lep',
                         'fold'  : 3
                         }
@@ -90,6 +97,26 @@ variables['jetpt2']  = {   'name': 'Alt$(Jet_pt[1],-9999.)',
                            'fold'  : 3
                            }
 
+variables['FatJetpt']  = {   'name': 'Alt$(FatJet_pt[0],-9999.)',
+                           'range' : (20,0.,800),
+                           'xaxis' : 'p_{T} FatJet',
+                           'fold'  : 3
+                           }
+
+variables['FatJet_mass'] = {   'name': 'Alt$(FatJet_mass,-9999.)',
+	                       'range': (50,0.,350),
+                               'xaxis': 'FJ mass',
+			       'fold': 3
+			       }
+
+variables['FatJet_softdropmass'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
+                               'range': (50,0.,350),
+                               'xaxis': 'FJ softdrop mass',
+                               'fold': 3
+                               }
+
+#tau variables, ... to be added
+
 
 variables['met']  = {   'name': 'MET_pt',            #   variable name
                         'range' : (10,0,200),    #   variable range
@@ -99,20 +126,19 @@ variables['met']  = {   'name': 'MET_pt',            #   variable name
 
 variables['etaj1'] = {  'name': 'Alt$(Jet_eta[0],-9999.)',
                         'range': (10,-5,5),
-                        'xaxis': 'etaj1',
+                        'xaxis': '\eta j1',
                         'fold': 3
                         }
 
 variables['etaj2'] = {         'name': 'Alt$(Jet_eta[1],-9999.)',
                                'range': (10,-5,5),
-                               'xaxis': 'etaj2',
+                               'xaxis': '\eta j2',
                                'fold': 3
                                }
 
 variables['detajj']  = {  'name': 'detajj',
-                          'range': (7,0.0,7.0),
-
-                          'xaxis': 'detajj',
+                          'range': (8,0.0,8.0),
+                          'xaxis': '\Delta \eta (jj)',
                           'fold': 3
                           }
 
@@ -127,6 +153,21 @@ variables['Zlep2']  = {  'name': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(Jet_eta[0]
                           'xaxis': 'Z^{lep}_{2}',
                           'fold': 3
                           }
+
+
+variables['Zeppll']  = {   'name': 'Zeppll(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],Jet_eta[0],Jet_eta[1],detajj)',            #   variable name    
+                           'range' : (20,-5,5),    #   variable range
+                           'xaxis' : 'Zeppenfeld_{ll}',  #   x axis name
+                           'fold' :3,
+                           'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/Zeppll.C+']
+                           }
+
+#variables['R']  = {   'name': 'R(ptll,phill(Lepton_pt[0],Lepton_phi[0],Lepton_pt[1],Lepton_phi[1]),metPfType1,metPfType1Phi,Jet_pt[0],Jet_phi[0],Jet_pt[1],Jet_phi[1])',# variable name     
+  #                      'range' : (20,0.,1.),    #   variable range
+  #                      'xaxis' : 'R',  #   x axis name
+  #                      'fold' : 3,
+  #                      'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/R.C+','.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/phill.C+']
+  #                      }
 
 variables['csvv2ivf_1']  = {
     'name': 'Alt$(Jet_btagCSVV2[0],0.)',
