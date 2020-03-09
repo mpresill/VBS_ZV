@@ -10,6 +10,8 @@
 # 'fold' : 3
 # }
 
+#n.b. for implementing varibles with functions with more than 7 arguments see the case of M_leplepBjet
+
 variables['nJet']  = {   'name': 'nJet',
                          'range' : (6,0,6),
                          'xaxis' : 'njets',
@@ -58,12 +60,11 @@ variables['mjj_v3']  = {  'name': 'mjj',
                           'fold': 3
                           }
 
-variables['M_leplepBjet'] = { 'name': 'M_leplepBjet(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],FatJet_pt[0],FatJet_phi[0],FatJet_eta[0])',
+variables['M_leplepBjet'] = { 'name': "M_leplepBjet",
                              'range': (300, 0.,3000),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ZV} [GeV]',
                              'fold': 3,
-                             'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_leplepBjet.C+'] 
-                        }
+                            }#function implemented in aliases.py and in M_leplepBjets_class.cc
 
 variables['M_leplep'] = { 'name': 'M_leplep(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1])',  #formula defined in aliases.py  
                              'range': (80, 0.,800),  #for 0  < mVV < 3000
@@ -163,11 +164,11 @@ variables['Zeppll']  = {   'name': 'Zeppll(Lepton_pt[0],Lepton_phi[0],Lepton_eta
                            }
 
 #variables['R']  = {   'name': 'R(ptll,phill(Lepton_pt[0],Lepton_phi[0],Lepton_pt[1],Lepton_phi[1]),metPfType1,metPfType1Phi,Jet_pt[0],Jet_phi[0],Jet_pt[1],Jet_phi[1])',# variable name     
-  #                      'range' : (20,0.,1.),    #   variable range
-  #                      'xaxis' : 'R',  #   x axis name
-  #                      'fold' : 3,
-  #                      'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/R.C+','.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/phill.C+']
-  #                      }
+#                        'range' : (20,0.,1.),    #   variable range
+#                        'xaxis' : 'R',  #   x axis name
+#                        'fold' : 3,
+#                       'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/R.C+','.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/phill.C+']
+#                        }
 
 variables['csvv2ivf_1']  = {
     'name': 'Alt$(Jet_btagCSVV2[0],0.)',
