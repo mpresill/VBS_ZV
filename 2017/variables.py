@@ -28,7 +28,7 @@ variables['nLepton'] =  {
 }
 
 variables['mll']  = {   'name': 'mll',            #   variable name
-                        'range' : (4, 0. ,500),    #   variable range
+                        'range' : (50, 0. ,500),    #   variable range
                         'xaxis' : 'mll [GeV]',  #   x axis name
                         'fold' : 3
                         }
@@ -40,7 +40,7 @@ variables['mll_v2']  = {   'name': 'mll',            #   variable name
                            }
 
 variables['M_leplep'] = { 'name': 'M_leplep(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1])',  #formula defined in aliases.py  
-                             'range': (80, 0.,800),  #for 0  < mVV < 3000
+                             'range': (40, 0.,200),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ll} [GeV]',
                              'fold': 3,
                              'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_leplep.C+']
@@ -48,13 +48,13 @@ variables['M_leplep'] = { 'name': 'M_leplep(Lepton_pt[0],Lepton_phi[0],Lepton_et
 
 
 variables['ptl1']  = {   'name': 'Alt$(Lepton_pt[0],-9999.)',
-                        'range' : (20,0.,500),
+                        'range' : (25,0.,500),
                         'xaxis' : 'p_{T} 1st lep',
                         'fold'  : 3
                         }
 
 variables['ptl2']  = {   'name': 'Alt$(Lepton_pt[1],-9999.)',
-                        'range' : (20,0.,300),
+                        'range' : (15,0.,300),
                         'xaxis' : 'p_{T} 2nd lep',
                         'fold'  : 3
                         }
@@ -126,24 +126,31 @@ variables['M_leplepBjet'] = { 'name': "M_leplepBjet",
                             }#function implemented in aliases.py and in M_leplepBjets_class.cc
 
 variables['FatJetpt']  = {   'name': 'Alt$(FatJet_pt[0],-9999.)',
-                           'range' : (20,0.,800),
+                           'range' : (16,0.,800),
                            'xaxis' : 'p_{T} FatJet',
                            'fold'  : 3
                            }
 
+variables['FatJeteta'] = {'name': 'Alt$(FatJet_eta[0],-9999.)',
+                           'range' : (25,0.,2.5),
+                           'xaxis' : 'p_{T} FatJet',
+                           'fold'  : 3
+                           }
+
+
 variables['FatJet_mass'] = {   'name': 'Alt$(FatJet_mass,-9999.)',
-	                       'range': (50,0.,350),
+	                       'range': (35,0.,350),
                                'xaxis': 'FJ mass',
 			       'fold': 3
 			       }
 
 variables['FatJet_softdropmass'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
-                               'range': (50,0.,350),
+                               'range': (35,0.,350),
                                'xaxis': 'FJ softdrop mass',
                                'fold': 3
                                }
 
-variables['fatjet_tau21'] = {   'name': 'FatJet_tau2[0]/Fatjet_tau[1]',      
+variables['fatjet_tau21'] = {   'name': 'FatJet_tau2[0]/FatJet_tau1[0]',      
                         'range' : (35,0,1),  
                         'xaxis' : 'FatJet #tau_{21}', 
                         'fold' : 3

@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_6Mar2020'
+date='_10Mar2020'
 
 tag = 'VBS_ZV_aQGC'+date
 
@@ -21,7 +21,7 @@ cutsFile = 'cuts.py'
 #cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples
-samplesFile = 'samples_ZV_SignalOnly.py'
+samplesFile = 'samples.py'
 
 # file with list of samples
 plotFile = 'plot_SignalOnly.py'
