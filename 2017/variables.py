@@ -119,7 +119,7 @@ variables['detajj']  = {  'name': 'detajj',
                           }
 ##################################  Fat Jet variables
 
-variables['M_leplepBjet'] = { 'name': "M_leplepBjet",
+variables['M_ZV'] = { 'name': "M_ZV",
                              'range': ([0,250,500,750,1000,1200,1500,2000,2500],),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ZV} [GeV]',
                              'fold': 3,
@@ -138,7 +138,7 @@ variables['FatJeteta'] = {'name': 'Alt$(FatJet_eta[0],-9999.)',
                            }
 
 
-variables['FatJet_mass'] = {   'name': 'Alt$(FatJet_mass,-9999.)',
+variables['FatJet_mass'] = {   'name': 'Alt$(FatJet_mass[0],-9999.)',
 	                       'range': (35,0.,350),
                                'xaxis': 'FJ mass',
 			       'fold': 3

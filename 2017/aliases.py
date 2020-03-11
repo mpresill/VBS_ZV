@@ -58,12 +58,12 @@ for s in systs:
   aliases['btagSF'+s+'down'] = { 'expr': '(bVeto*'+aliases['bVetoSF']['expr'].replace('shape','shape_down_'+s)+'+bReq*'+aliases['bReqSF']['expr'].replace('shape','shape_down_'+s)+'+ ( (!bVeto) && (!bReq) ))', 'samples':mc  }
 
 
-aliases['M_leplepBjet'] = {
+aliases['M_ZV'] = {
              'class': 'InvMass',
-             'args': ("M_leplepBjet"),
+             'args': ("M_ZV"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_leplepBjet_class.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_ZV_class.cc+'.format(configurations)
              ]           
  }
 
