@@ -14,7 +14,8 @@ Nice talks on the topic:
 - MG5 study for VBS: https://indico.cern.ch/event/837345/contributions/3510862/attachments/1885101/3107931/Madgraph_Version_Comparision.pdf
 
 Eos folder with output from Matteo: 
-/eos/user/m/mpresill/CMS/VBS/VBS_ZV/
+/eos/user/m/mpresill/CMS/VBS/VBS_ZV/plots/
+(web link: https://cernbox.cern.ch/index.php/s/VViWSf3FNs6Tdea)
 
 
 ## Logbook 
