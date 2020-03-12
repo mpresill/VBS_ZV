@@ -14,8 +14,6 @@
 #include <stdexcept>
 #include <tuple>
 
-//see https://github.com/UniMiBAnalyses/PlotsConfigurations/blob/VBSjjlnu/Configurations/VBSjjlnu/Full2017v6s5/macros/deltaphivars_class.cc for another example
-
 using namespace std;
 
 class InvMass : public multidraw::TTreeFunction {
@@ -58,8 +56,6 @@ void bindTree_(multidraw::FunctionLibrary&) override;
   static FloatArrayReader* FatJet_eta;
   static FloatArrayReader* FatJet_phi;
   static FloatArrayReader* FatJet_msoftdrop;
- //static IntArrayReader* vbs_jets;
- //static IntArrayReader* v_jets;
 
   static std::array<double, nVarTypes> returnValues;
 
@@ -81,8 +77,6 @@ FloatArrayReader* InvMass::FatJet_pt{};
 FloatArrayReader* InvMass::FatJet_eta{};
 FloatArrayReader* InvMass::FatJet_phi{};
 FloatArrayReader* InvMass::FatJet_msoftdrop{};
-//IntArrayReader* InvMass::vbs_jets{};
-//IntArrayReader* InvMass::v_jets{};
 
 std::array<double, InvMass::nVarTypes> InvMass::returnValues{};
 
@@ -130,8 +124,6 @@ InvMass::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(FatJet_eta, "FatJet_eta");
     _library.bindBranch(FatJet_phi, "FatJet_phi");
     _library.bindBranch(FatJet_msoftdrop, "FatJet_msoftdrop");
-    //_library.bindBranch(vbs_jets, "VBS_jets_maxmjj_massWZ");
-    //_library.bindBranch(v_jets, "V_jets_maxmjj_massWZ");
 
     currentEvent = std::make_tuple(0, 0, 0);
 
@@ -152,7 +144,7 @@ InvMass::bindTree_(multidraw::FunctionLibrary& _library)
                                    });
 }
 
-/*static*/
+
 void
 InvMass::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
 {
@@ -164,28 +156,6 @@ InvMass::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-/* TLorentzVector ;
-  for (auto ij : *vbs_jets){
-    TLorentzVector v;
-    float pt = Jet_pt->At(ij);
-    float eta = Jet_eta->At(ij);
-    float phi = Jet_phi->At(ij);
-    float mass = Jet_mass->At(Jet_idx->At(ij));
-    v.SetPtEtaPhiM(pt,eta,phi, mass);
-    vbsjets += v;
-  }
-
-  TLorentzVector whad;
-  for (auto ij : *v_jets){
-    TLorentzVector v;
-    float pt = Jet_pt->At(ij);
-    float eta = Jet_eta->At(ij);
-    float phi = Jet_phi->At(ij);
-    float mass = Jet_mass->At(Jet_idx->At(ij));
-    v.SetPtEtaPhiM(pt,eta,phi, mass);
-    whad += v;
-  }
-*/
 
   TLorentzVector lep1; 
   lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
@@ -193,8 +163,6 @@ InvMass::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   TLorentzVector lep2;
   lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
 
- // TLorentzVector jet0;
- // jet0.SetPtEtaPhiM(Jet_pt->At(0), Jet_eta->At(0),Jet_phi->At(0),Jet_mass->At(Jet_idx->At(0)));   
 
   TLorentzVector FJet;
   FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
