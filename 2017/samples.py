@@ -65,45 +65,62 @@ mcDirectory = os.path.join(treeBaseDir, mcProduction, mcSteps)
 mcDirectorySig = os.path.join(treeBaseDir, mcProductionSig, mcStepsSig)
 fakeDirectory = os.path.join(treeBaseDir, dataReco, fakeSteps)
 dataDirectory = os.path.join(treeBaseDir, dataReco, dataSteps)
+################################################
+############ NUMBER OF LEPTONS #################
+################################################
 
+Nlep='2'
+#Nlep='3'
+#Nlep='4'
 ################################################
 ############### Lepton WP ######################
 ################################################
 
-eleWP='mvaFall17V1Iso_WP90'
+
+################################################
+
+#eleWP='mvaFall17V1Iso_WP90'
+eleWP='mvaFall17V2Iso_WP90'
+#eleWP='mvaFall17V1Iso_WP90_SS'
 muWP='cut_Tight_HWWW'
 
 
-LepWPCut_1l =  '(Lepton_isTightElectron_'+eleWP+'[0]>0.5 || Lepton_isTightMuon_'+muWP+'[0]>0.5)'
-LepWPWeight_1l = 'Lepton_tightElectron_'+eleWP+'_IdIsoSF'+'[0]*\
-                Lepton_tightMuon_'+muWP+'_IdIsoSF'+'[0]'
-
-LepWPCut = LepWPCut_1l
-LepWPWeight = LepWPWeight_1l
+LepWPCut        = 'LepCut'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
+LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
 
 ################################################
 ############ BASIC MC WEIGHTS ##################
 ################################################
 
 XSWeight      = 'XSWeight'
-SFweight1l =       'puWeight*\
-                   TriggerEffWeight_1l*\
-                   Lepton_RecoSF[0]*\
-                   EMTFbug_veto'
-SFweight      = SFweight1l+'*'+LepWPWeight_1l+'*'+LepWPCut_1l+'* PrefireWeight * btagSF'
-     
-GenLepMatch   = 'Lepton_genmatched[0]'
+SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
+GenLepMatch   = 'GenLepMatch'+Nlep+'l'
 
-
-####
-# NVTX reweighting
-#SFweight += '*nvtx_reweighting'
 ################################################
 ############   MET  FILTERS  ###################
 ################################################
 
 METFilter_MC   = 'METFilter_MC'
 METFilter_DATA = 'METFilter_DATA'
+
+################################################
+############## FAKE WEIGHTS ####################
+################################################
+
+if Nlep == '2' :
+  fakeW = 'fakeW2l_ele_'+eleWP+'_mu_'+muWP
+else:
+  fakeW = 'fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l'
+
+################################################
+############### B-Tag  WP ######################
+################################################
+
+#FIXME b-tagging to be optimized
+# Definitions in aliases.py
+
+
+SFweight += '*btagSF'
 
 ################################################
 ############ DATA DECLARATION ##################
@@ -123,60 +140,51 @@ DataTrig = {
             'SingleMuon'     : 'Trigger_sngMu' ,
             'SingleElectron' : '!Trigger_sngMu && Trigger_sngEl' 
 }#data trigger to be checked
-#########################################
-############ MC COMMON ##################
-#########################################
 
-# SFweight does not include btag weights
-#mcCommonWeightNoMatch = 'XSWeight*SFweight*METFilter_MC'
-#mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
-mcCommonWeight_test = '1.'
 ###########################################
 #############  BACKGROUNDS  ###############
 ###########################################
 
 ###########################################
-#############   SIGNALS  ##################
+#############   VBS PROCESSES ##################
 ###########################################
 
 signals = []
 
+#########################################
+############# SIGNALS ###################
+########VBS aQGC - SMP-18-006 model: all signals givin aQGC with Z to 2L and V to 2J
+# WpTo2J_ZTo2L_aQGC
+# WmTo2J_ZTo2L_aQGC
+# ZTo2L_ZTo2J_aQGC
+########################################
+
+samples['VBS_ZV_aQGC'] = {
+    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_aQGC')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_ZTo2L_aQGC')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmTo2J_ZTo2L_aQGC'),
+    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
+    'FilesPerJob': 1
+}
+
+
+#######################################################
+#########VBS backgrounds from purely SM processes
+##########VBS QCD 
+samples['VBS_VV_QCD'] = {
+    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_QCD'),
+    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
+    'FilesPerJob': 1
+}
+
+
 #######VBS EW 
 
-samples['ZTo2L_ZTo2J'] = {
+samples['VBS_VV_EW'] = {
     'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J'),
-    'weight':  XSWeight+'*'+SFweight,+'*'+METFilter_MC+'*'+GenLepMatch,
+    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1
 }
-
-signals.append('ZTo2L_ZTo2J')
-
-########VBS aQGC - SMP-18-006 model
-samples['ZTo2L_ZTo2J_aQGC'] = {
-    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_aQGC'),
-    'weight':  XSWeight+'*'+SFweight+'*'+METFilter_MC+'*'+GenLepMatch,
-    'FilesPerJob': 1
-}
-
-signals.append('ZTo2L_ZTo2J_aQGC')
-
-
-
-
-
-#do I have to consider all the WV processes as backgrounds??? I am expecting them not to be relevant with the cut on invariant mass ... is that so????
-
-
-
-##########VBS QCD 
-samples['ZTo2L_ZTo2J_QCD'] = {
-    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_QCD'),
-    'weight':  XSWeight+'*'+SFweight+'*'+METFilter_MC+'*'+GenLepMatch,
-    'FilesPerJob': 1
-}
-
-signals.append('ZTo2L_ZTo2J_QCD')
-
 
 
 

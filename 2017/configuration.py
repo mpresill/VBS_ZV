@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_11Mar2020'
+date='13Mar2020_'
 
 tag = 'VBS_ZV_aQGC'+date
 
@@ -17,7 +17,7 @@ aliasesFile = 'aliases.py'
 variablesFile = 'variables.py'
 
 # file with list of cuts
-cutsFile = 'cuts.py'
+cutsFile = 'cuts_v2.py'
 #cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples
@@ -31,7 +31,7 @@ lumi = 41.5
 
 # used by mkPlot to define output directory for plots
 # different from "outputDir" to do things more tidy
-outputDirPlots = 'plotVBS_ZV'+date
+outputDirPlots = date+'plotVBS_ZV'
 
 
 # used by mkDatacards to define output directory for datacards
