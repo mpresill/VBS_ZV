@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='13Mar2020_'
+date='_13Mar2020'
 
 tag = 'VBS_ZV_aQGC'+date
 
@@ -31,7 +31,7 @@ lumi = 41.5
 
 # used by mkPlot to define output directory for plots
 # different from "outputDir" to do things more tidy
-outputDirPlots = date+'plotVBS_ZV'
+outputDirPlots = 'PlotsVBS_ZV'+date
 
 
 # used by mkDatacards to define output directory for datacards

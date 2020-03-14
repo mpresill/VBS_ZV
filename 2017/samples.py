@@ -79,8 +79,8 @@ Nlep='2'
 
 ################################################
 
-#eleWP='mvaFall17V1Iso_WP90'
-eleWP='mvaFall17V2Iso_WP90'
+eleWP='mvaFall17V1Iso_WP90'
+#eleWP='mvaFall17V2Iso_WP90'
 #eleWP='mvaFall17V1Iso_WP90_SS'
 muWP='cut_Tight_HWWW'
 
@@ -149,8 +149,6 @@ DataTrig = {
 #############   VBS PROCESSES ##################
 ###########################################
 
-signals = []
-
 #########################################
 ############# SIGNALS ###################
 ########VBS aQGC - SMP-18-006 model: all signals givin aQGC with Z to 2L and V to 2J
@@ -172,7 +170,15 @@ samples['VBS_ZV_aQGC'] = {
 #########VBS backgrounds from purely SM processes
 ##########VBS QCD 
 samples['VBS_VV_QCD'] = {
-    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_QCD'),
+    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpToLNu_ZTo2J_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpToLNu_WpTo2J_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpToLNu_WmTo2J_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_ZTo2L_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_WmToLNu_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmToLNu_ZTo2J_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmToLNu_WmTo2J_QCD')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmTo2J_ZTo2L_QCD'),
     'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1
 }
@@ -181,10 +187,18 @@ samples['VBS_VV_QCD'] = {
 #######VBS EW 
 
 samples['VBS_VV_EW'] = {
-    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J'),
+    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmTo2J_ZTo2L')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmToLNu_WmTo2J')
+             +nanoGetSampleFiles(mcDirectorySig, 'WmToLNu_ZTo2J')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_WmToLNu')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpToLNu_WmTo2J')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpToLNu_WpTo2J')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpToLNu_ZTo2J')
+             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_ZTo2L'),
     'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1
 }
 
 
-
+##################################################################################################################

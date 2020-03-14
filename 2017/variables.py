@@ -47,15 +47,21 @@ variables['M_leplep'] = { 'name': 'M_leplep(Lepton_pt[0],Lepton_phi[0],Lepton_et
                         }
 
 
+variables['ptl'] = { 'name': 'Alt$(Lepton_pt,-9999.)',
+                        'range' : (25,0.,400),
+                        'xaxis' : 'Lepton p_{T}',
+                        'fold'  : 3
+                        }
+
 variables['ptl1']  = {   'name': 'Alt$(Lepton_pt[0],-9999.)',
-                        'range' : (25,0.,500),
-                        'xaxis' : 'p_{T} 1st lep',
+                        'range' : (25,0.,400),
+                        'xaxis' : 'Leading Lepton p_{T}',
                         'fold'  : 3
                         }
 
 variables['ptl2']  = {   'name': 'Alt$(Lepton_pt[1],-9999.)',
                         'range' : (15,0.,300),
-                        'xaxis' : 'p_{T} 2nd lep',
+                        'xaxis' : 'Sub-Leading Lepton p_{T}',
                         'fold'  : 3
                         }
 ##############################  jet variables
@@ -89,26 +95,26 @@ variables['mjj_v3']  = {  'name': 'mjj',
                           }
 
 variables['jetpt1']  = {   'name': 'Alt$(Jet_pt[0],-9999.)',
-                           'range' : (15,0.,200),
-                           'xaxis' : 'p_{T} 1st jet',
+                           'range' : (26,0.,650),
+                           'xaxis' : 'Leading VBF jet p_{T}',
                            'fold'  : 3
                            }
 
 variables['jetpt2']  = {   'name': 'Alt$(Jet_pt[1],-9999.)',
-                           'range' : (15,0.,150),
-                           'xaxis' : 'p_{T} 2nd jet',
+                           'range' : (25,0.,350),
+                           'xaxis' : 'Sub-Leading VBF jet p_{T}',
                            'fold'  : 3
                            }
 
 variables['etaj1'] = {  'name': 'Alt$(Jet_eta[0],-9999.)',
-                        'range': (10,-5,5),
-                        'xaxis': '\eta j1',
+                        'range': (20,-5,5),
+                        'xaxis': 'Leading VBF jet \eta',
                         'fold': 3
                         }
 
 variables['etaj2'] = {         'name': 'Alt$(Jet_eta[1],-9999.)',
-                               'range': (10,-5,5),
-                               'xaxis': '\eta j2',
+                               'range': (20,-5,5),
+                               'xaxis': 'Sub-Leading VBF jet \eta',
                                'fold': 3
                                }
 
@@ -126,14 +132,14 @@ variables['M_ZV'] = { 'name': "M_ZV",
                             }#function implemented in aliases.py and in M_leplepBjets_class.cc
 
 variables['FatJetpt']  = {   'name': 'Alt$(FatJet_pt[0],-9999.)',
-                           'range' : (16,0.,800),
-                           'xaxis' : 'p_{T} FatJet',
+                           'range' : (24,0.,1200),
+                           'xaxis' : 'AK8 jet p_{T}',
                            'fold'  : 3
                            }
 
 variables['FatJeteta'] = {'name': 'Alt$(FatJet_eta[0],-9999.)',
                            'range' : (25,0.,2.5),
-                           'xaxis' : 'p_{T} FatJet',
+                           'xaxis' : 'AK8 jet p_{T}',
                            'fold'  : 3
                            }
 
@@ -146,19 +152,19 @@ variables['FatJet_mass'] = {   'name': 'Alt$(FatJet_mass[0],-9999.)',
 
 variables['FatJet_softdropmass'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'range': (35,0.,350),
-                               'xaxis': 'FJ softdrop mass',
+                               'xaxis': 'AK8 jet softdrop mass',
                                'fold': 3
                                }
 
 variables['fatjet_tau21'] = {   'name': 'FatJet_tau2[0]/FatJet_tau1[0]',      
                         'range' : (35,0,1),  
-                        'xaxis' : 'FatJet #tau_{21}', 
+                        'xaxis' : '#tau_{21}', 
                         'fold' : 3
                         }
 
 variables['fatjet_tau32'] = {   'name': 'FatJet_tau3[0] / FatJet_tau2[0] ',      
                         'range' : (40,0,1),  
-                        'xaxis' : 'FatJet #tau_{32}', 
+                        'xaxis' : '#tau_{32}', 
                         'fold' : 3
                         }
 
