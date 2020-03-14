@@ -24,7 +24,7 @@ cutsFile = 'cuts_v2.py'
 samplesFile = 'samples.py'
 
 # file with list of samples
-plotFile = 'plot_SignalOnly.py'
+plotFile = 'plot.py'
 
 # luminosity to normalize to (in 1/fb)
 lumi = 41.5
