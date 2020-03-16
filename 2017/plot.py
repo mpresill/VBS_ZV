@@ -12,36 +12,44 @@
 # 
 # Groups of samples to improve the plots.
 # If not defined, normal plots is used
+colors = {
+    # https://root.cern.ch/doc/master/classTColor.html#C02
+    'kWhite'   : 0,
+    'kBlack'   : 1,
+    'kGray'    : 920,
+    'kRed'     : 632,
+    'kGreen'   : 416,
+    'kBlue'    : 600,
+    'kYellow'  : 400,
+    'kMagenta' : 616,
+    'kCyan'    : 432,
+    'kOrange'  : 800,
+    'kSpring'  : 820,
+    'kTeal'    : 840,
+    'kAzure'   : 860,
+    'kViolet'  : 880,
+    'kPink'    : 900, 
+}
+
+palette = {
+    "Orange": (242, 108, 13), #f26c0d  
+    "Yellow": (247, 195, 7), #f7c307
+    "LightBlue": (153, 204, 255), #99ccff
+    "MediumBlue": (72, 145, 234),  #4891ea
+    "MediumBlue2": (56, 145, 224),    #3891e0
+    "DarkBlue": (8, 103, 136), #086788
+    "Green": (47, 181, 85), #2fb555
+    "Green2": (55, 183, 76),  #37b74c
+    "LightGreen" : (82, 221, 135), #52dd87
+    "Violet": (242, 67, 114), #f24372   
+}
+
 
 Red=632; Violet=880; Green=416; Orange=800; Yellow=400; Azure=860
 
 ##########################################
 ####group plots
 #########################################
-
-
-groupPlot['VBS_ZV_aQGC']  = {
-                  'nameHR' : "ZV aQGC",
-                  'color': 621, # kAzure -3  
-                  'isSignal' : 1,
-                  'samples'  : ['VBS_ZV_aQGC']
-                  }
-
-groupPlot['VBS_VV_EW']  = {
-                  'nameHR' : "VBS VV",
-                  'color': 617, # kAzure -3  
-                  'isSignal' : 1,
-                  'samples'  : ['VBS_VV_EW']
-                  }
-
-groupPlot['VBS_VV_QCD']  = {
-                  'nameHR' : "VBS VV QCD",
-                  'color': Azure+2, # kAzure -3  
-                  'isSignal' : 0,
-                  'samples'  : ['VBS_VV_QCD']
-                  }
-
-
 
 """
 groupPlot['VZ']  = {  
@@ -52,6 +60,15 @@ groupPlot['VZ']  = {
               }
 """
 
+                  
+groupPlot['VBS']  = {
+                  'nameHR' : "VBS VV",
+                  'color': palette["LightBlue"], # kAzure -3  
+                  'isSignal' : 0,
+                  'samples'  : ['VBS_VV_EW','VBS_VV_QCD']
+                  #'fill': 1001
+                  }
+                  
 groupPlot['VBF-V']  = {  
                   'nameHR' : 'VBF-V',
                   'isSignal' : 0,
@@ -63,7 +80,7 @@ groupPlot['VV']  = {
                   'nameHR' : 'VV',
                   'isSignal' : 0,
                   'color': 851, # kAzure -9 
-                  'samples'  : ['WW','WW_ewk', 'ggWW','VZ']
+                  'samples'  : ['WW','WW_ewk', 'VZ', 'ggWW']
               }
 
 groupPlot['DY']  = {  
@@ -87,7 +104,7 @@ groupPlot['VVV']  = {
 groupPlot['WJets']  = {
                   'nameHR' : "WJets",
                   'isSignal' : 0,
-                  'color'    :800,   # kGreen - 9
+                  'color'    :807,   # kGreen - 9
                   'samples'  : ['WJets']
               }
 
@@ -99,6 +116,25 @@ groupPlot['top']  = {
                   'color': 400,   # kYellow
                   'samples'  : ['top']
               }
+
+
+
+
+groupPlot['VBS_ZV_aQGC']  = {
+                  'nameHR' : "VBS aQGC",
+                  'color': palette["DarkBlue"], # kAzure -3  
+                  'isSignal' : 2,
+                  'samples'  : ['VBS_ZV_aQGC'],
+                  'fill': 0
+                  }
+
+#groupPlot['VBS_VV_QCD']  = {
+ #                 'nameHR' : "VBS VV QCD",
+  #                'color': Azure+2, # kAzure -3  
+   #               'isSignal' : 0,
+    #              'samples'  : ['VBS_VV_QCD'],
+     #             'fill': 1001
+      #            }
 
 
 #plot = {}
