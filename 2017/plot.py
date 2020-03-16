@@ -15,39 +15,42 @@
 
 Red=632; Violet=880; Green=416; Orange=800; Yellow=400; Azure=860
 
-plot['VBS_ZV_aQGC']  = {
-                  'color': 1, # kAzure -3  
-                  'isSignal' : 1,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
-
-plot['VBS_VV_EW']  = {
-                  'color': Azure, # kAzure -3  
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
-
-plot['VBS_VV_QCD']  = {
-                  'color': Azure+2, # kAzure -3  
-                  'isSignal' : 0,
-                  'isData'   : 0,
-                  'scale'    : 1.0
-                  }
 ##########################################
-####BACKGROUNDS
+####group plots
 #########################################
 
 
+groupPlot['VBS_ZV_aQGC']  = {
+                  'nameHR' : "ZV aQGC",
+                  'color': 621, # kAzure -3  
+                  'isSignal' : 1,
+                  'samples'  : ['VBS_ZV_aQGC']
+                  }
+
+groupPlot['VBS_VV_EW']  = {
+                  'nameHR' : "VBS VV",
+                  'color': 617, # kAzure -3  
+                  'isSignal' : 1,
+                  'samples'  : ['VBS_VV_EW']
+                  }
+
+groupPlot['VBS_VV_QCD']  = {
+                  'nameHR' : "VBS VV QCD",
+                  'color': Azure+2, # kAzure -3  
+                  'isSignal' : 0,
+                  'samples'  : ['VBS_VV_QCD']
+                  }
 
 
+
+"""
 groupPlot['VZ']  = {  
                   'nameHR' : "ZV",
-                  'isSignal' : 1,
+                  'isSignal' : 0,
                   'color'    : 617,   # kViolet + 1  
-                  'samples'  : ['ZZ', 'ZW']
+                  'samples'  : ['VZ']
               }
+"""
 
 groupPlot['VBF-V']  = {  
                   'nameHR' : 'VBF-V',
@@ -60,7 +63,7 @@ groupPlot['VV']  = {
                   'nameHR' : 'VV',
                   'isSignal' : 0,
                   'color': 851, # kAzure -9 
-                  'samples'  : ['WW','WW_ewk', 'VZ', 'ggWW']
+                  'samples'  : ['WW','WW_ewk', 'ggWW','VZ']
               }
 
 groupPlot['DY']  = {  
@@ -174,8 +177,43 @@ plot['top']  = {
                   'scale'    : 1.0
               }
 
+plot['VBS_ZV_aQGC']  = {
+                  'nameHR' : "ZV aQGC",
+                  'color': 1, # kAzure -3  
+                  'isSignal' : 1,
+                  'isData'   : 0,
+                  'scale'    : 1.0
+                  }
+
+plot['VBS_VV_EW']  = {
+                  'nameHR' : "VBS VV",
+                  'color': Azure, # kAzure -3  
+                  'isSignal' : 0,
+                  'isData'   : 0,
+                  'scale'    : 1.0
+                  }
+
+plot['VBS_VV_QCD']  = {
+                  'nameHR' : "VBS VV QCD",
+                  'color': Azure+2, # kAzure -3  
+                  'isSignal' : 0,
+                  'isData'   : 0,
+                  'scale'    : 1.0
+                  }
 
 
+############## DATA
+"""
+plot['DATA']  = {
+                  'nameHR' : 'Data',
+                  'color': 1 ,
+                  'isSignal' : 0,
+                  'isData'   : 1 ,
+                  'isBlind'  : 1 ,
+                  'scale'    : 1.0
+              }
+
+"""
 # additional options
 
 legend['lumi'] = 'L =41.5/fb'
