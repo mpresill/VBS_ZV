@@ -6,7 +6,7 @@ supercut_vector = [#lepton selection: ee (mumu) pt >40(30) |eta|<2.5 (2.4), arou
 
 #jet selection: 1 FJ, pt>200 GeV, |eta|<2.4  + 2 jets with pt>30 and |eta|<2.4 
 'nFatJet == 1 && FatJet_pt[0] >= 200. && fabs(Alt$(FatJet_eta[0],-9999.))<2.4',
-'Sum$(CleanJet_pt>30.)>=2 && fabs(Alt$(CleanJet_eta[0],-9999.))<2.4'
+'Sum$(CleanJet_pt>30.)>=2 && fabs(Alt$(CleanJet_eta[0],-9999.))<5.0'
 ]
 
 
