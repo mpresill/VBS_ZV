@@ -17,7 +17,7 @@ aliasesFile = 'aliases.py'
 variablesFile = 'variables_v2.py'
 
 # file with list of cuts
-cutsFile = 'cuts_v2.py'
+cutsFile = 'cuts_v3.py'
 #cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples

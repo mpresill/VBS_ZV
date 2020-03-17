@@ -22,6 +22,21 @@ variables['mll'] = {   'name': 'mll',            #   variable name
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 0
                         }
+variables['mll_v1'] = {   'name': 'mll',            #   variable name
+                           'range' : (80,50,120),    #   variable range
+                           'xaxis' : 'm_{ll} [GeV]',  #   x axis name
+                           'fold' : 1
+                        }
+variables['mll_v2'] = {   'name': 'mll',            #   variable name
+                           'range' : (80,50,120),    #   variable range
+                           'xaxis' : 'm_{ll} [GeV]',  #   x axis name
+                           'fold' : 2
+                        }
+variables['mll_v3'] = {   'name': 'mll',            #   variable name
+                           'range' : (80,50,120),    #   variable range
+                           'xaxis' : 'm_{ll} [GeV]',  #   x axis name
+                           'fold' : 3
+                        }
 
 
 variables['ptll']  = {   'name': 'ptll',     
@@ -29,6 +44,23 @@ variables['ptll']  = {   'name': 'ptll',
                         'xaxis' : 'p_{T}^{ll} [GeV]',
                         'fold' : 0
                         }
+variables['ptll_v1']  = {   'name': 'ptll',     
+                        'range' : (30,0.,500),   
+                        'xaxis' : 'p_{T}^{ll} [GeV]',
+                        'fold' : 1
+                        }
+variables['ptll_v2']  = {   'name': 'ptll',     
+                        'range' : (30,0.,500),   
+                        'xaxis' : 'p_{T}^{ll} [GeV]',
+                        'fold' : 2
+                        }
+variables['ptll_V3']  = {   'name': 'ptll',     
+                        'range' : (30,0.,500),   
+                        'xaxis' : 'p_{T}^{ll} [GeV]',
+                        'fold' : 3
+                        }
+
+
 
 variables['pt1']  = {   'name': 'Lepton_pt',
                         'range' : (30,0.,400),
@@ -59,6 +91,39 @@ variables['eta2']  = {  'name': 'Lepton_eta[1]',
                         'xaxis' : '#eta 2nd lep',
                         'fold'  : 0                         
                         }
+variables['eta1_v1']  = {  'name': 'Lepton_eta[0]',     
+                        'range' : (40,-3,3),   
+                        'xaxis' : '#eta 1st lep',
+                        'fold'  : 1                         
+                        }
+
+variables['eta2_V1']  = {  'name': 'Lepton_eta[1]',     
+                        'range' : (40,-3,3),   
+                        'xaxis' : '#eta 2nd lep',
+                        'fold'  : 1                         
+                        }
+variables['eta1_V2']  = {  'name': 'Lepton_eta[0]',     
+                        'range' : (40,-3,3),   
+                        'xaxis' : '#eta 1st lep',
+                        'fold'  : 2                         
+                        }
+
+variables['eta2_V2']  = {  'name': 'Lepton_eta[1]',     
+                        'range' : (40,-3,3),   
+                        'xaxis' : '#eta 2nd lep',
+                        'fold'  : 2                         
+                        }
+variables['eta1_V3']  = {  'name': 'Lepton_eta[0]',     
+                        'range' : (40,-3,3),   
+                        'xaxis' : '#eta 1st lep',
+                        'fold'  : 3                         
+                        }
+
+variables['eta2_V3']  = {  'name': 'Lepton_eta[1]',     
+                        'range' : (40,-3,3),   
+                        'xaxis' : '#eta 2nd lep',
+                        'fold'  : 3                         
+                        }
 
 
 #
@@ -70,7 +135,21 @@ variables['mjj'] = {   'name': 'mjj',            #   variable name
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 0
                         }
-
+variables['mjj_v1'] = {   'name': 'mjj',            #   variable name
+                           'range' : (50,0,1500),    #   variable range
+                           'xaxis' : 'm_{jj} [GeV]',  #   x axis name
+                           'fold' : 1
+                        }
+variables['mjj_v2'] = {   'name': 'mjj',            #   variable name
+                           'range' : (50,0,1500),    #   variable range
+                           'xaxis' : 'm_{jj} [GeV]',  #   x axis name
+                           'fold' : 2
+                        }
+variables['mjj_v3'] = {   'name': 'mjj',            #   variable name
+                           'range' : (50,0,1500),    #   variable range
+                           'xaxis' : 'm_{jj} [GeV]',  #   x axis name
+                           'fold' : 3
+                        }
 
 variables['jetpt1'] = { 'name': 'Alt$(Jet_pt[0],-9999.)',
                         'range': (30,0.,500),
@@ -111,17 +190,35 @@ variables['FatJeteta'] = {'name': 'FatJet_eta[0]',
                            'fold'  : 0
                            }
 
-
 variables['FatJet_mass'] = {   'name': 'FatJet_mass',
 	                       'range': (35,0,220),
                                'xaxis': 'FJ mass',
 			       'fold': 3
 			       }
+			       
 variables['FatJet_softdropmass'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'range': (35,0.,350),
                                'xaxis': 'AK8 jet softdrop mass',
                                'fold': 0
                                }
+variables['FatJet_softdropmass_v1'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
+                               'range': (35,0.,350),
+                               'xaxis': 'AK8 jet softdrop mass',
+                               'fold': 1
+                               }
+variables['FatJet_softdropmass_v2'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
+                               'range': (35,0.,350),
+                               'xaxis': 'AK8 jet softdrop mass',
+                               'fold': 2
+                               }
+variables['FatJet_softdropmass_V3'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
+                               'range': (35,0.,350),
+                               'xaxis': 'AK8 jet softdrop mass',
+                               'fold': 3
+                               }                               
+                                                              
+                                  
+                               
 
 variables['fatjet_tau21'] = {   'name': 'FatJet_tau2[0]/FatJet_tau1[0]',
                         'range' : (35,0,1),
@@ -139,14 +236,49 @@ variables['nCleanJet']  = {
                         'name': 'Sum$(CleanJet_pt>30)',     
                         'range' : (8,0,8),   
                         'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
+                        'fold' : 0   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
+                        }
+variables['nCleanJet_v1']  = {
+                        'name': 'Sum$(CleanJet_pt>30)',     
+                        'range' : (8,0,8),   
+                        'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
+                        'fold' : 1   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
+                        }
+variables['nCleanJet_v2']  = {
+                        'name': 'Sum$(CleanJet_pt>30)',     
+                        'range' : (8,0,8),   
+                        'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
                         'fold' : 2   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
+variables['nCleanJet_v3']  = {
+                        'name': 'Sum$(CleanJet_pt>30)',     
+                        'range' : (8,0,8),   
+                        'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
+                        'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
+                        }
+
 
 
 variables['detajj']  = {  'name': 'detajj',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 0
+                          }
+                                
+variables['detajj_v1']  = {  'name': 'detajj',
+                          'range': (32,0.0,8.0),
+                          'xaxis': '\Delta \eta (jj)',
+                          'fold': 1
+                          }
+variables['detajj_v2']  = {  'name': 'detajj',
+                          'range': (32,0.0,8.0),
+                          'xaxis': '\Delta \eta (jj)',
+                          'fold': 2
+                          }
+variables['detajj_V3']  = {  'name': 'detajj',
+                          'range': (32,0.0,8.0),
+                          'xaxis': '\Delta \eta (jj)',
+                          'fold': 3
                           }
 #
 # MET
@@ -162,12 +294,27 @@ variables['puppimet']  = {
 variables['M_ZV'] = { 'name': "M_ZV",
                              'range': ([0,250,500,750,1000,1200,1500,2000,2500],),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 0,
+                             'fold': 0
                             }#function implemented in aliases.py and in M_leplepBjets_class.cc
 
+variables['M_ZV_v0'] = { 'name': "M_ZV",
+                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
+                             'xaxis': 'M_{ZV} [GeV]',
+                             'fold': 0
+                          }
+variables['M_ZV_v1'] = { 'name': "M_ZV",
+                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
+                             'xaxis': 'M_{ZV} [GeV]',
+                             'fold': 1
+                        }
 variables['M_ZV_v2'] = { 'name': "M_ZV",
                              'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 0,
+                             'fold': 2
+                          }
+variables['M_ZV_v3'] = { 'name': "M_ZV",
+                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
+                             'xaxis': 'M_{ZV} [GeV]',
+                             'fold': 3
                           }
 
