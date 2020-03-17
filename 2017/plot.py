@@ -42,6 +42,11 @@ palette = {
     "Green2": (55, 183, 76),  #37b74c
     "LightGreen" : (82, 221, 135), #52dd87
     "Violet": (242, 67, 114), #f24372   
+    "Cardinal" : (194, 35, 38),  #C22326
+    "RedOrange" : ( 243, 115, 56),
+    "YellowOrange" : ( 253, 182, 50),
+    "PineGreen" : (2, 120, 120),
+    "ClaretRed" : (128, 22, 56)
 }
 
 
@@ -63,7 +68,7 @@ groupPlot['VZ']  = {
                   
 groupPlot['VBS']  = {
                   'nameHR' : "VBS VV",
-                  'color': palette["LightBlue"], # kAzure -3  
+                  'color': palette["Cardinal"], # kAzure -3  
                   'isSignal' : 0,
                   'samples'  : ['VBS_VV_EW','VBS_VV_QCD']
                   #'fill': 1001
@@ -72,21 +77,21 @@ groupPlot['VBS']  = {
 groupPlot['VBF-V']  = {  
                   'nameHR' : 'VBF-V',
                   'isSignal' : 0,
-                  'color':  810,   # kOrange + 10 
+                  'color':  palette["RedOrange"],   # kOrange + 10 
                   'samples'  : ['VBF-V']
               }
 
 groupPlot['VV']  = {  
                   'nameHR' : 'VV',
                   'isSignal' : 0,
-                  'color': 851, # kAzure -9 
+                  'color': palette["YellowOrange"], # kAzure -9 
                   'samples'  : ['WW','WW_ewk', 'VZ', 'ggWW']
               }
 
 groupPlot['DY']  = {  
                   'nameHR' : "DY",
                   'isSignal' : 0,
-                  'color': 418,    # kGreen+2
+                  'color': palette["LightBlue"],    # kGreen+2
                   'samples'  : ['DY']
               }
 
@@ -95,7 +100,7 @@ groupPlot['DY']  = {
 groupPlot['VVV']  = {  
                   'nameHR' : 'VVV',
                   'isSignal' : 0,
-                  'color': 857, # kAzure -3  
+                  'color': palette["PineGreen"], # kAzure -3  
                   'samples'  : ['VVV']
               }
 
@@ -104,7 +109,7 @@ groupPlot['VVV']  = {
 groupPlot['WJets']  = {
                   'nameHR' : "WJets",
                   'isSignal' : 0,
-                  'color'    :807,   # kGreen - 9
+                  'color'    : palette["MediumBlue"],   # kGreen - 9
                   'samples'  : ['WJets']
               }
 
@@ -113,7 +118,7 @@ groupPlot['WJets']  = {
 groupPlot['top']  = {  
                   'nameHR' : 'tW and t#bar{t}',
                   'isSignal' : 0,
-                  'color': 400,   # kYellow
+                  'color': palette["ClaretRed"],   # kYellow
                   'samples'  : ['top']
               }
 
@@ -238,8 +243,39 @@ plot['VBS_VV_QCD']  = {
                   }
 
 
-############## DATA
+
+############# FAKES
 """
+plot['Fakes']  = {  
+                  'color': 921,    # kGray + 1
+                  'isSignal' : 0,
+                  'isData'   : 0,
+                  'scale'    : 1.0                  
+              }
+
+
+plot['Fakes_em']  = {  
+                  'color': 921,    # kGray + 1
+                  'isSignal' : 0,
+                  'isData'   : 0,
+                  'scale'    : 1.0                  
+              }
+
+plot['Fakes_ee']  = {  
+                  'color': 921,    # kGray + 1
+                  'isSignal' : 0,
+                  'isData'   : 0,
+                  'scale'    : 1.0                  
+              }
+
+
+plot['Fakes_mm']  = {  
+                  'color': 921,    # kGray + 1
+                  'isSignal' : 0,
+                  'isData'   : 0,
+                  'scale'    : 1.0                  
+              }
+############## DATA
 plot['DATA']  = {
                   'nameHR' : 'Data',
                   'color': 1 ,

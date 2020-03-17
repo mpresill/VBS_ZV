@@ -165,3 +165,9 @@ variables['M_ZV'] = { 'name': "M_ZV",
                              'fold': 0,
                             }#function implemented in aliases.py and in M_leplepBjets_class.cc
 
+variables['M_ZV_v2'] = { 'name': "M_ZV",
+                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
+                             'xaxis': 'M_{ZV} [GeV]',
+                             'fold': 0,
+                          }
+
