@@ -1,7 +1,7 @@
 # cuts
 # NB: mjj and detajj cannot be used!!!! 
-supercut_vector = [#2 lepton selection:  pt >40(30) |eta|<2.5 (2.4) pt>50 GeV
-  'nLepton == 2 && && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=30',
+supercut_vector = [#2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>50 GeV
+  'nLepton == 2 && && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50',
 
 #jet selection: 1 FJ, pt>200 GeV, |eta|<2.4  + 2 jets with pt>30 and |eta|<5 and with mjj>200GeV and detajj>2.0
 'nFatJet == 1 && FatJet_pt[0] >= 200. && fabs(Alt$(FatJet_eta[0],-9999.))<2.4',
