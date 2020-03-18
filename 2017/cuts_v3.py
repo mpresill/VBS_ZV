@@ -29,7 +29,7 @@ cuts['Tight_SR'] = '(Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_p
 cuts['DY_CR'] = '(Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5) || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) \ 
                 && mll>100 && mll<300'
 
-cuts['Top_CR'] = 'Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105 && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) >= 1 && ((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)' #SR cuts and bveto condition inverted + 2opposite flavour leptons ---CHECK THIS CR!!
+cuts['Top_CR'] = 'Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105 && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) >= 1 && (Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)' #SR cuts and bveto condition inverted + 2opposite flavour leptons ---CHECK THIS CR!!
 
 
 cuts['Wjets_CR'] = '(Alt$(FatJet_msoftdrop[0],0.)>40 && Alt$(FatJet_msoftdrop[0],0.)<65) || (Alt$(FatJet_msoftdrop[0],0.)>105 && Alt$(FatJet_msoftdrop[0],0.)<150)  && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) == 0'#SR cuts and msoftdrop window inverted
