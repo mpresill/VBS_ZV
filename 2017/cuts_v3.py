@@ -14,6 +14,9 @@ supercut = ' && '.join(supercut_vector)
 
 #####Signal Regions
 
+cuts['SuperCutOnly']='1'
+
+
 cuts['Mild_SR'] ='2EleOrMu && \
              Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105 && Alt$(FatJet_tau2[0]/FatJet_tau1[0],0.)<0.55 && \
              mll>76 && mll<107  &&\
@@ -24,6 +27,7 @@ cuts['Tight_SR'] = '2EleOrMu \
              && mll>76 && mll<107 \
              && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) == 0 \
              && mjj_vbs>800 && detajj_vbs>4.0'
+
 #########Control regions
 """
 cuts['DY_CR'] = '(Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) \ 

@@ -17,22 +17,22 @@ variables['nLepton'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepto
                            'fold' : 0
                         }
 
-variables['mll'] = {   'name': 'mll',            #   variable name
+variables['mll_vbs'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 0
                         }
-variables['mll_v1'] = {   'name': 'mll',            #   variable name
+variables['mll_vbs_v1'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 1
                         }
-variables['mll_v2'] = {   'name': 'mll',            #   variable name
+variables['mll_vbs_v2'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 2
                         }
-variables['mll_v3'] = {   'name': 'mll',            #   variable name
+variables['mll_vbs_v3'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 3
@@ -201,11 +201,14 @@ variables['FatJet_softdropmass'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'xaxis': 'AK8 jet softdrop mass',
                                'fold': 0
                                }
+
+"""
 variables['FatJet_softdropmass_v1'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'range': (35,0.,350),
                                'xaxis': 'AK8 jet softdrop mass',
                                'fold': 1
                                }
+"""
 variables['FatJet_softdropmass_v2'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'range': (35,0.,350),
                                'xaxis': 'AK8 jet softdrop mass',
