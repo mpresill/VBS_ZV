@@ -58,14 +58,50 @@ for s in systs:
   aliases['btagSF'+s+'down'] = { 'expr': '(bVeto*'+aliases['bVetoSF']['expr'].replace('shape','shape_down_'+s)+'+bReq*'+aliases['bReqSF']['expr'].replace('shape','shape_down_'+s)+'+ ( (!bVeto) && (!bReq) ))', 'samples':mc  }
 
 
+
+aliases['2EleOrMu'] = {
+    'expr': 'Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4)'
+}
+
+
+
 aliases['M_ZV'] = {
-             'class': 'InvMass',
+             'class': 'VBSvar',
              'args': ("M_ZV"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/M_ZV_class.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/vbs_variables_class.cc+'.format(configurations)
              ]           
  }
+
+
+aliases['mjj_vbs'] = {
+             'class': 'VBSvar',
+             'args': ("mjj_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/vbs_variables_class.cc+'.format(configurations)
+             ]
+ }
+
+aliases['mll_vbs'] = {
+             'class': 'VBSvar',
+             'args': ("mll_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/vbs_variables_class.cc+'.format(configurations)
+             ]
+ }
+
+aliases['detajj_vbs'] = {
+             'class': 'VBSvar',
+             'args': ("detajj_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/vbs_variables_class.cc+'.format(configurations)
+             ]
+ }
+
 
 
 

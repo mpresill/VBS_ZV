@@ -130,22 +130,22 @@ variables['eta2_V3']  = {  'name': 'Lepton_eta[1]',
 # jets
 #
 
-variables['mjj'] = {   'name': 'mjj',            #   variable name
+variables['mjj_vbs'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 0
                         }
-variables['mjj_v1'] = {   'name': 'mjj',            #   variable name
+variables['mjj_vbs_v1'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 1
                         }
-variables['mjj_v2'] = {   'name': 'mjj',            #   variable name
+variables['mjj_vbs_v2'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 2
                         }
-variables['mjj_v3'] = {   'name': 'mjj',            #   variable name
+variables['mjj_vbs_v3'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 3
@@ -259,23 +259,23 @@ variables['nCleanJet_v3']  = {
 
 
 
-variables['detajj']  = {  'name': 'detajj',
+variables['detajj_vbs']  = {  'name': 'detajj_vbs',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 0
                           }
                                 
-variables['detajj_v1']  = {  'name': 'detajj',
+variables['detajj_vbs_v1']  = {  'name': 'detajj_vbs',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 1
                           }
-variables['detajj_v2']  = {  'name': 'detajj',
+variables['detajj_vbs_v2']  = {  'name': 'detajj_vbs',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 2
                           }
-variables['detajj_V3']  = {  'name': 'detajj',
+variables['detajj_vbs_V3']  = {  'name': 'detajj_vbs',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 3
