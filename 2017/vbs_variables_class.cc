@@ -52,7 +52,7 @@ void bindTree_(multidraw::FunctionLibrary&) override;
   static FloatArrayReader* Jet_pt;
   static FloatArrayReader* Jet_eta;
   static FloatArrayReader* Jet_phi;
-  static IntArrayReader* Jet_idx;
+  static IntArrayReader* Jet_jetId;
   static FloatArrayReader* Jet_mass;
   static FloatArrayReader* Lepton_pt;
   static FloatArrayReader* Lepton_eta;
@@ -75,7 +75,7 @@ UIntValueReader* VBSvar::nJets;
 FloatArrayReader* VBSvar::Jet_pt{};
 FloatArrayReader* VBSvar::Jet_eta{};
 FloatArrayReader* VBSvar::Jet_phi{};
-IntArrayReader* VBSvar::Jet_idx{};
+IntArrayReader* VBSvar::Jet_jetId{};
 FloatArrayReader* VBSvar::Jet_mass{};
 FloatArrayReader* VBSvar::Lepton_pt{};
 FloatArrayReader* VBSvar::Lepton_eta{};
@@ -131,7 +131,7 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(Jet_eta, "CleanJet_eta");
     _library.bindBranch(Jet_phi, "CleanJet_phi");
     _library.bindBranch(Jet_mass, "Jet_mass");
-    _library.bindBranch(Jet_idx, "CleanJet_idxx");
+    _library.bindBranch(Jet_jetId, "Jet_jetId");
     _library.bindBranch(Lepton_pt, "Lepton_pt");
     _library.bindBranch(Lepton_eta, "Lepton_eta");
     _library.bindBranch(Lepton_phi, "Lepton_phi");
@@ -150,7 +150,7 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
                                      Jet_eta = nullptr;
                                      Jet_phi = nullptr;
                                      Jet_mass = nullptr;
-                                     Jet_idx = nullptr;
+                                     Jet_jetId = nullptr;
                                      Lepton_pt = nullptr;
                                      Lepton_eta = nullptr;
                                      Lepton_phi = nullptr;
@@ -179,7 +179,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
     float pt = Jet_pt->At(ij);
     float eta = Jet_eta->At(ij);
     float phi = Jet_phi->At(ij);
-    float mass = Jet_mass->At(Jet_idx->At(ij));
+    float mass = Jet_mass->At(Jet_jetId->At(ij));
     v.SetPtEtaPhiM(pt,eta,phi, mass);
     vbsjets += v;
   }
@@ -190,7 +190,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
     float pt = Jet_pt->At(ij);
     float eta = Jet_eta->At(ij);
     float phi = Jet_phi->At(ij);
-    float mass = Jet_mass->At(Jet_idx->At(ij));
+    float mass = Jet_mass->At(Jet_jetId->At(ij));
     v.SetPtEtaPhiM(pt,eta,phi, mass);
     whad += v;
   }
@@ -203,10 +203,10 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
 
   TLorentzVector jet0;
-  jet0.SetPtEtaPhiM(Jet_pt->At(0), Jet_eta->At(0),Jet_phi->At(0),Jet_mass->At(Jet_idx->At(0)));   
+  jet0.SetPtEtaPhiM(Jet_pt->At(0), Jet_eta->At(0),Jet_phi->At(0),Jet_mass->At(Jet_jetId->At(0)));   
 
   TLorentzVector jet1;
-  jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_idx->At(1))); 
+  jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_jetId->At(1))); 
 
  TLorentzVector FJet;
   FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
