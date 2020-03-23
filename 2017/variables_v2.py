@@ -2,19 +2,36 @@
 # variables
 
 #variables = {}
-"""variables['nvtx']  = {   'name': 'PV_npvsGood',      
+variables['nvtx']  = {   'name': 'PV_npvsGood',      
                         'range' : (100,0,100),  
                         'xaxis' : 'nvtx', 
                          'fold' : 3
                       }
 
 
-"""
 
 variables['nLepton'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepton_pt[1],0.)>20) + 1*(Alt$(Lepton_pt[2],0.)>20)+ 1*(Alt$(Lepton_pt[3],0.)>20) + 1*(Alt$(Lepton_pt[4],0.)>20)',            #   variable name
                            'range' : (5,0,5),    #   variable range
                            'xaxis' : 'number of lepton',  #   x axis name
                            'fold' : 0
+                        }
+
+variables['nLepton_fold1'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepton_pt[1],0.)>20) + 1*(Alt$(Lepton_pt[2],0.)>20)+ 1*(Alt$(Lepton_pt[3],0.)>20) + 1*(Alt$(Lepton_pt[4],0.)>20)',            #   variable name
+                           'range' : (5,0,5),    #   variable range
+                           'xaxis' : 'number of lepton',  #   x axis name
+                           'fold' : 1
+                        }
+
+variables['nLepton_fold2'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepton_pt[1],0.)>20) + 1*(Alt$(Lepton_pt[2],0.)>20)+ 1*(Alt$(Lepton_pt[3],0.)>20) + 1*(Alt$(Lepton_pt[4],0.)>20)',            #   variable name
+                           'range' : (5,0,5),    #   variable range
+                           'xaxis' : 'number of lepton',  #   x axis name
+                           'fold' : 2
+                        }
+
+variables['nLepton_fold3'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepton_pt[1],0.)>20) + 1*(Alt$(Lepton_pt[2],0.)>20)+ 1*(Alt$(Lepton_pt[3],0.)>20) + 1*(Alt$(Lepton_pt[4],0.)>20)',            #   variable name
+                           'range' : (5,0,5),    #   variable range
+                           'xaxis' : 'number of lepton',  #   x axis name
+                           'fold' : 3
                         }
 
 variables['mll_vbs'] = {   'name': 'mll_vbs',            #   variable name
@@ -27,11 +44,13 @@ variables['mll_vbs_fold1'] = {   'name': 'mll_vbs',            #   variable name
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 1
                         }
+
 variables['mll_vbs_fold2'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 2
                         }
+
 variables['mll_vbs_fold3'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
@@ -135,28 +154,33 @@ variables['mjj_vbs'] = {   'name': 'mjj_vbs',            #   variable name
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 0
                         }
+
 variables['mjj_vbs_fold1'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 1
                         }
+
 variables['mjj_vbs_fold2'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 2
                         }
+
+
 variables['mjj_vbs_fold3'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
                            'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                            'fold' : 3
                         }
 
-variables['jetpt1'] = { 'name': 'Alt$(Jet_pt[0],-9999.)',
+variables['jetpt1'] = { 'name': 'Alt$(CleanJet_pt[0],-9999.)',
                         'range': (30,0.,500),
                         'xaxis': 'p_{T} 1st jet',
                         'fold':0
 }
-variables['jetpt2'] = { 'name': 'Alt$(Jet_pt[1],-9999.)',
+
+variables['jetpt2'] = { 'name': 'Alt$(CleanJet_pt[1],-9999.)',
                         'range': (30,0.,300),
                         'xaxis': 'p_{T} 2nd jet',
                         'fold':0
@@ -189,13 +213,13 @@ variables['FatJeteta'] = {'name': 'FatJet_eta[0]',
                            'xaxis' : '\eta FatJet',
                            'fold'  : 0
                            }
-
+"""
 variables['FatJet_mass'] = {   'name': 'FatJet_mass',
 	                       'range': (35,0,220),
                                'xaxis': 'FJ mass',
 			       'fold': 3
 			       }
-			       
+"""			       
 variables['FatJet_softdropmass'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'range': (35,0.,350),
                                'xaxis': 'AK8 jet softdrop mass',
@@ -214,6 +238,7 @@ variables['FatJet_softdropmass_fold2'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0
                                'xaxis': 'AK8 jet softdrop mass',
                                'fold': 2
                                }
+
 variables['FatJet_softdropmass_fold3'] = {   'name': 'Alt$(FatJet_msoftdrop[0],0.)',
                                'range': (35,0.,350),
                                'xaxis': 'AK8 jet softdrop mass',
@@ -241,25 +266,27 @@ variables['nCleanJet']  = {
                         'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
                         'fold' : 0   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
+
 variables['nCleanJet_fold1']  = {
                         'name': 'Sum$(CleanJet_pt>30)',     
                         'range' : (8,0,8),   
                         'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
                         'fold' : 1   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
+
 variables['nCleanJet_fold2']  = {
                         'name': 'Sum$(CleanJet_pt>30)',     
                         'range' : (8,0,8),   
                         'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
                         'fold' : 2   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
+
 variables['nCleanJet_fold3']  = {
                         'name': 'Sum$(CleanJet_pt>30)',     
                         'range' : (8,0,8),   
                         'xaxis' : 'Number of jets w/ p_{T}>30 GeV',
                         'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
-
 
 
 variables['detajj_vbs']  = {  'name': 'detajj_vbs',
@@ -273,16 +300,19 @@ variables['detajj_vbs_fold1']  = {  'name': 'detajj_vbs',
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 1
                           }
+
 variables['detajj_vbs_fold2']  = {  'name': 'detajj_vbs',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 2
                           }
-variables['detajj_vbs_V3']  = {  'name': 'detajj_vbs',
+
+variables['detajj_vbs_fold3']  = {  'name': 'detajj_vbs',
                           'range': (32,0.0,8.0),
                           'xaxis': '\Delta \eta (jj)',
                           'fold': 3
                           }
+
 #
 # MET
 #
@@ -305,6 +335,7 @@ variables['M_ZV_v0'] = { 'name': "M_ZV",
                              'xaxis': 'M_{ZV} [GeV]',
                              'fold': 0
                           }
+
 variables['M_ZV_fold1'] = { 'name': "M_ZV",
                              'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ZV} [GeV]',
@@ -315,6 +346,7 @@ variables['M_ZV_fold2'] = { 'name': "M_ZV",
                              'xaxis': 'M_{ZV} [GeV]',
                              'fold': 2
                           }
+
 variables['M_ZV_fold3'] = { 'name': "M_ZV",
                              'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
                              'xaxis': 'M_{ZV} [GeV]',

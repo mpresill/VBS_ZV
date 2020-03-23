@@ -218,7 +218,7 @@ plot['top']  = {
                   'isData'   : 0, 
                   'scale'    : 1.0
               }
-
+"""
 plot['VBS_ZV_aQGC']  = {
                   'nameHR' : "ZV aQGC",
                   'color': 1, # kAzure -3  
@@ -244,7 +244,7 @@ plot['VBS_VV_QCD']  = {
                   }
 
 
-
+"""
 ############# FAKES
 plot['Fakes']  = {  
                   'color': 921,    # kGray + 1
