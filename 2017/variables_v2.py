@@ -148,6 +148,52 @@ variables['eta2_fold3']  = {  'name': 'Lepton_eta[1]',
 #
 # jets
 #
+variables['eta_jet1']  = {  'name': 'CleanJet_eta[0]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 1st jet',
+                        'fold'  : 0                         
+                        }
+
+variables['eta_jet2']  = {  'name': 'CleanJet_eta[1]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 2nd jet',
+                        'fold'  : 0                         
+                        }
+variables['eta_jet1_fold1']  = {  'name': 'CleanJet_eta[0]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 1st jet',
+                        'fold'  : 1                         
+                        }
+
+variables['eta_jet2_fold1']  = {  'name': 'CleanJet_eta[1]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 2nd jet',
+                        'fold'  : 1                         
+                        }
+variables['eta_jet1_fold2']  = {  'name': 'CleanJet_eta[0]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 1st jet',
+                        'fold'  : 2                         
+                        }
+
+variables['eta_jet2_fold2']  = {  'name': 'CleanJet_eta[1]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 2nd jet',
+                        'fold'  : 2                         
+                        }
+variables['eta_jet1_fold3']  = {  'name': 'CleanJet_eta[0]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 1st jet',
+                        'fold'  : 3                         
+                        }
+
+variables['eta_jet2_fold3']  = {  'name': 'CleanJet_eta[1]',     
+                        'range' : (40,-5,5),   
+                        'xaxis' : '#eta 2nd jet',
+                        'fold'  : 3                         
+                        }
+
+
 
 variables['mjj_vbs'] = {   'name': 'mjj_vbs',            #   variable name
                            'range' : (50,0,1500),    #   variable range
