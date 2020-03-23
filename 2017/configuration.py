@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_21Mar2020'
+date='_23Mar2020'
 
 tag = 'VBS_ZV_aQGC'+date
 
@@ -21,10 +21,10 @@ cutsFile = 'cuts_v3.py'
 #cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples
-samplesFile = 'samples.py'
+samplesFile = 'samples_sig.py'
 
 # file with list of samples
-plotFile = 'plot.py'
+plotFile = 'plot_sig.py'
 
 # luminosity to normalize to (in 1/fb)
 lumi = 41.5
