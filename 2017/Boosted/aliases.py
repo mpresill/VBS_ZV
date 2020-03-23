@@ -59,12 +59,39 @@ for s in systs:
 
 
 aliases['M_ZV'] = {
-             'class': 'InvMass',
+             'class': 'VBSvar',
              'args': ("M_ZV"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/user/a/ahakimi/ZV_analysis/M_ZV_class.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/vbs_variables_class.cc+'.format(configurations)
              ]           
  }
 
+
+aliases['mjj_vbs'] = {
+             'class': 'VBSvar',
+             'args': ("mjj_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/user/a/ahakimi/ZV_analysis/vbs_variables_class.cc+'.format(configurations)
+             ]
+ }
+
+aliases['mll_vbs'] = {
+             'class': 'VBSvar',
+             'args': ("mll_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/user/a/ahakimi/ZV_analysis/vbs_variables_class.cc+'.format(configurations)
+             ]
+ }
+
+aliases['detajj_vbs'] = {
+             'class': 'VBSvar',
+             'args': ("detajj_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/user/a/ahakimi/ZV_analysis/vbs_variables_class.cc+'.format(configurations)
+             ]
+ }
 
