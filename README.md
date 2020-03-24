@@ -31,8 +31,6 @@ Theory documentation:
 - unitarization effects in VBS (Roberto): https://arxiv.org/pdf/1907.06668.pdf
 
 Eos folder with output from Matteo: 
-/eos/user/m/mpresill/CMS/VBS/VBS_ZV/plots/
-(web link: https://cernbox.cern.ch/index.php/s/VViWSf3FNs6Tdea)
 
 
 ## Logbook 
