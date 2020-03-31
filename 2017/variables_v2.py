@@ -1,5 +1,5 @@
 
-# variables
+# variables: currently used version Apr2020
 
 #variables = {}
 variables['nvtx']  = {   'name': 'PV_npvsGood',      

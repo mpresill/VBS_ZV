@@ -30,7 +30,8 @@ Theory documentation:
 - HEFT vs SMEFT (Merlo): https://link.springer.com/content/pdf/10.1007/JHEP07(2019)021.pdf
 - unitarization effects in VBS (Roberto): https://arxiv.org/pdf/1907.06668.pdf
 
-Eos folder with output from Matteo: 
+Output from Matteo here:
+
 
 
 ## Logbook 

@@ -1,5 +1,5 @@
-# cuts
-# NB: mjj and detajj cannot be used!!!! (they belong to WW analysis)
+# cuts: an outdated version
+# NB: mjj and detajj cannot be used!!!! (they just belong to WW analysis)
 supercut_vector = [#2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>50 GeV
   'nLepton == 2 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50',
 
@@ -8,7 +8,7 @@ supercut_vector = [#2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>50 GeV
 'Sum$(CleanJet_pt>30.)>=2 && fabs(Alt$(CleanJet_eta[0],-9999.))<5.0',
  'mjj_vbs > 200 && detajj_vbs > 2.0'
 ]
-#at some point we should add a selectio of FatJet in case of more than one candidate
+#at some point we should add a selection of FatJet in case of more than one candidate...
 
 supercut = ' && '.join(supercut_vector)
 
@@ -32,7 +32,15 @@ cuts['Tight_SR'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_
 
 cuts['DY_CR'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4))  && mll_vbs>100 && mll_vbs<300'
 
+cuts['DY_CR_v2'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4))  && mll_vbs>76 && mll_vbs<107\
+    && (FatJet_msoftdrop[0] < 65 || FatJet_msoftdrop[0] >105)\
+    && Sum$(Jet_btagDeepB[CleanJet_jetIdx ] > 0.1522) == 0\
+    && mjj_vbs>800 && detajj_vbs>4.0'
+
 cuts['Top_CR'] = '(Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105 && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) >= 1 && (Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)))' #SR cuts and bveto condition inverted + 2opposite flavour leptons ---CHECK THIS CR!!
+
+cuts['Top_CR_mll'] = '(Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105 && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) >= 1 && (Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)))\
+    && mll_vbs >76 && mll_vbs>105'
 
 cuts['Wjets_CR'] = '((Alt$(FatJet_msoftdrop[0],0.)>40 && Alt$(FatJet_msoftdrop[0],0.)<65) || (Alt$(FatJet_msoftdrop[0],0.)>105 && Alt$(FatJet_msoftdrop[0],0.)<150)  && Sum$(Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) == 0)'#SR cuts and msoftdrop window inverted
 
