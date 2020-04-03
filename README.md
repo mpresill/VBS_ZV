@@ -8,6 +8,8 @@ https://github.com/latinos/PlotsConfigurations (here sample list and details on 
 https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolPisa2019ScalarToWW
 
 Nice talks on the topic:
+- SMP-VV VBS semileptonic by Davide: 
+https://indico.cern.ch/event/901949/
 - Introduction to VBS:
 https://indico.cern.ch/event/799542/contributions/3489880/attachments/1952864/3242590/2019-11-28-Wien.pdf
 - SMP-18-006 analysis summary: https://indico.cern.ch/event/787344/contributions/3322857/attachments/1806761/2949021/vbscan_wvzv.pdf
