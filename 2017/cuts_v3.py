@@ -6,15 +6,29 @@ supercut_vector = [#2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>50 GeV
 #jet selection: 1 FJ, pt>200 GeV, |eta|<2.4  + 2 jets with pt>30 and |eta|<5 and with mjj_vbs>200GeV and detajj_vbs>2.0
 'nFatJet == 1 && FatJet_pt[0] >= 200. && fabs(Alt$(FatJet_eta[0],-9999.))<2.4',
 'Sum$(CleanJet_pt>30.)>=2 && fabs(Alt$(CleanJet_eta[0],-9999.))<5.0',
- 'mjj_vbs > 200 && detajj_vbs > 2.0'
+ 'mjj_vbs > 400 && detajj_vbs > 3.5'
 ]
 #at some point we should add a selection of FatJet in case of more than one candidate...
+#and same for vbs_jets in case of more than two candidates
 
 supercut = ' && '.join(supercut_vector)
 
 #####Signal Regions
+####effect of differenct cuts
+cuts['preselection'] = '1.'
 
-cuts['MinimalVBS']='1.'
+cuts['2VBSjets'] = "Sum$(CleanJet_pt>30.)==2"
+
+#cuts['dR_FJ_Jet'] = dR >0.8 #da mettere in aliases.py e aggiungere una funzione con il delta R
+
+cuts['Zpeak']='((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) ) && mll_vbs>83 && mll_vbs<99'
+
+cuts['VBSjets_tight'] = 'Sum$(CleanJet_pt>30.)==2  mjj_vbs > 400 && detajj_vbs > 4 &&\
+             Sum$(Jet_btagDeepB[CleanJet_jetIdx ] > 0.1522) == 0'
+
+cuts['softdropmass'] = 'Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105'
+
+cuts['tau21'] = 'Alt$(FatJet_tau2[0]/FatJet_tau1[0],0.)<0.55'
 
 ###check btagging algorithm
 

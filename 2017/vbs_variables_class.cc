@@ -131,7 +131,7 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(Jet_eta, "CleanJet_eta");
     _library.bindBranch(Jet_phi, "CleanJet_phi");
     _library.bindBranch(Jet_mass, "Jet_mass");
-    _library.bindBranch(Jet_jetId, "Jet_jetId");
+    _library.bindBranch(Jet_jetId, "CleanJet_jetIdx");
     _library.bindBranch(Lepton_pt, "Lepton_pt");
     _library.bindBranch(Lepton_eta, "Lepton_eta");
     _library.bindBranch(Lepton_phi, "Lepton_phi");
@@ -208,7 +208,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   TLorentzVector jet1;
   jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_jetId->At(1))); 
 
- TLorentzVector FJet;
+  TLorentzVector FJet;
   FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
 	
   returnValues[mjj_vbs] = (jet0+jet1).M();
