@@ -95,6 +95,7 @@ aliases['detajj_vbs'] = {
              ]
  }
 
+"""
 aliases['dR_AK4_lead_AK8']  = {   
                         'name': 'dR(CleanJet_eta[0],CleanJet_phi[0],FatJet_eta[0],FatJet_pt[0])',            #   variable name    
                         'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/dR.C+']
@@ -104,3 +105,4 @@ aliases['dR_AK4_sublead_AK8']  = {
                         'name': 'dR(CleanJet_eta[1],CleanJet_phi[1],FatJet_eta[0],FatJet_pt[0])',            #   variable name    
                         'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/dR.C+']
                            }
+"""
