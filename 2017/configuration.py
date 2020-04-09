@@ -21,10 +21,14 @@ cutsFile = 'cuts_v3.py'
 #cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples
-samplesFile = 'samples.py'
+samplesFile = 'samples_sig.py'
+#samplesFile = 'samples.py'
+
 
 # file with list of samples
-plotFile = 'plot.py'
+plotFile = 'plot_sig.py'
+#plotFile = 'plot.py'
+
 
 # luminosity to normalize to (in 1/fb)
 lumi = 41.5
