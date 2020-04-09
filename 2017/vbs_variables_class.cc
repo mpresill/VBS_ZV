@@ -31,7 +31,7 @@ public:
 
 protected:
   enum ReturnType {
-	           mjj_vbs,
+	                 mjj_vbs,
                    detajj_vbs,
                    mll_vbs,
                    M_ZV,
@@ -173,6 +173,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
+/*
  TLorentzVector ;
   for (auto ij : *vbs_jets){
     TLorentzVector v;
@@ -205,7 +206,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
     v.SetPtEtaPhiM(pt,eta,phi, mass);
     FJ += v;
   }
-
+*/
 
 
   TLorentzVector lep1; 
@@ -227,7 +228,6 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   returnValues[detajj_vbs] = abs(jet0.Eta() - jet1.Eta());
   returnValues[mll_vbs] = (lep1+lep2).M();
   returnValues[M_ZV] = (lep1+lep2+FJet).M();
-  returnValues[dR_FJ_jet] = ()
 }
 
 
