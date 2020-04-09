@@ -19,11 +19,11 @@ cuts['preselection'] = '1.'
 
 cuts['2VBSjets'] = "Sum$(CleanJet_pt>30.)==2"
 
-cuts['dR_FJ_Jet'] = 'dR_AK4_lead_AK8 >0.8 && dR_AK4_sublead_AK8 >0.8' 
+#cuts['dR_FJ_Jet'] = 'dR_AK4_lead_AK8 >0.8 && dR_AK4_sublead_AK8 >0.8' 
 
 cuts['Zpeak']='((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) ) && mll_vbs>83 && mll_vbs<99'
 
-cuts['VBSjets_tight'] = 'Sum$(CleanJet_pt>30.)==2  mjj_vbs > 400 && detajj_vbs > 4 &&\
+cuts['VBSjets_tight'] = 'Sum$(CleanJet_pt>30.)==2 &&  mjj_vbs > 400 && detajj_vbs > 4 &&\
              Sum$(Jet_btagDeepB[CleanJet_jetIdx ] > 0.1522) == 0'
 
 cuts['softdropmass'] = 'Alt$(FatJet_msoftdrop[0],0.)>65 && Alt$(FatJet_msoftdrop[0],0.)<105'
