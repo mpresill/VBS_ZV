@@ -399,3 +399,28 @@ variables['M_ZV_fold3'] = { 'name': "M_ZV",
                              'fold': 3
                           }
 
+variables['Zlep1']  = {  'name': '(Alt$(Lepton_eta[0],-9999.) - (Alt$(Jet_eta[0],-9999.)+Alt$(Jet_eta[1],-9999.))/2)/detajj',
+                          'range': (10,-1.5,1.5),
+                          'xaxis': 'Z^{lep}_{l1}',
+                          'fold': 3
+                          }
+
+variables['Zlep2']  = {  'name': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(Jet_eta[0],-9999.)+Alt$(Jet_eta[1],-9999.))/2)/detajj',
+                          'range': (10,-1.5,1.5),
+                          'xaxis': 'Z^{lep}_{l2}',
+                          'fold': 3
+                          }
+
+
+variables['Zeppll']  = {   'name': 'Zeppll(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],Jet_eta[0],Jet_eta[1],detajj)',            #   variable name    
+                           'range' : (20,-5,5),    #   variable range
+                           'xaxis' : 'Zeppenfeld_{ll}',  #   x axis name
+                           'fold' :3,
+                           'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/Zeppll.C+']
+                           }
+
+variables['ZlepV']  = {  'name': '(Alt$(FatJet_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs',
+                          'range': (15,-1.5,1.5),
+                          'xaxis': 'z_{V}',
+                          'fold': 3
+                          }
