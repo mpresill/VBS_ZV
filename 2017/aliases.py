@@ -58,13 +58,6 @@ for s in systs:
   aliases['btagSF'+s+'down'] = { 'expr': '(bVeto*'+aliases['bVetoSF']['expr'].replace('shape','shape_down_'+s)+'+bReq*'+aliases['bReqSF']['expr'].replace('shape','shape_down_'+s)+'+ ( (!bVeto) && (!bReq) ))', 'samples':mc  }
 
 
-"""
-aliases['2EleOrMu'] = {
-    'expr': '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=50 && Alt$(Lepton_pt[1],0.)>=50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>50 && Alt$(Lepton_pt[1],0.)>50  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )'
-}
-"""
-
-
 aliases['M_ZV'] = {
              'class': 'VBSvar',
              'args': ("M_ZV"),
@@ -102,6 +95,10 @@ aliases['detajj_vbs'] = {
              ]
  }
 
+aliases['dR_AK4_lead_AK8']  = {   'name': 'dR(CleanJet_eta[0],CleanJet_phi[0],FatJet_eta[0],FatJet_pt[0])',            #   variable name    
+                           'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/dR.C+']
+                           }
 
-
-
+aliases['dR_AK4_sublead_AK8']  = {   'name': 'dR(CleanJet_eta[1],CleanJet_phi[1],FatJet_eta[0],FatJet_pt[0])',            #   variable name    
+                           'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/dR.C+']
+                           }

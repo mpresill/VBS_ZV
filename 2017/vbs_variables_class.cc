@@ -126,7 +126,7 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(luminosityBlock, "luminosityBlock");
     _library.bindBranch(event, "event");
 
-    _library.bindBranch(nJets, "nJet");
+    _library.bindBranch(nJets, "nCleanJet");
     _library.bindBranch(Jet_pt, "CleanJet_pt");
     _library.bindBranch(Jet_eta, "CleanJet_eta");
     _library.bindBranch(Jet_phi, "CleanJet_phi");
@@ -173,7 +173,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-/* TLorentzVector ;
+ TLorentzVector ;
   for (auto ij : *vbs_jets){
     TLorentzVector v;
     float pt = Jet_pt->At(ij);
@@ -184,17 +184,29 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
     vbsjets += v;
   }
 
-  TLorentzVector whad;
-  for (auto ij : *v_jets){
+  TLorentzVector vbs_jets2;
+  for (auto ij : *vbs_jets2){
     TLorentzVector v;
     float pt = Jet_pt->At(ij);
     float eta = Jet_eta->At(ij);
     float phi = Jet_phi->At(ij);
     float mass = Jet_mass->At(Jet_jetId->At(ij));
     v.SetPtEtaPhiM(pt,eta,phi, mass);
-    whad += v;
+    vbs_jets2 += v;
   }
-*/
+
+  TLorentzVector FJ;
+  for (auto ij : *FJ){
+    TLorentzVector v;
+    float pt = FatJet_pt->At(ij);
+    float eta = FatJet_eta->At(ij);
+    float phi = FatJet_phi->At(ij);
+    float mass = FatJet_msoftdrop->At(Jet_jetId->At(ij));
+    v.SetPtEtaPhiM(pt,eta,phi, mass);
+    FJ += v;
+  }
+
+
 
   TLorentzVector lep1; 
   lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
@@ -215,7 +227,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   returnValues[detajj_vbs] = abs(jet0.Eta() - jet1.Eta());
   returnValues[mll_vbs] = (lep1+lep2).M();
   returnValues[M_ZV] = (lep1+lep2+FJet).M();
-
+  returnValues[dR_FJ_jet] = ()
 }
 
 
