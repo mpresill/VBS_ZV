@@ -2,11 +2,11 @@
 # variables: currently used version Apr2020
 
 #variables = {}
-variables['nvtx']  = {   'name': 'PV_npvsGood',      
-                        'range' : (100,0,100),  
-                        'xaxis' : 'nvtx', 
-                         'fold' : 3
-                      }
+#variables['nvtx']  = {   'name': 'PV_npvsGood',      
+#                        'range' : (100,0,100),  
+#                        'xaxis' : 'nvtx', 
+#                         'fold' : 3
+#                      }
 
 
 
