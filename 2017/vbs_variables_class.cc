@@ -173,7 +173,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-
+/*
  TLorentzVector ;
   for (auto ij : *vbs_jets){
     TLorentzVector v;
@@ -206,7 +206,7 @@ VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
     v.SetPtEtaPhiM(pt,eta,phi, mass);
     FJ += v;
   }
-
+*/
 
 
   TLorentzVector lep1; 
