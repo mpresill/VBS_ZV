@@ -60,7 +60,6 @@ void bindTree_(multidraw::FunctionLibrary&) override;
   static FloatArrayReader* FatJet_pt;
   static FloatArrayReader* FatJet_eta;
   static FloatArrayReader* FatJet_phi;
-  static IntArrayReader*  FatJet_jetId;
   static FloatArrayReader* FatJet_msoftdrop;
  //static IntArrayReader* vbs_jets;
  //static IntArrayReader* v_jets;
@@ -84,7 +83,6 @@ FloatArrayReader* VBSvar::Lepton_phi{};
 FloatArrayReader* VBSvar::FatJet_pt{};
 FloatArrayReader* VBSvar::FatJet_eta{};
 FloatArrayReader* VBSvar::FatJet_phi{};
-IntArrayReader* VBSvar::FatJet_jetId{};
 FloatArrayReader* VBSvar::FatJet_msoftdrop{};
 //IntArrayReader* VBSvar::vbs_jets{};
 //IntArrayReader* VBSvar::v_jets{};
@@ -128,20 +126,19 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(luminosityBlock, "luminosityBlock");
     _library.bindBranch(event, "event");
 
-    _library.bindBranch(nJets, "nCleanJetNotfFat");     //please note that this CleanJetNotfFat 
+    _library.bindBranch(nJets, "nCleanJetNotFat");   //AK4 after cleaning
     _library.bindBranch(Jet_pt, "CleanJet_pt");
     _library.bindBranch(Jet_eta, "CleanJet_eta");
     _library.bindBranch(Jet_phi, "CleanJet_phi");
     _library.bindBranch(Jet_mass, "Jet_mass");
-    _library.bindBranch(Jet_jetId, "CleanJetNotFat_jetIdx");  //please note that isCleanJetNotfFat 
+    _library.bindBranch(Jet_jetId, "CleanJetNotFat_jetIdx");   //AK4 after cleaning through cross-references
     _library.bindBranch(Lepton_pt, "Lepton_pt");
     _library.bindBranch(Lepton_eta, "Lepton_eta");
     _library.bindBranch(Lepton_phi, "Lepton_phi");
     _library.bindBranch(FatJet_pt, "CleanFatJet_pt");
     _library.bindBranch(FatJet_eta, "CleanFatJet_eta");
     _library.bindBranch(FatJet_phi, "CleanFatJet_phi");
-    _library.bindBranch(FatJet_jetId, "CleanFatJet_jetIdx");
-    _library.bindBranch(FatJet_msoftdrop, "CleanFatJet_mass");   //this is the cleaned "FatJet_msoftdrop"
+    _library.bindBranch(FatJet_msoftdrop, "CleanFatJet_mass");  //CleanFatJet_mass == softdrop
     //_library.bindBranch(vbs_jets, "VBS_jets_maxmjj_massWZ");
     //_library.bindBranch(v_jets, "V_jets_maxmjj_massWZ");
 
@@ -160,7 +157,6 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
                                      FatJet_pt = nullptr;
                                      FatJet_eta = nullptr;
                                      FatJet_phi = nullptr;
-                                     FatJet_jetId = nullptr;
                                      FatJet_msoftdrop = nullptr;
                                    });
 }
