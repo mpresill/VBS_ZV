@@ -273,7 +273,6 @@ samples['ggWW'] = {
 files = nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Nu') + \
     nanoGetSampleFiles(mcDirectory, 'ZZTo4L') +\
     nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Q') +\
-#    nanoGetSampleFiles(mcDirectory, 'ZZ') +\
     nanoGetSampleFiles(mcDirectory, 'WZTo2L2Q')
 
 samples['VZ']= {
