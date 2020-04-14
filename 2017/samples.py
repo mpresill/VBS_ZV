@@ -127,11 +127,11 @@ SFweight += '*btagSF'
 ################################################
 
 DataRun = [
-            ['B','Run2017B-Nano14Dec2018-v1'] ,
-            ['C','Run2017C-Nano14Dec2018-v1'] ,
-            ['D','Run2017D-Nano14Dec2018-v1'] ,
-            ['E','Run2017E-Nano14Dec2018-v1'] ,
-            ['F','Run2017F-Nano14Dec2018-v1']
+            ['B','Run2017B-Nano1June2019-v1'] ,
+            ['C','Run2017C-Nano1June2019-v1'] ,
+            ['D','Run2017D-Nano1June2019-v1'] ,
+            ['E','Run2017E-Nano1June2019-v1'] ,
+            ['F','Run2017F-Nano1June2019-v1']
           ]
 
 
@@ -272,6 +272,7 @@ samples['ggWW'] = {
 ###VZ####
 files = nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Nu') + \
     nanoGetSampleFiles(mcDirectory, 'ZZTo4L') +\
+    nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Q') +\
     nanoGetSampleFiles(mcDirectory, 'WZTo2L2Q')
 
 samples['VZ']= {
@@ -373,7 +374,7 @@ samples['DATA']  = {   'name': [ ] ,
                   }
 
 for Run in DataRun :
-  directory = treeBaseDir+'Run2017_102X_nAODv4_Full2017v5/DATAl1loose2017v5__l2loose__l2tightOR2017v5/'
+  directory = treeBaseDir+'Run2017_102X_nAODv5_Full2017v6/DATAl1loose2017v6__l2loose/'
   for DataSet in DataSets :
     FileTarget = getSampleFiles(directory,DataSet+'_'+Run[1],True,'nanoLatino_')
     for iFile in FileTarget:

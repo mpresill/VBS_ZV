@@ -309,7 +309,7 @@ samples['VBF-V'] = {
 ###########################################
 #############   VBS PROCESSES ##################
 ###########################################
-"""
+
 #########################################
 ############# EFT SIGNALS ###################
 ########VBS aQGC - SMP-18-006 model: all signals givin aQGC with Z to 2L and V to 2J
@@ -326,7 +326,7 @@ samples['VBS_ZV_aQGC'] = {
     'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1
 }
-"""
+
 
 #######################################################
 #########VBS backgrounds from purely SM processes
