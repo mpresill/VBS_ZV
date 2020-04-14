@@ -33,14 +33,14 @@ except NameError:
 mcProduction = 'Fall2017_102X_nAODv5_Full2017v6'
 mcProductionSig = 'Fall2017_102X_nAODv5_SigOnly_Full2017v5' #vbs signals
 
-dataReco = 'Run2017_102X_nAODv4_Full2017v5'
+dataReco = 'Run2017_102X_nAODv5_Full2017v6'
 
 mcStepsSig = 'MCl1loose2017v5__MCCorr2017v5__l2loose__l2tightOR2017v5' #vbs signals
 mcSteps = 'MCl1loose2017v6__MCCorr2017v6__l2loose__l2tightOR2017v6'
 
 fakeSteps = 'DATAl1loose2017v5__l2loose__fakeW'
 
-dataSteps = 'DATAl1loose2017v5__l2loose__l2tightOR2017v5'
+dataSteps = 'DATAl1loose2017v6__l2loose'
 
 ##############################################
 ###### Tree base directory for the site ######
