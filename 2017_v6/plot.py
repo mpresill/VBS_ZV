@@ -286,7 +286,6 @@ plot['Fakes_mm']  = {
               }
 """
 
-"""
 ############## DATA
 plot['DATA']  = {
                   'nameHR' : 'Data',
@@ -296,7 +295,6 @@ plot['DATA']  = {
                   'isBlind'  : 1 ,
                   'scale'    : 1.0
               }
-"""
 
 # additional options
 

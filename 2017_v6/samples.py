@@ -332,8 +332,7 @@ samples['VBS_ZV_aQGC'] = {
 #########VBS backgrounds from purely SM processes
 ##########VBS QCD 
 samples['VBS_VV_QCD'] = {
-    'name':   nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J_QCD')
-             +nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J_QCD')
+    'name':   nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J_QCD') #nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J_QCD') MISSING
              +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WpTo2J_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WmTo2J_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_ZTo2L_QCD')
@@ -349,8 +348,7 @@ samples['VBS_VV_QCD'] = {
 #######VBS EW 
 
 samples['VBS_VV_EW'] = {
-    'name':   nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J')
-             +nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L')
+    'name':   nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L') #nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J') MISSING
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_WmTo2J')
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_ZTo2J')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_WmToLNu')
@@ -366,7 +364,7 @@ samples['VBS_VV_EW'] = {
 ###########################################
 ################## DATA ###################
 ###########################################
-"""
+
 samples['DATA']  = {   'name': [ ] ,
                        'weight' : METFilter_DATA+'*'+LepWPCut,
                        'weights' : [ ],
@@ -381,4 +379,3 @@ for Run in DataRun :
     for iFile in FileTarget:
       samples['DATA']['name'].append(iFile)
       samples['DATA']['weights'].append(DataTrig[DataSet])
-"""
