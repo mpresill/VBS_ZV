@@ -59,7 +59,7 @@ for s in systs:
 
 
 aliases['M_ZV'] = {
-             'class': 'VBSvar',
+             'class': 'VBSvarV6',
              'args': ("M_ZV"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
@@ -69,7 +69,7 @@ aliases['M_ZV'] = {
 
 
 aliases['mjj_vbs'] = {
-             'class': 'VBSvar',
+             'class': 'VBSvarV6',
              'args': ("mjj_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
@@ -78,7 +78,7 @@ aliases['mjj_vbs'] = {
  }
 
 aliases['mll_vbs'] = {
-             'class': 'VBSvar',
+             'class': 'VBSvarV6',
              'args': ("mll_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
@@ -87,7 +87,7 @@ aliases['mll_vbs'] = {
  }
 
 aliases['detajj_vbs'] = {
-             'class': 'VBSvar',
+             'class': 'VBSvarV6',
              'args': ("detajj_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',

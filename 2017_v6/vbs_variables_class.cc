@@ -18,13 +18,13 @@
 
 using namespace std;
 
-class VBSvar : public multidraw::TTreeFunction {
+class VBSvarV6 : public multidraw::TTreeFunction {
 public: 
-  VBSvar(char const* type);
-  VBSvar(unsigned type);
+  VBSvarV6(char const* type);
+  VBSvarV6(unsigned type);
 
-  char const* getName() const override { return "VBSvar"; }
-  TTreeFunction* clone() const override { return new VBSvar(returnVar_); }
+  char const* getName() const override { return "VBSvarV6"; }
+  TTreeFunction* clone() const override { return new VBSvarV6(returnVar_); }
 
   unsigned getNdata() override { return 1; }
   double evaluate(unsigned) override;
@@ -70,27 +70,27 @@ void bindTree_(multidraw::FunctionLibrary&) override;
 };
 
 
-std::tuple<UInt_t, UInt_t, ULong64_t> VBSvar::currentEvent{};
-UIntValueReader* VBSvar::nJets; 
-FloatArrayReader* VBSvar::Jet_pt{};
-FloatArrayReader* VBSvar::Jet_eta{};
-FloatArrayReader* VBSvar::Jet_phi{};
-IntArrayReader* VBSvar::Jet_jetId{};
-FloatArrayReader* VBSvar::Jet_mass{};
-FloatArrayReader* VBSvar::Lepton_pt{};
-FloatArrayReader* VBSvar::Lepton_eta{};
-FloatArrayReader* VBSvar::Lepton_phi{};
-FloatArrayReader* VBSvar::FatJet_pt{};
-FloatArrayReader* VBSvar::FatJet_eta{};
-FloatArrayReader* VBSvar::FatJet_phi{};
-FloatArrayReader* VBSvar::FatJet_msoftdrop{};
-//IntArrayReader* VBSvar::vbs_jets{};
-//IntArrayReader* VBSvar::v_jets{};
+std::tuple<UInt_t, UInt_t, ULong64_t> VBSvarV6::currentEvent{};
+UIntValueReader* VBSvarV6::nJets; 
+FloatArrayReader* VBSvarV6::Jet_pt{};
+FloatArrayReader* VBSvarV6::Jet_eta{};
+FloatArrayReader* VBSvarV6::Jet_phi{};
+IntArrayReader* VBSvarV6::Jet_jetId{};
+FloatArrayReader* VBSvarV6::Jet_mass{};
+FloatArrayReader* VBSvarV6::Lepton_pt{};
+FloatArrayReader* VBSvarV6::Lepton_eta{};
+FloatArrayReader* VBSvarV6::Lepton_phi{};
+FloatArrayReader* VBSvarV6::FatJet_pt{};
+FloatArrayReader* VBSvarV6::FatJet_eta{};
+FloatArrayReader* VBSvarV6::FatJet_phi{};
+FloatArrayReader* VBSvarV6::FatJet_msoftdrop{};
+//IntArrayReader* VBSvarV6::vbs_jets{};
+//IntArrayReader* VBSvarV6::v_jets{};
 
-std::array<double, VBSvar::nVarTypes> VBSvar::returnValues{};
+std::array<double, VBSvarV6::nVarTypes> VBSvarV6::returnValues{};
 
 
-VBSvar::VBSvar(char const* _type) :
+VBSvarV6::VBSvarV6(char const* _type) :
   TTreeFunction()
 {
   std::string type(_type);
@@ -107,20 +107,20 @@ VBSvar::VBSvar(char const* _type) :
   
 }
 
-VBSvar::VBSvar(unsigned type) :
+VBSvarV6::VBSvarV6(unsigned type) :
   TTreeFunction(),
   returnVar_(type) {}
 
 
 double
-VBSvar::evaluate(unsigned)
+VBSvarV6::evaluate(unsigned)
 {
   setValues(*run->Get(), *luminosityBlock->Get(), *event->Get());
   return returnValues[returnVar_];
 }
 
 void
-VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
+VBSvarV6::bindTree_(multidraw::FunctionLibrary& _library)
 {   
     _library.bindBranch(run, "run");
     _library.bindBranch(luminosityBlock, "luminosityBlock");
@@ -163,7 +163,7 @@ VBSvar::bindTree_(multidraw::FunctionLibrary& _library)
 
 /*static*/
 void
-VBSvar::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
+VBSvarV6::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
 {
 
   if (std::get<0>(currentEvent) == _run && \
