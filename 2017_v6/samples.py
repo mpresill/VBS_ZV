@@ -40,7 +40,7 @@ mcSteps = 'MCl1loose2017v6__MCCorr2017v6__l2loose__l2tightOR2017v6'
 
 fakeSteps = 'DATAl1loose2017v5__l2loose__fakeW'
 
-dataSteps = 'DATAl1loose2017v6__l2loose'
+dataSteps = 'DATAl1loose2017v6__l2loose__l2tightOR2017v6'
 
 ##############################################
 ###### Tree base directory for the site ######
@@ -365,17 +365,16 @@ samples['VBS_VV_EW'] = {
 ################## DATA ###################
 ###########################################
 
-samples['DATA']  = {   'name': [ ] ,
-                       'weight' : METFilter_DATA+'*'+LepWPCut,
-                       'weights' : [ ],
-                       'isData': ['all'],
-                       'FilesPerJob' : 20 ,
-                  }
+samples['DATA'] = {
+  'name': [],
+  'weight': 'METFilter_DATA*LepWPCut',
+  'weights': [],
+  'isData': ['all'],
+  'FilesPerJob': 40
+}
 
-for Run in DataRun :
-  directory = treeBaseDir+'/Run2017_102X_nAODv5_Full2017v6/DATAl1loose2017v6__l2loose/'
-  for DataSet in DataSets :
-    FileTarget = getSampleFiles(directory,DataSet+'_'+Run[1],True,'nanoLatino_')
-    for iFile in FileTarget:
-      samples['DATA']['name'].append(iFile)
-      samples['DATA']['weights'].append(DataTrig[DataSet])
+for _, sd in DataRun:
+  for pd in DataSets:
+    files = nanoGetSampleFiles(dataDirectory, pd + '_' + sd)
+    samples['DATA']['name'].extend(files)
+    samples['DATA']['weights'].extend([DataTrig[pd]] * len(files))
