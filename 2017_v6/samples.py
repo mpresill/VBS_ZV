@@ -318,7 +318,7 @@ samples['VBF-V'] = {
 # ZTo2L_ZTo2J_aQGC
 #N.B. no processing campaign v6 is present for aQGC samples
 ########################################
-
+"""
 samples['VBS_ZV_aQGC'] = {
     'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_aQGC')
              +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_ZTo2L_aQGC')
@@ -326,7 +326,7 @@ samples['VBS_ZV_aQGC'] = {
     'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1
 }
-
+"""
 
 #######################################################
 #########VBS backgrounds from purely SM processes
