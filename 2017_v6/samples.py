@@ -178,6 +178,7 @@ else:
     addSampleWeight(samples,'DY','DYJetsToLL_M-10to50-LO',ptllDYW_LO)
 """
 
+"""
 files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-200to400') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-400to600_ext1') + \
@@ -318,15 +319,15 @@ samples['VBF-V'] = {
 # ZTo2L_ZTo2J_aQGC
 #N.B. no processing campaign v6 is present for aQGC samples
 ########################################
-"""
-samples['VBS_ZV_aQGC'] = {
-    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_aQGC')
-             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_ZTo2L_aQGC')
-             +nanoGetSampleFiles(mcDirectorySig, 'WmTo2J_ZTo2L_aQGC'),
-    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
-    'FilesPerJob': 1
-}
-"""
+
+#samples['VBS_ZV_aQGC'] = {
+#    'name':   nanoGetSampleFiles(mcDirectorySig, 'ZTo2L_ZTo2J_aQGC')
+#             +nanoGetSampleFiles(mcDirectorySig, 'WpTo2J_ZTo2L_aQGC')
+#             +nanoGetSampleFiles(mcDirectorySig, 'WmTo2J_ZTo2L_aQGC'),
+#    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
+#    'FilesPerJob': 1
+#}
+
 
 #######################################################
 #########VBS backgrounds from purely SM processes
@@ -360,14 +361,14 @@ samples['VBS_VV_EW'] = {
     'FilesPerJob': 1
 }
 
-
+"""
 ###########################################
 ################## DATA ###################
 ###########################################
 
 samples['DATA'] = {
   'name': [],
-  'weight': 'METFilter_DATA*LepWPCut',
+  'weight': METFilter_DATA+'*'+LepWPCut,
   'weights': [],
   'isData': ['all'],
   'FilesPerJob': 40
