@@ -94,7 +94,7 @@ aliases['detajj_vbs'] = {
              ]
  }
 
- aliases['mjj_vbs_AK4NotFat'] = {
+aliases['mjj_vbs_AK4NotFat'] = {
              'class': 'VBSvar_AK4NotFat',
              'args': ("mjj_vbs_AK4NotFat"),
              'linesToAdd' : [
