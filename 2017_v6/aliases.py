@@ -110,3 +110,4 @@ aliases['detajj_vbs_AK4NotFat'] = {
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
                  '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
              ]
+}
