@@ -1,5 +1,3 @@
-# cuts: an outdated version
-# NB: mjj and detajj cannot be used!!!! (they just belong to WW analysis)
 supercut_vector = [##2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>50 GeV
   'nLepton == 2. && Alt$(Lepton_pt[0],0.)>=50. && Alt$(Lepton_pt[1],0.)>=50.',
 

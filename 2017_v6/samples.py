@@ -333,13 +333,14 @@ samples['VBF-V'] = {
 #########VBS backgrounds from purely SM processes
 ##########VBS QCD 
 samples['VBS_VV_QCD'] = {
-    'name':   nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J_QCD') #nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J_QCD') MISSING
+    'name':   nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J_QCD') 
              +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WpTo2J_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WmTo2J_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_ZTo2L_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_WmToLNu_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_ZTo2J_QCD')
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_WmTo2J_QCD')
+             #+nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J_QCD') MISSING
              +nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L_QCD'),
     'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1
@@ -349,7 +350,8 @@ samples['VBS_VV_QCD'] = {
 #######VBS EW 
 
 samples['VBS_VV_EW'] = {
-    'name':   nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L') #nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J') MISSING
+    'name':   nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J') 
+             +nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L') 
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_WmTo2J')
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_ZTo2J')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_WmToLNu')

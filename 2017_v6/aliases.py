@@ -67,30 +67,46 @@ aliases['M_ZV'] = {
              ]           
  }
 
-
-aliases['mjj_vbs'] = {
-             'class': 'VBSvarV6',
-             'args': ("mjj_vbs"),
-             'linesToAdd' : [
-                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017_v6/vbs_variables_classV6.cc+'.format(configurations)
-             ]
- }
-
 aliases['mll_vbs'] = {
-             'class': 'VBSvarV6',
+             'class': 'VBSvar_AK4',
              'args': ("mll_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017_v6/vbs_variables_classV6.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
+             ]
+ }
+
+aliases['mjj_vbs'] = {
+             'class': 'VBSvar_AK4',
+             'args': ("mjj_vbs"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]
  }
 
 aliases['detajj_vbs'] = {
-             'class': 'VBSvarV6',
+             'class': 'VBSvar_AK4',
              'args': ("detajj_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017_v6/vbs_variables_classV6.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]
  }
+
+ aliases['mjj_vbs_AK4NotFat'] = {
+             'class': 'VBSvar_AK4NotFat',
+             'args': ("mjj_vbs_AK4NotFat"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
+             ]
+ }
+
+aliases['detajj_vbs_AK4NotFat'] = {
+             'class': 'VBSvar_AK4NotFat',
+             'args': ("detajj_vbs_AK4NotFat"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
+             ]
