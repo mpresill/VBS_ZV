@@ -59,7 +59,7 @@ for s in systs:
 
 
 aliases['M_ZV'] = {
-             'class': 'VBSvarV6',
+             'class': 'VBSvar_AK4',
              'args': ("M_ZV"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',

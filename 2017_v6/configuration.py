@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_17Apr2020_v6'
+date='_17Apr2020'
 
 tag = 'VBS_ZV_aQGC'+date
 
