@@ -1,7 +1,9 @@
 # VBS_ZV
 
-Clone this folder in the Latino directory: 
-  /PlotsConfigurations/Configurations/
+Documentation: 
+- AN: https://gitlab.cern.ch/tdr/notes/AN-20-076
+
+N.B: Clone this folder in the Latino directory: /PlotsConfigurations/Configurations/
 
 Useful link:
 https://github.com/latinos/PlotsConfigurations (here sample list and details on the Latino Tree)
@@ -31,10 +33,3 @@ Theory documentation:
 - Which EFT (Rattazzi): https://arxiv.org/pdf/1902.05936.pdf
 - HEFT vs SMEFT (Merlo): https://link.springer.com/content/pdf/10.1007/JHEP07(2019)021.pdf
 - unitarization effects in VBS (Roberto): https://arxiv.org/pdf/1907.06668.pdf
-
-Output from Matteo here:
-
-
-
-## Logbook 
-- 2017 is the directory currently used for future studies.
