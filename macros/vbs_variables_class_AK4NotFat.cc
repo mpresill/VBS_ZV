@@ -33,7 +33,7 @@ protected:
   enum ReturnType {
 	                 mjj_vbs_AK4NotFat,
                    detajj_vbs_AK4NotFat,
-                   eta1eta2;
+                   eta1eta2,
                    mll_vbs,
                    M_ZV,
                    nVarTypes
