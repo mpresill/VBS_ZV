@@ -176,6 +176,7 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
   int size_Jet = sizeof(Jet_jetId)/sizeof(Jet_jetId[0]);
   double Mjj_temp=0;
   double Mjj_max=0;  
+  double Detajj_maxMjj=0;
   for(int i=0; i<= size_Jet; i++ ){
     for(int j=i+1; j<= size_Jet; j++){
       TLorentzVector jet0;
@@ -187,11 +188,15 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
       Mjj_temp=(jet0+jet1).M();
       if(Mjj_temp >= Mjj_max){
         Mjj_max=Mjj_temp;
+        Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
+        //si potrebbe aggiungere anche una funzione segno con un booleano da inserire come taglio per etaJ1*etaJ2<0
       }      
     }
   }
 
   returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
+
+  returnValues[detajj_vbs_AK4NotFat] =  Detajj_maxMjj;    // abs(jet0.Eta() - jet1.Eta()); 
 
   TLorentzVector lep1; 
   lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
@@ -199,16 +204,15 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
   TLorentzVector lep2;
   lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
 
-  TLorentzVector jet0;
+ /* TLorentzVector jet0;
   jet0.SetPtEtaPhiM(Jet_pt->At(0), Jet_eta->At(0),Jet_phi->At(0),Jet_mass->At(Jet_jetId->At(0)));   
 
   TLorentzVector jet1;
-  jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_jetId->At(1))); 
+  jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_jetId->At(1))); */
 
   TLorentzVector FJet;
   FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
-	
-  returnValues[detajj_vbs_AK4NotFat] = abs(jet0.Eta() - jet1.Eta());  
+	 
 
   returnValues[mll_vbs] = (lep1+lep2).M();   //ok 
   returnValues[M_ZV] = (lep1+lep2+FJet).M();  //the invariant mass is computed with the leading (and only) Fat Jet 

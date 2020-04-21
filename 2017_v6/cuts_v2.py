@@ -16,6 +16,8 @@ cuts['preselection'] = '1.'
 
 cuts['mjj']= 'mjj_vbs_AK4NotFat > 200'
 
+cuts['eta_opposto'] = 'opposite_eta'
+
 ###############################
 #####Signal Regions
 ###############################
