@@ -111,3 +111,12 @@ aliases['detajj_vbs_AK4NotFat'] = {
                  '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
              ]
 }
+
+aliases['eta1eta2'] = {
+             'class': 'VBSvar_AK4NotFat',
+             'args': ("eta1eta2"),
+             'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
+             ]
+}

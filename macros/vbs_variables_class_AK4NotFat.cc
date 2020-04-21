@@ -33,6 +33,7 @@ protected:
   enum ReturnType {
 	                 mjj_vbs_AK4NotFat,
                    detajj_vbs_AK4NotFat,
+                   eta1eta2;
                    mll_vbs,
                    M_ZV,
                    nVarTypes
@@ -98,6 +99,8 @@ VBSvar_AK4NotFat::VBSvar_AK4NotFat(char const* _type) :
    returnVar_ = mjj_vbs_AK4NotFat;
  else if ( type == "detajj_vbs_AK4NotFat")
    returnVar_ = detajj_vbs_AK4NotFat;
+ else if ( type == "eta1eta2")
+   returnVar_ = eta1eta2;
  else if (type == "mll_vbs")
    returnVar_ = mll_vbs;
  else if (type == "M_ZV")
@@ -177,6 +180,7 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
   double Mjj_temp=0;
   double Mjj_max=0;  
   double Detajj_maxMjj=0;
+  double eta1eta2_tmp=0;
   for(int i=0; i<= size_Jet; i++ ){
     for(int j=i+1; j<= size_Jet; j++){
       TLorentzVector jet0;
@@ -189,14 +193,15 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
       if(Mjj_temp >= Mjj_max){
         Mjj_max=Mjj_temp;
         Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
+        eta1eta2_tmp = jet0.Eta()*jet1.Eta();
         //si potrebbe aggiungere anche una funzione segno con un booleano da inserire come taglio per etaJ1*etaJ2<0
       }      
     }
   }
 
   returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
-
   returnValues[detajj_vbs_AK4NotFat] =  Detajj_maxMjj;    // abs(jet0.Eta() - jet1.Eta()); 
+  returnValues[eta1eta2] = eta1eta2_tmp; 
 
   TLorentzVector lep1; 
   lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);

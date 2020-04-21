@@ -13,8 +13,10 @@ supercut = ' && '.join(supercut_vector)
 
 cuts['preselection'] = '1.'
 
-cuts['mjj']= 'mjj_vbs_AK4NotFat > 200 && detajj_AK4NotFat >2.0'
+cuts['mjj_deta']= 'mjj_vbs_AK4NotFat > 200 && detajj_AK4NotFat >2.0'
 
+cuts['mjj_etaregions'] = 'mjj_vbs_AK4NotFat > 200 && eta1eta2 < 0.'
+ 
 ###############################
 #####Signal Regions
 ###############################
