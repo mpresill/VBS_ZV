@@ -176,8 +176,8 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
   int size_Jet = sizeof(Jet_jetId)/sizeof(Jet_jetId[0]);
   double Mjj_temp=0;
   double Mjj_max=0;  
-  for(int i=0, i<= size_Jet, i++ ){
-    for(int j=i+1, j<= size_Jet, j++){
+  for(int i=0; i<= size_Jet; i++ ){
+    for(int j=i+1; j<= size_Jet; j++){
       TLorentzVector jet0;
       jet0.SetPtEtaPhiM(Jet_pt->At(i), Jet_eta->At(i),Jet_phi->At(i),Jet_mass->At(Jet_jetId->At(i)));   
 
