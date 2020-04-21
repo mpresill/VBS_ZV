@@ -82,7 +82,7 @@ groupPlot['VBS_QCD']  = {
                   #'fill': 1001
                   }
 
-
+"""
 groupPlot['VBF-V']  = {  
                   'nameHR' : 'VBF-V',
                   'isSignal' : 0,
@@ -250,7 +250,7 @@ plot['VBS_VV_QCD']  = {
                   'isData'   : 0,
                   'scale'    : 1.0
                   }
-
+"""
 
 
 ############# FAKES
@@ -285,7 +285,7 @@ plot['Fakes_mm']  = {
                   'scale'    : 1.0                  
               }
 """
-
+"""
 ############## DATA
 plot['DATA']  = {
                   'nameHR' : 'Data',
@@ -295,7 +295,7 @@ plot['DATA']  = {
                   'isBlind'  : 1 ,
                   'scale'    : 1.0
               }
-
+"""
 # additional options
 
 legend['lumi'] = 'L =41.5/fb'
