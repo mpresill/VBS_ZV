@@ -12,9 +12,14 @@ supercut_vector = [##2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>30 GeV
 supercut = ' && '.join(supercut_vector)
 
 cuts['preselection'] = '1.'
+
+
+cuts['mjj']= 'mjj_AK4NotFat > 200'
+
 ###############################
 #####Signal Regions
 ###############################
+"""
 
 cuts['SR_minimal'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>85. && mll_vbs<99.  &&\
                     detajj_AK4NotFat >2.5 &&  mjj_AK4NotFat > 300 && fabs(Alt$(CleanJet_pt,-9999.))>50. &&\
@@ -45,3 +50,4 @@ cuts['Top_CR'] = '(Alt$(CleanFatJet_mass[0],0.)>65. && Alt$(CleanFatJet_mass[0],
     && mll_vbs>60. && mll_vbs<120.'
 
 cuts['Wjets_CR'] = '((Alt$(CleanFatJet_mass[0],0.)>40. && Alt$(CleanFatJet_mass[0],0.)<50.) || (Alt$(CleanFatJet_mass[0],0.)>105. && Alt$(CleanFatJet_mass[0],0.)<150.)  && Sum$(Jet_btagDeepB[CleanJetNotFat_jetIdx] > 0.1522) == 0)'#SR cuts and msoftdrop window inverted
+"""

@@ -173,41 +173,25 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-/*
- TLorentzVector ;
-  for (auto ij : *vbs_jets){
-    TLorentzVector v;
-    float pt = Jet_pt->At(ij);
-    float eta = Jet_eta->At(ij);
-    float phi = Jet_phi->At(ij);
-    float mass = Jet_mass->At(Jet_jetId->At(ij));
-    v.SetPtEtaPhiM(pt,eta,phi, mass);
-    vbsjets += v;
+  int size_Jet = sizeof(Jet_jetId)/sizeof(Jet_jetId[0]);
+  double Mjj_temp=0;
+  double Mjj_max=0;  
+  for(int i=0, i<= size_Jet, i++ ){
+    for(int j=i+1, j<= size_Jet, j++){
+      TLorentzVector jet0;
+      jet0.SetPtEtaPhiM(Jet_pt->At(i), Jet_eta->At(i),Jet_phi->At(i),Jet_mass->At(Jet_jetId->At(i)));   
+
+      TLorentzVector jet1;
+      jet1.SetPtEtaPhiM(Jet_pt->At(j), Jet_eta->At(j),Jet_phi->At(j),Jet_mass->At(Jet_jetId->At(j))); 
+
+      Mjj_temp=(jet0+jet1).M();
+      if(Mjj_temp >= Mjj_max){
+        Mjj_max=Mjj_temp;
+      }      
+    }
   }
 
-  TLorentzVector vbs_jets2;
-  for (auto ij : *vbs_jets2){
-    TLorentzVector v;
-    float pt = Jet_pt->At(ij);
-    float eta = Jet_eta->At(ij);
-    float phi = Jet_phi->At(ij);
-    float mass = Jet_mass->At(Jet_jetId->At(ij));
-    v.SetPtEtaPhiM(pt,eta,phi, mass);
-    vbs_jets2 += v;
-  }
-
-  TLorentzVector FJ;
-  for (auto ij : *FJ){
-    TLorentzVector v;
-    float pt = FatJet_pt->At(ij);
-    float eta = FatJet_eta->At(ij);
-    float phi = FatJet_phi->At(ij);
-    float mass = FatJet_msoftdrop->At(Jet_jetId->At(ij));
-    v.SetPtEtaPhiM(pt,eta,phi, mass);
-    FJ += v;
-  }
-*/
-
+  returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
 
   TLorentzVector lep1; 
   lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
@@ -224,8 +208,8 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
   TLorentzVector FJet;
   FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
 	
-  returnValues[mjj_vbs_AK4NotFat] = (jet0+jet1).M();
-  returnValues[detajj_vbs_AK4NotFat] = abs(jet0.Eta() - jet1.Eta());
-  returnValues[mll_vbs] = (lep1+lep2).M();
-  returnValues[M_ZV] = (lep1+lep2+FJet).M();
+  returnValues[detajj_vbs_AK4NotFat] = abs(jet0.Eta() - jet1.Eta());  
+
+  returnValues[mll_vbs] = (lep1+lep2).M();   //ok 
+  returnValues[M_ZV] = (lep1+lep2+FJet).M();  //the invariant mass is computed with the leading (and only) Fat Jet 
 }
