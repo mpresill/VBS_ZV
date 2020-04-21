@@ -176,29 +176,30 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-  int size_Jet = sizeof(Jet_jetId)/sizeof(Jet_jetId[0]);
+  unsigned int njet{*nJets->Get()};
   double Mjj_temp=0;
   double Mjj_max=0;  
   double Detajj_maxMjj=0;
   double eta1eta2_tmp=0;
-  for(int i=0; i<= nJets; i++ ){
-    for(int j=i+1; j<= nJets; j++){
-      TLorentzVector jet0;
-      jet0.SetPtEtaPhiM(Jet_pt->At(i), Jet_eta->At(i),Jet_phi->At(i),Jet_mass->At(Jet_jetId->At(i)));   
+  if(njets>=2){
+    for(int i=0; i<= njet; i++ ){
+      for(int j=i+1; j<= njet; j++){
+        TLorentzVector jet0;
+        jet0.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(i)), Jet_eta->At(Jet_jetId->At(i)),Jet_phi->At(Jet_jetId->At(i)),Jet_mass->At(Jet_jetId->At(i)));   
 
-      TLorentzVector jet1;
-      jet1.SetPtEtaPhiM(Jet_pt->At(j), Jet_eta->At(j),Jet_phi->At(j),Jet_mass->At(Jet_jetId->At(j))); 
+        TLorentzVector jet1;
+        jet1.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(j)), Jet_eta->At(Jet_jetId->At(j)),Jet_phi->At(Jet_jetId->At(j)),Jet_mass->At(Jet_jetId->At(j))); 
 
-      Mjj_temp=(jet0+jet1).M();
-      if(Mjj_temp >= Mjj_max){
-        Mjj_max=Mjj_temp;
-        Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
-        eta1eta2_tmp = jet0.Eta()*jet1.Eta();
-        //si potrebbe aggiungere anche una funzione segno con un booleano da inserire come taglio per etaJ1*etaJ2<0
-      }      
+        Mjj_temp=(jet0+jet1).M();
+        if(Mjj_temp >= Mjj_max){
+          Mjj_max=Mjj_temp;
+          Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
+          eta1eta2_tmp = jet0.Eta()*jet1.Eta();
+          //si potrebbe aggiungere anche una funzione segno con un booleano da inserire come taglio per etaJ1*etaJ2<0
+        }      
+      }
     }
   }
-
   returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
   returnValues[detajj_vbs_AK4NotFat] =  Detajj_maxMjj;    // abs(jet0.Eta() - jet1.Eta()); 
   returnValues[eta1eta2] = eta1eta2_tmp; 
