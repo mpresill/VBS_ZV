@@ -176,7 +176,7 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-  unsigned int njets{*nJets->Get()};
+  int njets{*nJets->Get()};
   double Mjj_temp=0;
   double Mjj_max=0;  
   double Detajj_maxMjj=0;
