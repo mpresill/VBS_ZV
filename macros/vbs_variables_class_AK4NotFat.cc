@@ -192,16 +192,16 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
       Mjj_temp=(jet0+jet1).M();
       if(Mjj_temp >= Mjj_max){
         Mjj_max=Mjj_temp;
-        //Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
-        //eta1eta2_tmp = jet0.Eta()*jet1.Eta();
+        Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
+        eta1eta2_tmp = jet0.Eta()*jet1.Eta();
         //si potrebbe aggiungere anche una funzione segno con un booleano da inserire come taglio per etaJ1*etaJ2<0
       }      
     }
   }
 
   returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
-  // returnValues[detajj_vbs_AK4NotFat] =  Detajj_maxMjj;    // abs(jet0.Eta() - jet1.Eta()); 
-  // returnValues[eta1eta2] = eta1eta2_tmp; 
+  returnValues[detajj_vbs_AK4NotFat] =  Detajj_maxMjj;    // abs(jet0.Eta() - jet1.Eta()); 
+  returnValues[eta1eta2] = eta1eta2_tmp; 
 
   TLorentzVector lep1; 
   lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
