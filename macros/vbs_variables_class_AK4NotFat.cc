@@ -176,14 +176,14 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
 
-  unsigned int njet{*nJets->Get()};
+  unsigned int njets{*nJets->Get()};
   double Mjj_temp=0;
   double Mjj_max=0;  
   double Detajj_maxMjj=0;
   double eta1eta2_tmp=0;
   if(njets>=2){
-    for(int i=0; i<= njet; i++ ){
-      for(int j=i+1; j<= njet; j++){
+    for(int i=0; i<= njets; i++ ){
+      for(int j=i+1; j<= njets; j++){
         TLorentzVector jet0;
         jet0.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(i)), Jet_eta->At(Jet_jetId->At(i)),Jet_phi->At(Jet_jetId->At(i)),Jet_mass->At(Jet_jetId->At(i)));   
 
