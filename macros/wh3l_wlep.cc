@@ -205,7 +205,7 @@ WHSS_wpt_v3::evaluate(unsigned)
   // Recover neutrino1
   // ASSUMPTION: neutrino2 is colinear with lepton2
   // CASE 1: 2 lepton; 2 jet, kfactor method, assuming deltaR min resemble the pair of jets decay from higgs, using the mass of the higgs to scale lepton2 magnitude to neutrino2's.  
-  if (njet>=2){
+ /* if (njet>=2){
     for (unsigned int ijet=0 ; ijet<njet ; ijet++){
       for (unsigned int jjet=0 ; jjet<njet ; jjet++){
         if (ijet==jjet) continue;
@@ -217,8 +217,8 @@ WHSS_wpt_v3::evaluate(unsigned)
         }
       }
     }
-    return Mjj_max;
-    /*float kfactor = 125./(Whad+lepton2).M();
+    return Mjj_max;*/
+    float kfactor = 125./(Whad+lepton2).M();
     TLorentzVector neutrino2 = lepton2 * ( ((kfactor-1.)>0) ? (kfactor-1.) : 0 );
     TVector2 met_2d(0.,0.); met_2d.SetMagPhi(metpt,metphi);
     TVector2 met2_2d(neutrino2.Px(), neutrino2.Py());
@@ -227,14 +227,14 @@ WHSS_wpt_v3::evaluate(unsigned)
     float met1pz = recoverNeutrinoPz(lepton1,neutrino1);
     TLorentzVector neutrino1_rec; neutrino1_rec.SetPxPyPzE( met1_2d.Px(), met1_2d.Py(), met1pz, TMath::Sqrt(met1_2d.Px()*met1_2d.Px() + met1_2d.Py()*met1_2d.Py() + met1pz*met1pz) );
 
-    return (lepton1+neutrino1_rec).Pt();*/
+    return (lepton1+neutrino1_rec).Pt();
   }
   // CASE 2: assume lepton2 colinear with neutrino1
   else{
-/*    TLorentzVector neutrino1 = MET - lepton2;
+    TLorentzVector neutrino1 = MET - lepton2;
     Float_t met1pz = recoverNeutrinoPz(lepton1,neutrino1);
     TLorentzVector neutrino1_rec; neutrino1_rec.SetPxPyPzE( neutrino1.Px(), neutrino1.Py(), met1pz, TMath::Sqrt(neutrino1.Px()*neutrino1.Px() + neutrino1.Py()*neutrino1.Py() + met1pz*met1pz) );
-    return (lepton1+neutrino1_rec).Pt();*/
+    return (lepton1+neutrino1_rec).Pt();
     return 0;
   }
 }
