@@ -1,3 +1,8 @@
+/*
+  Building W pt proxy assuming second neutrino is collinear wrt to second lepton.
+  1.) If event consist of 2 jets or more, the colinear neutrino2 is scaled with kfactor with invariant mass constrain from higgs boson.
+  2.) The neutrino1 is recovered by subtracting MET with coliear neutrino2, and accounted with recovered pz by using invariant mass of W mass.
+*/
 #include "LatinoAnalysis/MultiDraw/interface/TTreeFunction.h"
 #include "LatinoAnalysis/MultiDraw/interface/FunctionLibrary.h"
 
@@ -7,14 +12,21 @@
 #include "TSystem.h"
 #include "TLorentzVector.h"
 
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <algorithm>
+#include <iterator>
 #include <cmath>
 #include <string>
 #include <unordered_map>
-#include <iostream>
 #include <stdexcept>
 #include <tuple>
 
 //see https://github.com/UniMiBAnalyses/PlotsConfigurations/blob/VBSjjlnu/Configurations/VBSjjlnu/Full2017v6s5/macros/deltaphivars_class.cc for another example
+//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/macros/whss_wlep_v3.cc
+//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/WH_SS/STXS_nanoAOD/v5/Full2016nano_STXS_1p1/aliases.py#L16-L22
+
 
 using namespace std;
 
@@ -27,7 +39,7 @@ public:
   TTreeFunction* clone() const override { return new VBSvar_AK4NotFat(returnVar_); }
 
   unsigned getNdata() override { return 1; }
-  double evaluate(unsigned) override;
+  //double evaluate(unsigned) override;
 
 protected:
   enum ReturnType {

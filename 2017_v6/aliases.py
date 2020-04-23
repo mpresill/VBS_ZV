@@ -120,3 +120,11 @@ aliases['eta1eta2'] = {
                  '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
              ]
 }
+
+aliases['mjj_max'] = {
+    'linesToAdd': [
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_jets.cc+'.format(configurations)
+    ],
+    'class': 'VBS_ak4',
+    'args': ()
+}
