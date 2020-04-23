@@ -235,7 +235,7 @@ WHSS_wpt_v3::evaluate(unsigned)
     Float_t met1pz = recoverNeutrinoPz(lepton1,neutrino1);
     TLorentzVector neutrino1_rec; neutrino1_rec.SetPxPyPzE( neutrino1.Px(), neutrino1.Py(), met1pz, TMath::Sqrt(neutrino1.Px()*neutrino1.Px() + neutrino1.Py()*neutrino1.Py() + met1pz*met1pz) );
     return (lepton1+neutrino1_rec).Pt();
-    return 0;
+    //return 0;
   }
 }
 
