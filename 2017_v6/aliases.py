@@ -94,6 +94,18 @@ aliases['detajj_vbs'] = {
              ]
  }
 
+
+
+aliases['WH2l_pTW'] = {
+    'linesToAdd': [
+        'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV:/macros/whss_wlep_v3.cc+'.format(configurations)
+    ],
+    'class': 'WHSS_wpt_v3',
+    'args': ()
+}
+
+
 """
 aliases['mjj_vbs_AK4NotFat'] = {
              'class': 'VBSvar_AK4NotFat',
@@ -114,14 +126,6 @@ aliases['detajj_vbs_AK4NotFat'] = {
 }
 """
 
-
-aliases['WH2l_pTW'] = {
-    'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV:/macros/whss_wlep_v3.cc+'.format(configurations)
-    ],
-    'class': 'WHSS_wpt_v3',
-    'args': ()
-}
 
 
 
