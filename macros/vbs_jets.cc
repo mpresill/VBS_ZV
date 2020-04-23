@@ -95,8 +95,8 @@ VBS_ak4::evaluate(unsigned)
   if (njet>=2){
     for (unsigned int ijet=0 ; ijet<=njet ; ijet++){
       for (unsigned int jjet=ijet+1 ; jjet<=njet ; jjet++){
-        TLorentzVector jet0; jet0.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(ijet)), Jet_eta->At(Jet_jetId->At(ijet)),Jet_phi->At(Jet_jetId->At(ijet)),Jet_mass->At(Jet_jetId->At(ijet)));   
-        TLorentzVector jet1; jet1.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(jjet)), Jet_eta->At(Jet_jetId->At(jjet)),Jet_phi->At(Jet_jetId->At(jjet)),Jet_mass->At(Jet_jetId->At(jjet))); 
+        TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),CleanJet_mass->At(CleanJet_jetId->At(ijet)));   
+        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(jjet), CleanJet_eta->At(jjet),CleanJet_phi->At(jjet),CleanJet_mass->At(CleanJet_jetId->At(jjet))); 
         Mjj_temp=(jet0+jet1).M();
         if(Mjj_temp >= Mjj_max){
           Mjj_max=Mjj_temp;
