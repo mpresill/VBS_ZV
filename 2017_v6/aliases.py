@@ -94,6 +94,7 @@ aliases['detajj_vbs'] = {
              ]
  }
 
+"""
 aliases['mjj_vbs_AK4NotFat'] = {
              'class': 'VBSvar_AK4NotFat',
              'args': ("mjj_vbs_AK4NotFat"),
@@ -111,6 +112,19 @@ aliases['detajj_vbs_AK4NotFat'] = {
                  '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
              ]
 }
+"""
+
+aliases['WH2l_pTW'] = {
+    'linesToAdd': [
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/whss_wlep_v3.cc+' % configurations
+    ],
+    'class': 'WHSS_wpt_v3',
+    'args': ()
+}
+
+
+
+
 """
 
 aliases['eta1eta2'] = {
