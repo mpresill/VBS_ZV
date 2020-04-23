@@ -40,11 +40,7 @@ protected:
   FloatArrayReader* CleanJet_pt;
   FloatArrayReader* CleanJet_eta;
   FloatArrayReader* CleanJet_phi;
-  UIntValueReader* nLepton;
-  FloatArrayReader* Lepton_pt;
-  FloatArrayReader* Lepton_eta;
-  FloatArrayReader* Lepton_phi;
-  
+  UIntValueReader* nLepton;  
 };
 
 WHSS_wpt_v3::WHSS_wpt_v3() :
@@ -62,9 +58,9 @@ WHSS_wpt_v3::evaluate(unsigned)
   unsigned int njet{*nCleanJet->Get()};
   unsigned int nlep{*nLepton->Get()};
  
-  if (nlep<2)
+  if (nlep<2){
     return -9999.;
-
+  }
   if (njet>=2){
     for (unsigned int ijet=0 ; ijet<njet ; ijet++){
       for (unsigned int jjet=0 ; jjet<njet ; jjet++){
@@ -82,7 +78,7 @@ WHSS_wpt_v3::evaluate(unsigned)
   }
   // CASE 2: assume lepton2 colinear with neutrino1
   else{
-    return 0;
+    return -9999.;
   }
 }
 
@@ -98,9 +94,5 @@ WHSS_wpt_v3::bindTree_(multidraw::FunctionLibrary& _library)
   _library.bindBranch(CleanJet_phi, "CleanJet_phi");
   _library.bindBranch(nLepton, "nLepton");
   _library.bindBranch(Lepton_pt, "Lepton_pt");
-  _library.bindBranch(Lepton_eta, "Lepton_eta");
-  _library.bindBranch(Lepton_phi, "Lepton_phi");
-  _library.bindBranch(Lepton_phi, "Lepton_phi");
-
 
 }
