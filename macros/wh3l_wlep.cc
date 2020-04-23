@@ -68,12 +68,12 @@ WHSS_wpt_v3::evaluate(unsigned)
         TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(0), CleanJet_eta->At(0),CleanJet_phi->At(0),Jet_mass->At(CleanJet_jetId->At(0)));   
         TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(1), CleanJet_eta->At(1),CleanJet_phi->At(1),Jet_mass->At(CleanJet_jetId->At(1))); 
         Mjj_tmp = (jet0 + jet1).M();
-        if(Mjj_max >= Mjj_tmp){
-          Mjj_max=Mjj_tmp;
-        }
+        //if(Mjj_max >= Mjj_tmp){
+        //  Mjj_max=Mjj_tmp;
+        //}
  //     }
  //   }
-    return Mjj_max;
+    return Mjj_tmp;
 
   }
   // CASE 2: assume lepton2 colinear with neutrino1
