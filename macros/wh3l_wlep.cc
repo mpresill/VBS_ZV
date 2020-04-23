@@ -62,17 +62,17 @@ WHSS_wpt_v3::evaluate(unsigned)
     return -9999.;
   }
   if (njet>=2){
-    for (unsigned int ijet=0 ; ijet<njet ; ijet++){
-      for (unsigned int jjet=0 ; jjet<njet ; jjet++){
-        if (ijet==jjet) continue;
-        TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),0.);//Jet_mass->At(CleanJet_jetId->At(ijet)));   
-        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(jjet), CleanJet_eta->At(jjet),CleanJet_phi->At(jjet),0.);//Jet_mass->At(CleanJet_jetId->At(jjet))); 
+//    for (unsigned int ijet=0 ; ijet<njet ; ijet++){
+//      for (unsigned int jjet=0 ; jjet<njet ; jjet++){
+ //       if (ijet==jjet) continue;
+        TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(0), CleanJet_eta->At(0),CleanJet_phi->At(0),Jet_mass->At(CleanJet_jetId->At(0)));   
+        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(1), CleanJet_eta->At(1),CleanJet_phi->At(1),Jet_mass->At(CleanJet_jetId->At(1))); 
         Mjj_tmp = (jet0 + jet1).M();
         if(Mjj_max >= Mjj_tmp){
           Mjj_max=Mjj_tmp;
         }
-      }
-    }
+ //     }
+ //   }
     return Mjj_max;
 
   }
