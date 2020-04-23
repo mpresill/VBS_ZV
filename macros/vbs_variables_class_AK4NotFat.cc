@@ -39,7 +39,7 @@ public:
   TTreeFunction* clone() const override { return new VBSvar_AK4NotFat(returnVar_); }
 
   unsigned getNdata() override { return 1; }
-  //double evaluate(unsigned) override;
+  double evaluate(unsigned) override;
 
 protected:
   enum ReturnType {
