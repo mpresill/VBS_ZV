@@ -173,7 +173,7 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
     return;
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
-
+/*
   unsigned int njets{*nJets->Get()};
   double Mjj_temp=0;
   double Mjj_max=0;  
@@ -190,7 +190,7 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
     }
   }
   returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
-
+*/
   TLorentzVector lep1; lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
   TLorentzVector lep2; lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
   TLorentzVector FJet; FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
