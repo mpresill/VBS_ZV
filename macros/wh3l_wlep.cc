@@ -49,6 +49,8 @@ public:
 protected:
   void bindTree_(multidraw::FunctionLibrary&) override;
 
+  IntArrayReader* CleanJet_jetId;
+  FloatArrayReader* Jet_mass;
   UIntValueReader* nCleanJet;
   FloatArrayReader* CleanJet_pt;
   FloatArrayReader* CleanJet_eta;
@@ -123,6 +125,9 @@ std::vector<std::pair<std::pair<int,int>, float>> WHSS_wpt_v3::IndexByMindR(std:
 double
 WHSS_wpt_v3::evaluate(unsigned)
 {
+
+  float Mjj_tmp=0;
+  float Mjj_max=0;
 
   TLorentzVector Whad(0.,0.,0.,0.);
   TLorentzVector lepton1(0.,0.,0.,0.);
@@ -201,8 +206,19 @@ WHSS_wpt_v3::evaluate(unsigned)
   // ASSUMPTION: neutrino2 is colinear with lepton2
   // CASE 1: 2 lepton; 2 jet, kfactor method, assuming deltaR min resemble the pair of jets decay from higgs, using the mass of the higgs to scale lepton2 magnitude to neutrino2's.  
   if (njet>=2){
-
-    float kfactor = 125./(Whad+lepton2).M();
+    for (unsigned int ijet=0 ; ijet<njet ; ijet++){
+      for (unsigned int jjet=0 ; jjet<njet ; jjet++){
+        if (ijet==jjet) continue;
+        TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),Jet_mass->At(CleanJet_jetId->At(ijet)));   
+        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(jjet), CleanJet_eta->At(jjet),CleanJet_phi->At(jjet),Jet_mass->At(CleanJet_jetId->At(jjet))); 
+        Mjj_tmp = (jet0 + jet1).M();
+        if(Mjj_max >= Mjj_tmp){
+          Mjj_max=Mjj_tmp;
+        }
+      }
+    }
+    return Mjj_max;
+    /*float kfactor = 125./(Whad+lepton2).M();
     TLorentzVector neutrino2 = lepton2 * ( ((kfactor-1.)>0) ? (kfactor-1.) : 0 );
     TVector2 met_2d(0.,0.); met_2d.SetMagPhi(metpt,metphi);
     TVector2 met2_2d(neutrino2.Px(), neutrino2.Py());
@@ -211,14 +227,15 @@ WHSS_wpt_v3::evaluate(unsigned)
     float met1pz = recoverNeutrinoPz(lepton1,neutrino1);
     TLorentzVector neutrino1_rec; neutrino1_rec.SetPxPyPzE( met1_2d.Px(), met1_2d.Py(), met1pz, TMath::Sqrt(met1_2d.Px()*met1_2d.Px() + met1_2d.Py()*met1_2d.Py() + met1pz*met1pz) );
 
-    return (lepton1+neutrino1_rec).Pt();
+    return (lepton1+neutrino1_rec).Pt();*/
   }
   // CASE 2: assume lepton2 colinear with neutrino1
   else{
-    TLorentzVector neutrino1 = MET - lepton2;
+/*    TLorentzVector neutrino1 = MET - lepton2;
     Float_t met1pz = recoverNeutrinoPz(lepton1,neutrino1);
     TLorentzVector neutrino1_rec; neutrino1_rec.SetPxPyPzE( neutrino1.Px(), neutrino1.Py(), met1pz, TMath::Sqrt(neutrino1.Px()*neutrino1.Px() + neutrino1.Py()*neutrino1.Py() + met1pz*met1pz) );
-    return (lepton1+neutrino1_rec).Pt();
+    return (lepton1+neutrino1_rec).Pt();*/
+    return 0;
   }
 }
 
@@ -226,7 +243,9 @@ void
 WHSS_wpt_v3::bindTree_(multidraw::FunctionLibrary& _library)
 {
   std::cout << "Loading WHSS_wpt_v3" << std::endl;
-  _library.bindBranch(nCleanJet, "nCleanJet");
+  _library.bindBranch(CleanJet_jetId, "CleanJetNotFat_jetIdx");
+  _library.bindBranch(Jet_mass, "Jet_mass");
+  _library.bindBranch(nCleanJet, "nCleanJetNotFat");
   _library.bindBranch(CleanJet_pt, "CleanJet_pt");
   _library.bindBranch(CleanJet_eta, "CleanJet_eta");
   _library.bindBranch(CleanJet_phi, "CleanJet_phi");

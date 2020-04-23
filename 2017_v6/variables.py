@@ -226,3 +226,10 @@ variables['ZlepV']  = {  'name': '(Alt$(CleanFatJet_eta[0],-9999.) - (Alt$(Clean
                           'xaxis': 'z_{V}',
                           'fold': 3
                           }
+
+
+variables['WH2l_pTW'] = { 'name': 'WH2l_pTW',
+                               'range' : (60,0,1200),
+                             'xaxis' : 'WH2l_pTW [GeV]',
+                             'fold' : 1
+                         }
