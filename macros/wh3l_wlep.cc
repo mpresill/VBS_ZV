@@ -93,6 +93,5 @@ WHSS_wpt_v3::bindTree_(multidraw::FunctionLibrary& _library)
   _library.bindBranch(CleanJet_eta, "CleanJet_eta");
   _library.bindBranch(CleanJet_phi, "CleanJet_phi");
   _library.bindBranch(nLepton, "nLepton");
-  _library.bindBranch(Lepton_pt, "Lepton_pt");
 
 }
