@@ -115,8 +115,9 @@ aliases['detajj_vbs_AK4NotFat'] = {
 """
 
 aliases['WH2l_pTW'] = {
-    'linesToAdd': [
-        '.L %s/macros/wh3l_wlep.cc+' % configurations
+'linesToAdd' : [
+                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
+                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/wh3l_wlep.cc+'.format(configurations)
     ],
     'class': 'WHSS_wpt_v3',
     'args': ()
