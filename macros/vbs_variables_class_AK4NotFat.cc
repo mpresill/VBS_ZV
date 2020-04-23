@@ -1,8 +1,8 @@
-/*
-  Building W pt proxy assuming second neutrino is collinear wrt to second lepton.
-  1.) If event consist of 2 jets or more, the colinear neutrino2 is scaled with kfactor with invariant mass constrain from higgs boson.
-  2.) The neutrino1 is recovered by subtracting MET with coliear neutrino2, and accounted with recovered pz by using invariant mass of W mass.
-*/
+//
+//https://github.com/UniMiBAnalyses/PlotsConfigurations/blob/VBSjjlnu/Configurations/VBSjjlnu/Full2017v6s5/macros/deltaphivars_class.cc for another example
+//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/macros/whss_wlep_v3.cc
+//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/WH_SS/STXS_nanoAOD/v5/Full2016nano_STXS_1p1/aliases.py#L16-L22
+
 #include "LatinoAnalysis/MultiDraw/interface/TTreeFunction.h"
 #include "LatinoAnalysis/MultiDraw/interface/FunctionLibrary.h"
 
@@ -23,10 +23,6 @@
 #include <stdexcept>
 #include <tuple>
 
-//see https://github.com/UniMiBAnalyses/PlotsConfigurations/blob/VBSjjlnu/Configurations/VBSjjlnu/Full2017v6s5/macros/deltaphivars_class.cc for another example
-//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/macros/whss_wlep_v3.cc
-//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/WH_SS/STXS_nanoAOD/v5/Full2016nano_STXS_1p1/aliases.py#L16-L22
-
 
 using namespace std;
 
@@ -44,8 +40,6 @@ public:
 protected:
   enum ReturnType {
 	                 mjj_vbs_AK4NotFat,
-                   detajj_vbs_AK4NotFat,
-                   eta1eta2,
                    mll_vbs,
                    M_ZV,
                    nVarTypes
@@ -74,8 +68,6 @@ void bindTree_(multidraw::FunctionLibrary&) override;
   static FloatArrayReader* FatJet_eta;
   static FloatArrayReader* FatJet_phi;
   static FloatArrayReader* FatJet_msoftdrop;
- //static IntArrayReader* vbs_jets;
- //static IntArrayReader* v_jets;
 
   static std::array<double, nVarTypes> returnValues;
 
@@ -97,8 +89,6 @@ FloatArrayReader* VBSvar_AK4NotFat::FatJet_pt{};
 FloatArrayReader* VBSvar_AK4NotFat::FatJet_eta{};
 FloatArrayReader* VBSvar_AK4NotFat::FatJet_phi{};
 FloatArrayReader* VBSvar_AK4NotFat::FatJet_msoftdrop{};
-//IntArrayReader* VBSvar_AK4NotFat::vbs_jets{};
-//IntArrayReader* VBSvar_AK4NotFat::v_jets{};
 
 std::array<double, VBSvar_AK4NotFat::nVarTypes> VBSvar_AK4NotFat::returnValues{};
 
@@ -109,10 +99,6 @@ VBSvar_AK4NotFat::VBSvar_AK4NotFat(char const* _type) :
   std::string type(_type);
  if (type == "mjj_vbs_AK4NotFat")
    returnVar_ = mjj_vbs_AK4NotFat;
- else if ( type == "detajj_vbs_AK4NotFat")
-   returnVar_ = detajj_vbs_AK4NotFat;
- else if ( type == "eta1eta2")
-   returnVar_ = eta1eta2;
  else if (type == "mll_vbs")
    returnVar_ = mll_vbs;
  else if (type == "M_ZV")
@@ -155,8 +141,7 @@ VBSvar_AK4NotFat::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(FatJet_eta, "CleanFatJet_eta");
     _library.bindBranch(FatJet_phi, "CleanFatJet_phi");
     _library.bindBranch(FatJet_msoftdrop, "CleanFatJet_mass");  //CleanFatJet_mass == softdrop
-    //_library.bindBranch(vbs_jets, "VBS_jets_maxmjj_massWZ");
-    //_library.bindBranch(v_jets, "V_jets_maxmjj_massWZ");
+  
 
     currentEvent = std::make_tuple(0, 0, 0);
 
@@ -192,47 +177,24 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
   unsigned int njets{*nJets->Get()};
   double Mjj_temp=0;
   double Mjj_max=0;  
-  double Detajj_maxMjj=0;
-  double eta1eta2_tmp=0;
   if(njets>=2){
     for(unsigned int i=0; i<= njets; i++ ){
       for(unsigned int j=i+1; j<= njets; j++){
-        TLorentzVector jet0;
-        jet0.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(i)), Jet_eta->At(Jet_jetId->At(i)),Jet_phi->At(Jet_jetId->At(i)),Jet_mass->At(Jet_jetId->At(i)));   
-
-        TLorentzVector jet1;
-        jet1.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(j)), Jet_eta->At(Jet_jetId->At(j)),Jet_phi->At(Jet_jetId->At(j)),Jet_mass->At(Jet_jetId->At(j))); 
-
+        TLorentzVector jet0; jet0.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(i)), Jet_eta->At(Jet_jetId->At(i)),Jet_phi->At(Jet_jetId->At(i)),Jet_mass->At(Jet_jetId->At(i)));   
+        TLorentzVector jet1; jet1.SetPtEtaPhiM(Jet_pt->At(Jet_jetId->At(j)), Jet_eta->At(Jet_jetId->At(j)),Jet_phi->At(Jet_jetId->At(j)),Jet_mass->At(Jet_jetId->At(j))); 
         Mjj_temp=(jet0+jet1).M();
-        if(Mjj_temp >= Mjj_max){
+       if(Mjj_temp >= Mjj_max){
           Mjj_max=Mjj_temp;
-          Detajj_maxMjj= abs(jet0.Eta() - jet1.Eta()); 
-          eta1eta2_tmp = jet0.Eta()*jet1.Eta();
-          //si potrebbe aggiungere anche una funzione segno con un booleano da inserire come taglio per etaJ1*etaJ2<0
         }      
       }
     }
   }
   returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
-  returnValues[detajj_vbs_AK4NotFat] =  Detajj_maxMjj;    // abs(jet0.Eta() - jet1.Eta()); 
-  returnValues[eta1eta2] = eta1eta2_tmp; 
 
-  TLorentzVector lep1; 
-  lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
-
-  TLorentzVector lep2;
-  lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
-
- /* TLorentzVector jet0;
-  jet0.SetPtEtaPhiM(Jet_pt->At(0), Jet_eta->At(0),Jet_phi->At(0),Jet_mass->At(Jet_jetId->At(0)));   
-
-  TLorentzVector jet1;
-  jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_jetId->At(1))); */
-
-  TLorentzVector FJet;
-  FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
+  TLorentzVector lep1; lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
+  TLorentzVector lep2; lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
+  TLorentzVector FJet; FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
 	 
-
-  returnValues[mll_vbs] = (lep1+lep2).M();   //ok 
+  returnValues[mll_vbs] = (lep1+lep2).M();   
   returnValues[M_ZV] = (lep1+lep2+FJet).M();  //the invariant mass is computed with the leading (and only) Fat Jet 
 }
