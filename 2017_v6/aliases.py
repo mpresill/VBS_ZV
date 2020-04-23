@@ -98,10 +98,9 @@ aliases['detajj_vbs'] = {
 
 aliases['WH2l_pTW'] = {
     'class': 'WHSS_wpt_v3',
-    'args': ("evaluate"),
+    'args': (),
     'linesToAdd': [
-        'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV:/macros/whss_wlep_v3.cc+'.format(configurations)
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/whss_wlep_v3.cc+'.format(configurations)
     ]
 }
 
