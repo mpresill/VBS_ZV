@@ -1,8 +1,3 @@
-//
-//https://github.com/UniMiBAnalyses/PlotsConfigurations/blob/VBSjjlnu/Configurations/VBSjjlnu/Full2017v6s5/macros/deltaphivars_class.cc for another example
-//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/macros/whss_wlep_v3.cc
-//https://github.com/latinos/PlotsConfigurations/blob/master/Configurations/WH_SS/STXS_nanoAOD/v5/Full2016nano_STXS_1p1/aliases.py#L16-L22
-
 #include "LatinoAnalysis/MultiDraw/interface/TTreeFunction.h"
 #include "LatinoAnalysis/MultiDraw/interface/FunctionLibrary.h"
 
@@ -12,26 +7,23 @@
 #include "TSystem.h"
 #include "TLorentzVector.h"
 
-#include <iostream>
-#include <vector>
-#include <utility>
-#include <algorithm>
-#include <iterator>
 #include <cmath>
 #include <string>
 #include <unordered_map>
+#include <iostream>
 #include <stdexcept>
 #include <tuple>
 
+//see https://github.com/UniMiBAnalyses/PlotsConfigurations/blob/VBSjjlnu/Configurations/VBSjjlnu/Full2017v6s5/macros/deltaphivars_class.cc for another example
 
 using namespace std;
 
 class VBSvar_AK4NotFat : public multidraw::TTreeFunction {
 public: 
-  VBSvar_AK4NotFat(char const* type);
-  VBSvar_AK4NotFat(unsigned type);
+  VBSvar_AK4NotFatNotFat(char const* type);
+  VBSvar_AK4NotFatNotFat(unsigned type);
 
-  char const* getName() const override { return "VBSvar_AK4NotFat"; }
+  char const* getName() const override { return "VBSvar_AK4NotFatNotFat"; }
   TTreeFunction* clone() const override { return new VBSvar_AK4NotFat(returnVar_); }
 
   unsigned getNdata() override { return 1; }
@@ -40,6 +32,7 @@ public:
 protected:
   enum ReturnType {
 	                 mjj_vbs_AK4NotFat,
+                   detajj_vbs_AK4NotFat,
                    mll_vbs,
                    M_ZV,
                    nVarTypes
@@ -68,6 +61,8 @@ void bindTree_(multidraw::FunctionLibrary&) override;
   static FloatArrayReader* FatJet_eta;
   static FloatArrayReader* FatJet_phi;
   static FloatArrayReader* FatJet_msoftdrop;
+ //static IntArrayReader* vbs_jets;
+ //static IntArrayReader* v_jets;
 
   static std::array<double, nVarTypes> returnValues;
 
@@ -89,6 +84,8 @@ FloatArrayReader* VBSvar_AK4NotFat::FatJet_pt{};
 FloatArrayReader* VBSvar_AK4NotFat::FatJet_eta{};
 FloatArrayReader* VBSvar_AK4NotFat::FatJet_phi{};
 FloatArrayReader* VBSvar_AK4NotFat::FatJet_msoftdrop{};
+//IntArrayReader* VBSvar_AK4NotFat::vbs_jets{};
+//IntArrayReader* VBSvar_AK4NotFat::v_jets{};
 
 std::array<double, VBSvar_AK4NotFat::nVarTypes> VBSvar_AK4NotFat::returnValues{};
 
@@ -99,6 +96,8 @@ VBSvar_AK4NotFat::VBSvar_AK4NotFat(char const* _type) :
   std::string type(_type);
  if (type == "mjj_vbs_AK4NotFat")
    returnVar_ = mjj_vbs_AK4NotFat;
+ else if ( type == "detajj_vbs_AK4NotFat")
+   returnVar_ = detajj_vbs_AK4NotFat;
  else if (type == "mll_vbs")
    returnVar_ = mll_vbs;
  else if (type == "M_ZV")
@@ -123,12 +122,11 @@ VBSvar_AK4NotFat::evaluate(unsigned)
 void
 VBSvar_AK4NotFat::bindTree_(multidraw::FunctionLibrary& _library)
 {   
-  std::cout << "Loading vbs_variables_class_AK4NotFat" << std::endl;
     _library.bindBranch(run, "run");
     _library.bindBranch(luminosityBlock, "luminosityBlock");
     _library.bindBranch(event, "event");
 
-    _library.bindBranch(nJets, "nCleanJetNotFat");   //AK4 after cleaning
+   _library.bindBranch(nJets, "nCleanJetNotFat");   //AK4 after cleaning
     _library.bindBranch(Jet_pt, "CleanJet_pt");
     _library.bindBranch(Jet_eta, "CleanJet_eta");
     _library.bindBranch(Jet_phi, "CleanJet_phi");
@@ -141,7 +139,8 @@ VBSvar_AK4NotFat::bindTree_(multidraw::FunctionLibrary& _library)
     _library.bindBranch(FatJet_eta, "CleanFatJet_eta");
     _library.bindBranch(FatJet_phi, "CleanFatJet_phi");
     _library.bindBranch(FatJet_msoftdrop, "CleanFatJet_mass");  //CleanFatJet_mass == softdrop
-  
+     //_library.bindBranch(vbs_jets, "VBS_jets_maxmjj_massWZ");
+    //_library.bindBranch(v_jets, "V_jets_maxmjj_massWZ");
 
     currentEvent = std::make_tuple(0, 0, 0);
 
@@ -173,28 +172,27 @@ VBSvar_AK4NotFat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _eve
     return;
 
  currentEvent = std::make_tuple(_run, _luminosityBlock, _event);
-/*
-  unsigned int njets{*nJets->Get()};
-  double Mjj_temp=0;
-  double Mjj_max=0;  
-  if(njets>=2){
-    for(unsigned int i=0; i<= njets; i++ ){
-      for(unsigned int j=i+1; j<= njets; j++){
-        TLorentzVector jet0; jet0.SetPtEtaPhiM(Jet_pt->At(i), Jet_eta->At(i),Jet_phi->At(i),Jet_mass->At(i));   
-        TLorentzVector jet1; jet1.SetPtEtaPhiM(Jet_pt->At(j), Jet_eta->At(j),Jet_phi->At(j),Jet_mass->At(j)); 
-        Mjj_temp=(jet0+jet1).M();
-       if(Mjj_temp >= Mjj_max){
-          Mjj_max=Mjj_temp;
-        }      
-      }
-    }
-  }
-  returnValues[mjj_vbs_AK4NotFat] = Mjj_max;    // (jet0+jet1).M();
-*/
-  TLorentzVector lep1; lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
-  TLorentzVector lep2; lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
-  TLorentzVector FJet; FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
-	 
-  returnValues[mll_vbs] = (lep1+lep2).M();   
-  returnValues[M_ZV] = (lep1+lep2+FJet).M();  //the invariant mass is computed with the leading (and only) Fat Jet 
+
+
+  TLorentzVector lep1; 
+  lep1.SetPtEtaPhiM(Lepton_pt->At(0), Lepton_eta->At(0), Lepton_phi->At(0), 0.);
+
+  TLorentzVector lep2;
+  lep2.SetPtEtaPhiM(Lepton_pt->At(1), Lepton_eta->At(1), Lepton_phi->At(1), 0.);
+
+  TLorentzVector jet0;
+  jet0.SetPtEtaPhiM(Jet_pt->At(0), Jet_eta->At(0),Jet_phi->At(0),Jet_mass->At(Jet_jetId->At(0)));   
+
+  TLorentzVector jet1;
+  jet1.SetPtEtaPhiM(Jet_pt->At(1), Jet_eta->At(1),Jet_phi->At(1),Jet_mass->At(Jet_jetId->At(1))); 
+
+  TLorentzVector FJet;
+  FJet.SetPtEtaPhiM(FatJet_pt->At(0), FatJet_eta->At(0),FatJet_phi->At(0),FatJet_msoftdrop->At(0));
+	
+  returnValues[mjj_vbs_AK4NotFat] = (jet0+jet1).M();
+  returnValues[detajj_vbs_AK4NotFat] = abs(jet0.Eta() - jet1.Eta());
+  returnValues[mll_vbs] = (lep1+lep2).M();
+  returnValues[M_ZV] = (lep1+lep2+FJet).M();
 }
+
+
