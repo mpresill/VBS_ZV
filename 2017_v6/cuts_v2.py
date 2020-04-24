@@ -23,19 +23,19 @@ cuts['preselection'] = '1.'
 #####Signal Regions
 ###############################
 
-cuts['SR_minimal'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>85. && mll_vbs<99.  &&\
+cuts['SR_minimal'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>76. && mll_vbs<107.  &&\
                     mjj_vbs_AK4NotFat > 300 && fabs(Alt$(CleanJet_pt,-9999.))>50. &&\
                     bVeto '#detajj_vbs_AK4NotFat >2.5 &&  
 
 
-cuts['SR_medium'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>85. && mll_vbs<99.  &&\
+cuts['SR_medium'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>76. && mll_vbs<107.  &&\
                     mjj_vbs_AK4NotFat > 300 && fabs(Alt$(CleanJet_pt,-9999.))>50. &&\
                     bVeto &&\
                     fabs((Alt$(CleanFatJet_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat ) < 0.7 ' 
                     #detajj_vbs_AK4NotFat >3.0 && 
 
-cuts['SR_tight'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>85. && mll_vbs<99.  &&\
-                    mjj_vbs_AK4NotFat > 500 && fabs(Alt$(CleanJet_pt,-9999.))>50. &&\
+cuts['SR_tight'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=35. && Alt$(Lepton_pt[1],0.)>=35.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>30. && Alt$(Lepton_pt[1],0.)>30.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>76. && mll_vbs<107.  &&\
+                    mjj_vbs_AK4NotFat > 300 && fabs(Alt$(CleanJet_pt,-9999.))>50. &&\
                     bVeto &&\
                     fabs((Alt$(CleanFatJet_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat ) < 0.7 &&\
                     Alt$(CleanFatJet_mass,0.)>50. && Alt$(CleanFatJet_mass,0.)<120.' 
