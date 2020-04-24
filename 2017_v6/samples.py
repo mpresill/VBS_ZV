@@ -178,7 +178,7 @@ else:
     addSampleWeight(samples,'DY','DYJetsToLL_M-10to50-LO',ptllDYW_LO)
 """
 
-"""
+
 files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-200to400') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-400to600_ext1') + \
@@ -306,7 +306,7 @@ samples['VBF-V'] = {
     'name': files,
     'weight': XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC
 }
-"""
+
 ###########################################
 #############   VBS PROCESSES ##################
 ###########################################
@@ -366,7 +366,6 @@ samples['VBS_VV_EW'] = {
 ###########################################
 ################## DATA ###################
 ###########################################
-"""
 samples['DATA'] = {
   'name': [],
   'weight': METFilter_DATA+'*'+LepWPCut,
@@ -380,4 +379,4 @@ for _, sd in DataRun:
     files = nanoGetSampleFiles(dataDirectory, pd + '_' + sd)
     samples['DATA']['name'].extend(files)
     samples['DATA']['weights'].extend([DataTrig[pd]] * len(files))
-    """
+    
