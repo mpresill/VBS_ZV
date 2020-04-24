@@ -110,6 +110,16 @@ aliases['detajj_vbs_AK4NotFat'] = {
     ]
 }
 
+aliases['eta1eta2'] = {
+    'class': 'eta12',
+    'args': (),
+    'linesToAdd': [
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/eta12_mjj_max_vbs.cc+'.format(configurations)
+    ]
+}
+
+
+
 """
 aliases['detajj_vbs_AK4NotFat'] = {
              'class': 'VBSvar_AK4NotFat',

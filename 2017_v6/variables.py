@@ -176,6 +176,12 @@ variables['detajj_vbs_AK4NotFat']  = {  'name': 'detajj_vbs_AK4NotFat',
                           }
 
 
+variables['eta1eta2'] = {  'name': 'eta1eta2',
+                          'range': (40,-20.0,20.0),
+                          'xaxis': '\eta_{j1} * \eta_{j2} (jj) (cleaned)',
+                          'fold': 0
+                          }
+
 
 #
 # MET
