@@ -50,7 +50,7 @@ detajj::detajj() :
 
 
 // --- Helper
-float WHSS_wpt_v3::deltaEta(float eta1, float eta2) {
+float detajj::deltaEta(float eta1, float eta2) {
   return std::abs(eta1 - eta2);
 }
 // Helper ---
