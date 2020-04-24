@@ -68,7 +68,7 @@ WHSS_wpt_v3::evaluate(unsigned)
         TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),Jet_mass->At(CleanJet_jetId->At(ijet)));   
         TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(jjet), CleanJet_eta->At(jjet),CleanJet_phi->At(jjet),Jet_mass->At(CleanJet_jetId->At(jjet))); 
         Mjj_tmp = (jet0 + jet1).M();
-        f(Mjj_tmp>=Mjj_max){
+        if(Mjj_tmp>=Mjj_max){
           Mjj_max=Mjj_tmp;
         }
       }
@@ -76,7 +76,7 @@ WHSS_wpt_v3::evaluate(unsigned)
 
  ///test 1: salvare elemento di un vettore per ogni mjj 
  // calcolare max con helper
- 
+
     return Mjj_tmp;
 
   }
