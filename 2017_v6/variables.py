@@ -96,11 +96,11 @@ variables['mjj_vbs'] = {   'name': 'mjj_vbs',            #   variable name
                            'fold' : 0
                         }
 
-#variables['mjj_vbs_AK4NotFat'] = {   'name': 'mjj_vbs_AK4NotFat',            #   variable name
-#                           'range' : (50,300,2500),    #   variable range
-#                           'xaxis' : 'm_{jj} [GeV] (cleaned)',  #   x axis name
-#                          'fold' : 0
-#                       }
+variables['mjj_vbs_AK4NotFat'] = {   'name': 'mjj_vbs_AK4NotFat',            #   variable name
+                           'range' : (50,300,2500),    #   variable range
+                           'xaxis' : 'm_{jj} [GeV] (cleaned)',  #   x axis name
+                          'fold' : 0
+                       }
 
 variables['jetpt1'] = { 'name': 'Alt$(CleanJet_pt[0],-9999.)',
                         'range': (30,0.,500),
@@ -169,11 +169,11 @@ variables['detajj_vbs']  = {  'name': 'detajj_vbs',
                           'fold': 0
                           }
 
-#variables['detajj_vbs_AK4NotFat']  = {  'name': 'detajj_vbs_AK4NotFat',
-#                          'range': (32,0.0,8.0),
-#                          'xaxis': '\Delta \eta (jj) (cleaned)',
-#                          'fold': 0
-#                          }
+variables['detajj_vbs_AK4NotFat']  = {  'name': 'detajj_vbs_AK4NotFat',
+                          'range': (32,0.0,8.0),
+                          'xaxis': '\Delta \eta (jj) (cleaned)',
+                          'fold': 0
+                          }
 
 
 
@@ -227,9 +227,10 @@ variables['ZlepV']  = {  'name': '(Alt$(CleanFatJet_eta[0],-9999.) - (Alt$(Clean
                           'fold': 3
                           }
 
-
+"""
 variables['WH2l_pTW'] = { 'name': 'WH2l_pTW',
                                'range' : (60,0,1200),
                              'xaxis' : 'WH2l_pTW [GeV]',
                              'fold' : 1
                          }
+"""

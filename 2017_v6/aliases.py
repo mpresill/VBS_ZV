@@ -94,27 +94,23 @@ aliases['detajj_vbs'] = {
              ]
  }
 
-
-
-aliases['WH2l_pTW'] = {
+aliases['mjj_vbs_AK4NotFat'] = {
     'class': 'WHSS_wpt_v3',
     'args': (),
     'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/wh3l_wlep.cc+'.format(configurations)
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/mjj_max_vbs.cc+'.format(configurations)
     ]
 }
 
+aliases['detajj_vbs_AK4NotFat'] = {
+    'class': 'detajj',
+    'args': (),
+    'linesToAdd': [
+        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/detajj_mjj_max_vbs.cc+'.format(configurations)
+    ]
+}
 
 """
-aliases['mjj_vbs_AK4NotFat'] = {
-             'class': 'VBSvar_AK4NotFat',
-             'args': ("mjj_vbs_AK4NotFat"),
-             'linesToAdd' : [
-                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
-             ]
- }
-
 aliases['detajj_vbs_AK4NotFat'] = {
              'class': 'VBSvar_AK4NotFat',
              'args': ("detajj_vbs_AK4NotFat"),
@@ -123,12 +119,6 @@ aliases['detajj_vbs_AK4NotFat'] = {
                  '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
              ]
 }
-"""
-
-
-
-
-"""
 
 aliases['eta1eta2'] = {
              'class': 'VBSvar_AK4NotFat',
@@ -137,12 +127,5 @@ aliases['eta1eta2'] = {
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
                  '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4NotFat.cc+'.format(configurations)
              ]
-}
-aliases['mjj_max'] = {
-    'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_jets.cc+'.format(configurations)
-    ],
-    'class': 'VBS_ak4',
-    'args': ()
 }
 """
