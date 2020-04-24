@@ -157,7 +157,7 @@ variables['nCleanJet']  = {
 
 variables['nCleanJetNotFat']  = {
                         'name': 'nCleanJetNotFat',     
-                        'range' : (8,0,8),   
+                        'range' : (10,0,10),   
                         'xaxis' : 'Number of jets w/ p_{T}>30 GeV (cleaned)',
                         'fold' : 2   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }

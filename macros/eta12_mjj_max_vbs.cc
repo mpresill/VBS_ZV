@@ -60,9 +60,7 @@ eta12::evaluate(unsigned)
   unsigned int njet{*nCleanJet->Get()};
   unsigned int nlep{*nLepton->Get()};
  
-  if (nlep<2){
-    return -9999.;
-  }
+
   if (njet>=2){
     for (unsigned int ijet=0 ; ijet<njet ; ijet++){
       for (unsigned int jjet=0 ; jjet<njet ; jjet++){
