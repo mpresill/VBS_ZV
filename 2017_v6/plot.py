@@ -82,20 +82,20 @@ groupPlot['VBS_QCD']  = {
                   #'fill': 1001
                   }
 
-groupPlot['VBF-V']  = {  
-                  'nameHR' : 'VBF-V',
+groupPlot['Other']  = {  
+                  'nameHR' : 'Other',
                   'isSignal' : 0,
                   'color':  palette["RedOrange"],   # kOrange + 10 
-                  'samples'  : ['VBF-V']
+                  'samples'  : ['VBF-V','WW','WW_ewk', 'VZ', 'ggWW','VVV','WJets']
               }
-
+"""
 groupPlot['VV']  = {  
                   'nameHR' : 'VV',
                   'isSignal' : 0,
                   'color': palette["YellowOrange"], # kAzure -9 
                   'samples'  : ['WW','WW_ewk', 'VZ', 'ggWW']
               }
-
+"""
 groupPlot['DY']  = {  
                   'nameHR' : "DY",
                   'isSignal' : 0,
@@ -104,7 +104,7 @@ groupPlot['DY']  = {
               }
 
 
-
+"""
 groupPlot['VVV']  = {  
                   'nameHR' : 'VVV',
                   'isSignal' : 0,
@@ -120,7 +120,7 @@ groupPlot['WJets']  = {
                   'color'    : palette["MediumBlue"],   # kGreen - 9
                   'samples'  : ['WJets']
               }
-
+"""
 
 
 groupPlot['top']  = {  
