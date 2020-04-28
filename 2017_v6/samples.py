@@ -155,6 +155,7 @@ useDYtt = False
 ptllDYW_NLO = '((0.623108 + 0.0722934*gen_ptll - 0.00364918*gen_ptll*gen_ptll + 6.97227e-05*gen_ptll*gen_ptll*gen_ptll - 4.52903e-07*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll<45)*(gen_ptll>0) + 1*(gen_ptll>=45))'
 ptllDYW_LO = '((0.632927+0.0456956*gen_ptll-0.00154485*gen_ptll*gen_ptll+2.64397e-05*gen_ptll*gen_ptll*gen_ptll-2.19374e-07*gen_ptll*gen_ptll*gen_ptll*gen_ptll+6.99751e-10*gen_ptll*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll>0)*(gen_ptll<100)+(1.41713-0.00165342*gen_ptll)*(gen_ptll>=100)*(gen_ptll<300)+1*(gen_ptll>=300))'
 
+"""
 if useDYtt :
     samples['DY'] = {    'name'   :   getSampleFiles(mcDirectory,'DYJetsToTT_MuEle_M-50',False,'nanoLatino_')
                                     + getSampleFiles(mcDirectory,'DYJetsToLL_M-10to50-LO',False,'nanoLatino_'),
@@ -180,6 +181,7 @@ else:
 
 """
 files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
+                                     nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-70to100') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-200to400') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-400to600_ext1') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-600to800') +\
@@ -188,11 +190,10 @@ files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-2500toInf')
 
 samples['DY'] = {    'name'   :   files,
-                         'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC,
+                         'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC, #'*1.21/1.158', #updating k-factor=1.158 in Latino
                          'FilesPerJob' : 5,
 }
 
-"""
 
 ###### Top #######
 
@@ -203,11 +204,11 @@ files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel') + \
     nanoGetSampleFiles(mcDirectory, 'ST_t-channel_antitop') + \
     nanoGetSampleFiles(mcDirectory, 'ST_t-channel_top') + \
     nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop') + \
-    nanoGetSampleFiles(mcDirectory, 'ST_tW_top') #+ \
-    #nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \ 
-    #nanoGetSampleFiles(mcDirectory, 'TTWjets') + \
-    #nanoGetSampleFiles(mcDirectory, 'TTZjets') + \
-    #nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') 
+    nanoGetSampleFiles(mcDirectory, 'ST_tW_top') + \
+    #nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \  #overlap with TTTo2L2Nu?
+    #nanoGetSampleFiles(mcDirectory, 'TTWjets') + \ #overlap with TTTo2L2Nu?
+    #nanoGetSampleFiles(mcDirectory, 'TTZjets') + \ #overlap with TTTo2L2Nu?
+    nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') 
 
 samples['top'] = {
     'name': files,

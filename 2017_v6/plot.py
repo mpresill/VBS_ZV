@@ -68,7 +68,7 @@ groupPlot['VZ']  = {
                   
 groupPlot['VBS_EW']  = {
                   'nameHR' : "VBS EW",
-                  'color': palette["Violet"], # kAzure -3  
+                  'color': palette["YellowOrange"], # kAzure -3  
                   'isSignal' : 0,
                   'samples'  : ['VBS_VV_EW']
                   #'fill': 1001
@@ -85,7 +85,7 @@ groupPlot['VBS_QCD']  = {
 groupPlot['Other']  = {  
                   'nameHR' : 'Other',
                   'isSignal' : 0,
-                  'color':  palette["RedOrange"],   # kOrange + 10 
+                  'color':  palette["Violet"],   # kOrange + 10 
                   'samples'  : ['VBF-V','WW','WW_ewk', 'VZ', 'ggWW','VVV','WJets']
               }
 """
@@ -126,7 +126,7 @@ groupPlot['WJets']  = {
 groupPlot['top']  = {  
                   'nameHR' : 'tW and t#bar{t}',
                   'isSignal' : 0,
-                  'color': palette["ClaretRed"],   # kYellow
+                  'color': palette["DarkBlue"],   # kYellow
                   'samples'  : ['top']
               }
 
