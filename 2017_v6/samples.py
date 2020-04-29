@@ -181,14 +181,13 @@ else:
 
 """
 files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
-                                     nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-70to100') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-200to400') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-400to600_ext1') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-600to800') +\
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-800to1200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-1200to2500') +\
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-2500toInf')
-
+                                    #nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-70to100') + \
 samples['DY'] = {    'name'   :   files,
                          'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC, #'*1.21/1.158', #updating k-factor=1.158 in Latino
                          'FilesPerJob' : 5,
