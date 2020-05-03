@@ -17,7 +17,6 @@ except NameError:
 from LatinoAnalysis.Tools.HiggsXSection import HiggsXSection
 HiggsXS = HiggsXSection()
 
-
 # name of samples here must match keys in samples.py
 
 ################################ EXPERIMENTAL UNCERTAINTIES  #################################
