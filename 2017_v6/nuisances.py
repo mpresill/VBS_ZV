@@ -1,7 +1,22 @@
-
 # nuisances
+# name of samples here must match keys in samples.py 
+from LatinoAnalysis.Tools.commonTools import getSampleFiles, getBaseW, addSampleWeight
 
-#nuisances = {}
+def nanoGetSampleFiles(inputDir, Sample):
+    return getSampleFiles(inputDir, Sample, False, 'nanoLatino_')
+
+try:
+    mc = [skey for skey in samples if skey != 'DATA' and not skey.startswith('Fake')]
+except NameError:
+    mc = []
+    cuts = {}
+    nuisances = {}
+    def makeMCDirectory(x=''):
+        return ''
+
+from LatinoAnalysis.Tools.HiggsXSection import HiggsXSection
+HiggsXS = HiggsXSection()
+
 
 # name of samples here must match keys in samples.py
 
