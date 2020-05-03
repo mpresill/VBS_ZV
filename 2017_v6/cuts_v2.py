@@ -27,7 +27,6 @@ cuts['SR_minimal'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepto
                     mjj_vbs_AK4NotFat > 200 &&\
                     bVeto '#detajj_vbs_AK4NotFat >2.5 &&  
 
-
 cuts['SR_medium'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=25. && Alt$(Lepton_pt[1],0.)>=25.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>=20. && Alt$(Lepton_pt[1],0.)>=20.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll_vbs>76. && mll_vbs<107.  &&\
                     mjj_vbs_AK4NotFat > 200 &&\
                     bVeto &&\
@@ -48,8 +47,16 @@ cuts['SR_tight'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_
 cuts['DYJets_CR'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=25. && Alt$(Lepton_pt[1],0.)>=25.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>=20. && Alt$(Lepton_pt[1],0.)>=20.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4))  && mll_vbs>60. && mll_vbs<120.\
     && mjj_vbs_AK4NotFat >300. '#&& detajj_vbs_AK4NotFat >3.5
 
+cuts['DYJets_CR2'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=25. && Alt$(Lepton_pt[1],0.)>=25.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>=20. && Alt$(Lepton_pt[1],0.)>=20.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4))  && mll_vbs>60. && mll_vbs<120.\
+    && (CleanFatJet_mass[0] < 65. || CleanFatJet_mass[0] >105.)\
+    && bVeto\
+    && mjj_vbs_AK4NotFat >300. '#&& detajj_vbs_AK4NotFat >3.5
+
+
 cuts['Top_CR'] = '(Alt$(CleanFatJet_mass[0],0.)>65. && Alt$(CleanFatJet_mass[0],0.)<105. && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)))\
     && mll_vbs>60. && mll_vbs<120.'
+
+
 """
 cuts['Wjets_CR'] = '((Alt$(CleanFatJet_mass[0],0.)>40. && Alt$(CleanFatJet_mass[0],0.)<50.) || (Alt$(CleanFatJet_mass[0],0.)>105. && Alt$(CleanFatJet_mass[0],0.)<150.)  && bVeto'#SR cuts and msoftdrop window inverted
 """
