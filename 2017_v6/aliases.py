@@ -73,6 +73,9 @@ for shift in ['jes', 'lf', 'hf', 'lfstats1', 'lfstats2', 'hfstats1', 'hfstats2',
         'samples': mc
     }
 
+"""
+PU jet ID (not added)
+
 puidSFSource = '%s/src/LatinoAnalysis/NanoGardener/python/data/JetPUID_effcyandSF.root' % os.getenv('CMSSW_BASE')
 
 aliases['PUJetIdSF'] = {
@@ -84,6 +87,7 @@ aliases['PUJetIdSF'] = {
     'args': (puidSFSource, '2017', 'loose'),
     'samples': mc
 }
+"""
 """
 #b-tag scale factors OLD
 aliases['bReqSF'] = {
