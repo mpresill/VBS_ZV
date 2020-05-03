@@ -18,7 +18,6 @@ variablesFile = 'variables.py'
 
 # file with list of cuts
 cutsFile = 'cuts_v2.py'
-#cutsFile = 'cuts_forPlots.py'
 
 # file with list of samples
 #samplesFile = 'samples_sig.py'
@@ -47,4 +46,5 @@ structureFile = 'structure.py'
 
 
 # nuisances file for mkDatacards and for mkShape
-nuisancesFile = 'nuisances_StatOnly.py'
+nuisancesFile = 'nuisances.py'
+#'nuisances_StatOnly.py'
