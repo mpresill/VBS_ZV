@@ -31,13 +31,6 @@ aliases['bReq'] = {
     'expr': '(Sum$(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) >= 1)'
 }
 
-
-aliases['bVetoSF'] = {
-    'expr': 'TMath::Exp(Sum$(TMath::Log((CleanJet_pt>20 && abs(CleanJet_eta)<2.5)*Jet_btagSF_shape[CleanJet_jetIdx]+1*(CleanJet_pt<=20 || abs(CleanJet_eta)>=2.5))))',
-    'samples': mc
-}
-
-
 # B tag scale factors
 
 aliases['bVetoSF'] = {
@@ -50,10 +43,10 @@ aliases['bReqSF'] = {
     'samples': mc
 }
 
-aliases['btagSF'] = {
-    'expr': '(bVeto || (topcr && zeroJet))*bVetoSF + (topcr && !zeroJet)*bReqSF',
-    'samples': mc
-}
+#aliases['btagSF'] = {
+#    'expr': '(bVeto || (topcr && zeroJet))*bVetoSF + (topcr && !zeroJet)*bReqSF',
+#    'samples': mc
+#}
 
 for shift in ['jes', 'lf', 'hf', 'lfstats1', 'lfstats2', 'hfstats1', 'hfstats2', 'cferr1', 'cferr2']:
     for targ in ['bVeto', 'bReq']:
