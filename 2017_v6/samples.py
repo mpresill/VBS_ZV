@@ -1,4 +1,3 @@
-
 import os
 import inspect
 
@@ -52,16 +51,14 @@ if    'iihe' in SITE:
 elif  'cern' in SITE:
   treeBaseDir = '/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano'
 
+def makeMCDirectory(var=''):
+    if var:
+        return os.path.join(treeBaseDir, mcProduction, mcSteps.format(var='__' + var))
+    else:
+        return os.path.join(treeBaseDir, mcProduction, mcSteps.format(var=''))
 
-#def makeMCDirectory(var=''):
-#    if var:
-#        #return os.path.join(treeBaseDir, mcProduction, mcSteps.format(var='__' + var))
-#        return '/afs/cern.ch/user/y/yiiyama/public/hwwvirtual/Fall17/l2tightOR__{var}'.format(var=var)
-#    else:
-#        #return os.path.join(treeBaseDir, mcProduction, mcSteps.format(var=''))
-#        return '/afs/cern.ch/user/y/yiiyama/public/hwwvirtual/Fall17/l2tightOR'
-
-mcDirectory = os.path.join(treeBaseDir, mcProduction, mcSteps)
+mcDirectory = makeMCDirectory()
+#mcDirectory = os.path.join(treeBaseDir, mcProduction, mcSteps)
 mcDirectorySig = os.path.join(treeBaseDir, mcProductionSig, mcStepsSig)
 fakeDirectory = os.path.join(treeBaseDir, dataReco, fakeSteps)
 dataDirectory = os.path.join(treeBaseDir, dataReco, dataSteps)
