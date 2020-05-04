@@ -149,7 +149,7 @@ nuisances['btagbc']  = {
 #  nuisances['btagbc']['samples']['ggH_hww_'+m] = btagbc_syst
 #  nuisances['btagbc']['samples']['qqH_hww_'+m] = btagbc_syst
 
-
+"""
 btagudsg_syst = ['('+bSF+'_udsg_up)/('+bSF+')', '('+bSF+'_udsg_down)/('+bSF+')']
 
 nuisances['btagudsg']  = {
@@ -167,6 +167,7 @@ nuisances['btagudsg']  = {
                     'VBS_VV_EW'   : btagudsg_syst,
                 }
 }
+"""
 #for m in masses:
 #  nuisances['btagudsg']['samples']['ggH_hww_'+m] = btagudsg_syst
 #  nuisances['btagudsg']['samples']['qqH_hww_'+m] = btagudsg_syst
