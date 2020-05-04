@@ -242,7 +242,7 @@ samples['WW'] = {
     'FilesPerJob' : 1,
 }            
 
-
+"""
 samples['WW_ewk'] = {
     'name' : nanoGetSampleFiles(mcDirectory, 'WpWmJJ_EWK_noTop'),
     'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC + '*(Sum$(abs(GenPart_pdgId)==6 || GenPart_pdgId==25)==0)',  #filter tops and Higgs
@@ -266,7 +266,7 @@ samples['ggWW'] = {
 
 
 }
-
+"""
 ###VZ####
 files = nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Nu') + \
     nanoGetSampleFiles(mcDirectory, 'ZZTo4L') +\
@@ -296,6 +296,7 @@ samples['VVV'] = {
 
 
 ########VBF-V##########
+"""
 files =nanoGetSampleFiles(mcDirectory, 'WLNuJJ_EWK') + \
     nanoGetSampleFiles(mcDirectory, 'EWKZ2Jets_ZToLL_M-50')
 
@@ -303,7 +304,7 @@ samples['VBF-V'] = {
     'name': files,
     'weight': XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC
 }
-
+"""
 ###########################################
 #############   VBS PROCESSES ##################
 ###########################################
@@ -344,17 +345,17 @@ samples['VBS_VV_QCD'] = {
 }
 
 
-#######VBS EW 
+#######VBS EW: only ZV processes
 
 samples['VBS_VV_EW'] = {
     'name':   nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J') 
              +nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L') 
-             +nanoGetSampleFiles(mcDirectory, 'WmToLNu_WmTo2J')
-             +nanoGetSampleFiles(mcDirectory, 'WmToLNu_ZTo2J')
-             +nanoGetSampleFiles(mcDirectory, 'WpTo2J_WmToLNu')
-             +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WmTo2J')
-             +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WpTo2J')
-             +nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J')
+             #+nanoGetSampleFiles(mcDirectory, 'WmToLNu_WmTo2J')
+             #+nanoGetSampleFiles(mcDirectory, 'WmToLNu_ZTo2J')
+             #+nanoGetSampleFiles(mcDirectory, 'WpTo2J_WmToLNu')
+             #+nanoGetSampleFiles(mcDirectory, 'WpToLNu_WmTo2J')
+             #+nanoGetSampleFiles(mcDirectory, 'WpToLNu_WpTo2J')
+             #+nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_ZTo2L'),
     'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
     'FilesPerJob': 1

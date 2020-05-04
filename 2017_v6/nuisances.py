@@ -33,10 +33,10 @@ nuisances['lumi']  = {
         'VBS_VV_EW'       : '1.023',
         'WW'       : '1.023',
         'VZ'   : '1.023',
-        'ggWW'       : '1.023',
+        #'ggWW'       : '1.023',
         'VVV'      : '1.023',
         'WJets'  : '1.023',
-        'VBF-V'  : '1.023',
+        #'VBF-V'  : '1.023',
         'WW_ewk'   : '1.023',
     },
     'type'  : 'lnN',
@@ -113,12 +113,14 @@ nuisances['fake_mu_stat']  = {
 """
 
 ################################ THEORY UNCERTAINTIES  #################################
+"""
+TO BE FIXED
 nuisances['QCDscale']  = {
     'name'  : 'QCDscale',
     'type'  : 'lnN',
     'samples'  : {
         #'ChMisId'  : '1.10',
-	    'ttbar'   : '1.10',
+	    'top'   : '1.10',
         'WZ'   : '1.10',
         'ZZ'   : '1.10',
         'VVV'  : '1.10',
@@ -128,7 +130,7 @@ nuisances['QCDscale']  = {
        # 'WW_strong': '1.10' ,
     },
 }
-
+"""
 nuisances['QCDscale_gg_accept']  = {
     'name'  : 'QCDscale_gg_accept',
     'type'  : 'lnN',
@@ -138,8 +140,9 @@ nuisances['QCDscale_gg_accept']  = {
     },
  }
 
-
+"""
 # pdf uncertainty
+TO BE FIXED
 
 nuisances['pdf']  = {
     'name'  : 'pdf',
@@ -166,7 +169,7 @@ nuisances['QCDscale_VZ']  = {
     },
     'type'  : 'lnN'
 }
-
+""""
 
 ################################ BKG ESTIMATION UNCERTAINTIES  #################################
 """
@@ -188,8 +191,8 @@ nuisances['charge_flip']  = {
                'type'  : 'lnN',
               }
 """
-###### B-tagger
-
+###### B-tagger TO BE ADDED!!!!!
+"""
 for shift in ['jes', 'lf', 'hf', 'hfstats1', 'hfstats2', 'lfstats1', 'lfstats2', 'cferr1', 'cferr2']:
     btag_syst = ['(btagSF%sup)/(btagSF)' % shift, '(btagSF%sdown)/(btagSF)' % shift]
 
@@ -203,7 +206,7 @@ for shift in ['jes', 'lf', 'hf', 'hfstats1', 'hfstats2', 'lfstats1', 'lfstats2',
         'type': 'shape',
         'samples': dict((skey, btag_syst) for skey in mc),
     }
-
+"""
 
 
 ##### Trigger Efficiency
@@ -328,20 +331,22 @@ nuisances['QCDscale_V'] = {
     'AsLnN': '1'
 }
 
+"""
+TO BE FIXED
 nuisances['QCDscale_VV'] = {
     'name': 'QCDscale_VV',
     'kind': 'weight_envelope',
     'type': 'shape',
     'samples': {
-        'Zg': variations,
-        'Wg': variations,
+        #'Zg': variations,
+        #'Wg': variations,
         'ZZ': variations,
         'WZ': variations
         #'WgS': variations,
         #'ZgS': variations
     }
 }
-
+"""
 
 # statistical fluctuation
 # on MC/data

@@ -86,7 +86,7 @@ groupPlot['Other']  = {
                   'nameHR' : 'Other',
                   'isSignal' : 0,
                   'color':  palette["Violet"],   # kOrange + 10 
-                  'samples'  : ['VBF-V','WW','WW_ewk', 'VZ', 'ggWW','VVV','WJets']
+                  'samples'  : ['WW','VZ', 'VVV','WJets']
               }
 """
 groupPlot['VV']  = {  
@@ -163,14 +163,14 @@ plot['WW']  = {
                   'scale'    : 1.0
               }
 
-
+"""
 plot['WW_ewk']  = {  
                   'color': 360,    # kGreen+2
                   'isSignal' : 0,
                   'isData'   : 0, 
                   'scale'    : 1.0
               }
-
+"""
 
 plot['VZ']  = {  
                   'color': 418,    # kGreen+2
@@ -179,14 +179,14 @@ plot['VZ']  = {
                   'scale'    : 1.0
               }
 
-
+"""
 plot['ggWW']  = {  
                   'color': 420,    # kGreen+2
                   'isSignal' : 0,
                   'isData'   : 0, 
                   'scale'    : 1.0
               }
-
+"""
 
 plot['DY']  = {  
                   'color': 500,    # kGreen+2
@@ -202,14 +202,14 @@ plot['VVV']  = {
                   'isData'   : 0, 
                   'scale'    : 1.0
               }
-
+"""
 plot['VBF-V'] = {
                 'color': 700,    # kGreen+2
                 'isSignal' : 0,
                 'isData'   : 0, 
                 'scale'    : 1.0
 } 
-
+"""
 plot['WJets']  = {  
                   'color': 480,    # kGreen+2
                   'isSignal' : 0,
