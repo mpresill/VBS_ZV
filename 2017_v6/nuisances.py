@@ -169,7 +169,7 @@ nuisances['QCDscale_VZ']  = {
     },
     'type'  : 'lnN'
 }
-""""
+"""
 
 ################################ BKG ESTIMATION UNCERTAINTIES  #################################
 """
