@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_3May2020'
+date='_4May2020'
 
 tag = 'VBS_ZV'+date
 
@@ -46,5 +46,5 @@ structureFile = 'structure.py'
 
 
 # nuisances file for mkDatacards and for mkShape
-#nuisancesFile = 'nuisances.py'
-nuisancesFile ='nuisances_StatOnly.py'
+nuisancesFile = 'nuisances.py'
+#nuisancesFile ='nuisances_StatOnly.py'
