@@ -260,7 +260,7 @@ nuisances['jes']  = {
                     'VBS_VV_QCD'  : ['1', '1'],
                     'VBS_VV_EW'   : ['1', '1'], 
                 },
-                'folderUp'   :  'folderUp': makeMCDirectory('JESup_suffix'),
+                'folderUp': makeMCDirectory('JESup_suffix'),
                 'folderDown': makeMCDirectory('JESdo_suffix'),
 }
 
