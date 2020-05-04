@@ -1,12 +1,6 @@
-# nuisances
+import os
+import inspect
 
-#nuisances = {}
-
-# name of samples here must match keys in samples.py 
-#directly taken from: https://github.com/lenzip/CMSDataAnalysisSchoolPisa2019ScalarToWW/blob/master/Example2/nuisances.py
-################################ EXPERIMENTAL UNCERTAINTIES  #################################
-
-#### Luminosity
 from LatinoAnalysis.Tools.commonTools import getSampleFiles, getBaseW, addSampleWeight
 
 def nanoGetSampleFiles(inputDir, Sample):
@@ -22,6 +16,16 @@ except NameError:
         return ''
 
 xrootdPath  = 'root://eoscms.cern.ch/'
+
+# nuisances
+
+#nuisances = {}
+
+# name of samples here must match keys in samples.py 
+#directly taken from: https://github.com/lenzip/CMSDataAnalysisSchoolPisa2019ScalarToWW/blob/master/Example2/nuisances.py
+################################ EXPERIMENTAL UNCERTAINTIES  #################################
+
+#### Luminosity
 
 nuisances['lumi']  = {
                'name'  : 'lumi_13TeV',
@@ -256,8 +260,8 @@ nuisances['jes']  = {
                     'VBS_VV_QCD'  : ['1', '1'],
                     'VBS_VV_EW'   : ['1', '1'], 
                 },
-                'folderUp'   : treeBaseDir+mcProduction+mcSteps'JESup_suffix',
-                'folderDown' : treeBaseDir+mcProduction+mcSteps'JESdo_suffix',
+                'folderUp'   :  'folderUp': makeMCDirectory('JESup_suffix'),
+                'folderDown': makeMCDirectory('JESdo_suffix'),
 }
 
 #for m in masses:
