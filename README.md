@@ -6,6 +6,7 @@ Documentation:
 N.B: Clone this folder in the Latino directory: /PlotsConfigurations/Configurations/
 
 Useful link:
+https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolBeijing2019LongHWW
 https://github.com/latinos/PlotsConfigurations (here sample list and details on the Latino Tree)
 https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolPisa2019ScalarToWW
 
