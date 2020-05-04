@@ -126,7 +126,7 @@ nuisances['fake_mu_stat']  = {
 }
 """
 ##### B-tagger
-
+"""
 btagbc_syst = ['('+bSF+'_bc_up)/('+bSF+')', '('+bSF+'_bc_down)/('+bSF+')']
 
 nuisances['btagbc']  = {
@@ -149,7 +149,7 @@ nuisances['btagbc']  = {
 #  nuisances['btagbc']['samples']['ggH_hww_'+m] = btagbc_syst
 #  nuisances['btagbc']['samples']['qqH_hww_'+m] = btagbc_syst
 
-"""
+
 btagudsg_syst = ['('+bSF+'_udsg_up)/('+bSF+')', '('+bSF+'_udsg_down)/('+bSF+')']
 
 nuisances['btagudsg']  = {
