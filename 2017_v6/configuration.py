@@ -46,5 +46,5 @@ structureFile = 'structure.py'
 
 
 # nuisances file for mkDatacards and for mkShape
-nuisancesFile = 'nuisances.py'
+nuisancesFile = 'nuisance_twiki.py'
 #nuisancesFile ='nuisances_StatOnly.py'
