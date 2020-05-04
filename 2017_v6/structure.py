@@ -12,7 +12,7 @@ structure['DY']  = {
               }
 
 
-structure['Wjets']  = {  
+structure['WJets']  = {  
                   'isSignal' : 0,
                   'isData'   : 0 
               }
