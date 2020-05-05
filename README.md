@@ -3,6 +3,8 @@
 Documentation: 
 - AN: https://gitlab.cern.ch/tdr/notes/AN-20-076
 
+DNN instructions: https://unimib-analyses.docs.cern.ch/ml_tutorial/introduction/
+
 N.B: Clone this folder in the Latino directory: /PlotsConfigurations/Configurations/
 
 Useful link:
