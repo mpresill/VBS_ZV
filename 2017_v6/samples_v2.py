@@ -60,64 +60,8 @@ def makeMCDirectory(var=''):
 mcDirectory = makeMCDirectory()
 #mcDirectory = os.path.join(treeBaseDir, mcProduction, mcSteps)
 mcDirectorySig = os.path.join(treeBaseDir, mcProductionSig, mcStepsSig)
-fakeDirectory = os.path.join(treeBaseDir, dataReco, fakeSteps)
+fakeDirectory = os.path.join(treeBaseDir, fakeReco, fakeSteps)
 dataDirectory = os.path.join(treeBaseDir, dataReco, dataSteps)
-################################################
-############ NUMBER OF LEPTONS #################
-################################################
-
-Nlep='2'
-#Nlep='3'
-#Nlep='4'
-################################################
-############### Lepton WP ######################
-################################################
-
-
-################################################
-
-eleWP='mvaFall17V1Iso_WP90'
-#eleWP='mvaFall17V2Iso_WP90'
-#eleWP='mvaFall17V1Iso_WP90_SS'
-muWP='cut_Tight_HWWW'
-
-
-LepWPCut        = 'LepCut'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
-LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
-
-################################################
-############ BASIC MC WEIGHTS ##################
-################################################
-
-XSWeight      = 'XSWeight'
-SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
-#GenLepMatch   = 'GenLepMatch'+Nlep+'l'
-GenLepMatch   = 'PromptGenLepMatch2l'
-################################################
-############   MET  FILTERS  ###################
-################################################
-
-METFilter_MC   = 'METFilter_MC'
-METFilter_DATA = 'METFilter_DATA'
-
-################################################
-############## FAKE WEIGHTS ####################
-################################################
-
-if Nlep == '2' :
-  fakeW = 'fakeW2l_ele_'+eleWP+'_mu_'+muWP
-else:
-  fakeW = 'fakeW_ele_'+eleWP+'_mu_'+muWP+'_'+Nlep+'l'
-
-################################################
-############### B-Tag  WP ######################
-################################################
-
-#FIXME b-tagging to be optimized
-# Definitions in aliases.py
-
-
-SFweight += '*btagSF'
 
 ################################################
 ############ DATA DECLARATION ##################
@@ -141,6 +85,15 @@ DataTrig = {
             'DoubleEG'       : '!Trigger_ElMu && !Trigger_dblMu && !Trigger_sngMu && Trigger_dblEl' ,
             'SingleElectron' : '!Trigger_ElMu && !Trigger_dblMu && !Trigger_sngMu && !Trigger_dblEl && Trigger_sngEl' ,
            }
+
+#########################################
+############ MC COMMON ##################
+#########################################
+
+# SFweight does not include btag weights
+mcCommonWeightNoMatch = 'XSWeight*SFweight*METFilter_MC'
+mcCommonWeight = 'XSWeight*SFweight*PromptGenLepMatch2l*METFilter_MC'
+
 
 ###########################################
 #############  BACKGROUNDS  ###############
@@ -186,7 +139,7 @@ files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-2500toInf')
                                     #nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-70to100') + \
 samples['DY'] = {    'name'   :   files,
-                         'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC, #'*1.21/1.158', #updating k-factor=1.158 in Latino
+                         'weight' : mcCommonWeight, #'*1.21/1.158', #updating k-factor=1.158 in Latino
                          'FilesPerJob' : 5,
 }
 
@@ -208,7 +161,7 @@ files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel') + \
 
 samples['top'] = {
     'name': files,
-    'weight': XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC,
+    'weight': mcCommonWeight,
     'FilesPerJob': 1,
 }
 
@@ -229,7 +182,7 @@ files = nanoGetSampleFiles(mcDirectory, 'WJetsToLNu_HT100_200') + \
 
 samples['WJets'] = {
     'name': files,
-    'weight': XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC, 
+    'weight': mcCommonWeight, 
     'FilesPerJob': 2
 }
 
@@ -238,7 +191,7 @@ samples['WJets'] = {
 
 samples['WW'] = {
     'name' : nanoGetSampleFiles(mcDirectory, 'WWTo2L2Nu'),
-    'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC + '*nllW',
+    'weight' : mcCommonWeight + '*nllW',
     'FilesPerJob' : 1,
 }            
 
@@ -275,7 +228,7 @@ files = nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Nu') + \
 
 samples['VZ']= {
     'name': files,
-    'weight' : XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC + '*1.11', #updating k-factor
+    'weight' : mcCommonWeight + '*1.11', #updating k-factor
     'FilesPerJob' : 10
 
 }
@@ -290,7 +243,7 @@ files = nanoGetSampleFiles(mcDirectory, 'ZZZ') + \
 
 samples['VVV'] = {
     'name': files,
-    'weight': XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC
+    'weight': mcCommonWeight
 }
 
 
@@ -340,7 +293,7 @@ samples['VBS_VV_QCD'] = {
              +nanoGetSampleFiles(mcDirectory, 'WmToLNu_WmTo2J_QCD')
              #+nanoGetSampleFiles(mcDirectory, 'ZTo2L_ZTo2J_QCD') MISSING
              +nanoGetSampleFiles(mcDirectory, 'WmTo2J_ZTo2L_QCD'),
-    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
+    'weight':  mcCommonWeight,
     'FilesPerJob': 1
 }
 
@@ -357,7 +310,7 @@ samples['VBS_VV_EW'] = {
              #+nanoGetSampleFiles(mcDirectory, 'WpToLNu_WpTo2J')
              #+nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J')
              +nanoGetSampleFiles(mcDirectory, 'WpTo2J_ZTo2L'),
-    'weight':  XSWeight+'*'+SFweight+'*'+GenLepMatch+'*'+METFilter_MC ,
+    'weight':  mcCommonWeight,
     'FilesPerJob': 1
 }
 
