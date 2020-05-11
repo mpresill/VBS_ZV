@@ -60,7 +60,7 @@ def makeMCDirectory(var=''):
 mcDirectory = makeMCDirectory()
 #mcDirectory = os.path.join(treeBaseDir, mcProduction, mcSteps)
 mcDirectorySig = os.path.join(treeBaseDir, mcProductionSig, mcStepsSig)
-fakeDirectory = os.path.join(treeBaseDir, fakeReco, fakeSteps)
+fakeDirectory = os.path.join(treeBaseDir, dataReco, fakeSteps)
 dataDirectory = os.path.join(treeBaseDir, dataReco, dataSteps)
 
 ################################################
