@@ -92,7 +92,6 @@ LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
 XSWeight      = 'XSWeight'
 SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
 #GenLepMatch   = 'GenLepMatch'+Nlep+'l'
-#GenLepMatch   = '(Alt$(Lepton_promptgenmatched[0]*Lepton_promptgenmatched[1], 0))'
 GenLepMatch   = 'PromptGenLepMatch2l'
 ################################################
 ############   MET  FILTERS  ###################
@@ -365,6 +364,7 @@ samples['VBS_VV_EW'] = {
 ###########################################
 ################## DATA ###################
 ###########################################
+"""
 samples['DATA'] = {
   'name': [],
   'weight': METFilter_DATA+'*'+LepWPCut,
@@ -378,4 +378,5 @@ for _, sd in DataRun:
     files = nanoGetSampleFiles(dataDirectory, pd + '_' + sd)
     samples['DATA']['name'].extend(files)
     samples['DATA']['weights'].extend([DataTrig[pd]] * len(files))
+    """
     
