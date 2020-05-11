@@ -320,7 +320,7 @@ samples['VBS_VV_EW'] = {
 
 samples['DATA'] = {
   'name': [],
-  'weight': METFilter_DATA+'*'+LepWPCut,
+  'weight': 'METFilter_DATA * LepWPCut',
   'weights': [],
   'isData': ['all'],
   'FilesPerJob': 40
