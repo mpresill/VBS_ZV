@@ -317,6 +317,7 @@ samples['VBS_VV_EW'] = {
 ###########################################
 ################## DATA ###################
 ###########################################
+"""
 samples['DATA'] = {
   'name': [],
   'weight': 'METFilter_DATA * LepWPCut',
@@ -330,4 +331,5 @@ for _, sd in DataRun:
     files = nanoGetSampleFiles(dataDirectory, pd + '_' + sd)
     samples['DATA']['name'].extend(files)
     samples['DATA']['weights'].extend([DataTrig[pd]] * len(files))
+    """
     
