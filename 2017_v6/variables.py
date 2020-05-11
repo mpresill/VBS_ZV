@@ -2,12 +2,12 @@
 # variables: currently used version Apr2020
 
 #variables = {}
-#variables['nvtx']  = {   'name': 'PV_npvsGood',      
-#                        'range' : (100,0,100),  
-#                        'xaxis' : 'nvtx', 
-#                         'fold' : 3
-#                      }
 
+variables['nvtx']  = {   'name': 'PV_npvsGood',      
+                        'range' : (100,0,100),  
+                        'xaxis' : 'nvtx', 
+                         'fold' : 3
+                      }
 
 
 variables['nLepton'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepton_pt[1],0.)>20) + 1*(Alt$(Lepton_pt[2],0.)>20)+ 1*(Alt$(Lepton_pt[3],0.)>20) + 1*(Alt$(Lepton_pt[4],0.)>20)',            #   variable name
@@ -18,10 +18,27 @@ variables['nLepton'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepto
 
 variables['mll_vbs'] = {   'name': 'mll_vbs',            #   variable name
                            'range' : (80,50,120),    #   variable range
+                           'xaxis' : 'm_{ll} vbs [GeV]',  #   x axis name
+                           'fold' : 0
+                        }
+
+variables['mll'] = {   'name': 'mll',            #   variable name
+                           'range' : (80,50,120),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 0
                         }
 
+variables['mllpeak'] = {   'name': 'mll',            #   variable name
+                           'range' : (80,80,100),    #   variable range
+                           'xaxis' : 'm_{ll} [GeV]',  #   x axis name
+                           'fold' : 0
+                        }
+
+variables['ptll']  = {   'name': 'ptll',     
+                        'range' : (20, 0,200),   
+                        'xaxis' : 'p_{T}^{ll} [GeV]',
+                        'fold' : 0
+                        }
 
 variables['pt_lep']  = {   'name': 'Lepton_pt',
                         'range' : (30,0.,400),

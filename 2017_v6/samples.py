@@ -91,8 +91,8 @@ LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
 
 XSWeight      = 'XSWeight'
 SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
-GenLepMatch   = 'GenLepMatch'+Nlep+'l'
-
+#GenLepMatch   = 'GenLepMatch'+Nlep+'l'
+GenLepMatch   = '(Alt$(Lepton_promptgenmatched[0]*Lepton_promptgenmatched[1], 0))'
 ################################################
 ############   MET  FILTERS  ###################
 ################################################
