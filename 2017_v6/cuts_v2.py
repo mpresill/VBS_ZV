@@ -48,7 +48,7 @@ cuts['DYJets_CR'] = 'mjj_vbs_AK4NotFat > 200 && ((Lepton_pdgId[0]*Lepton_pdgId[1
     && bVeto'#&& detajj_vbs_AK4NotFat >3.5
 
 
-cuts['Top_CR'] = 'mjj_vbs_AK4NotFat > 200 && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)))'
+cuts['Top_CR'] = 'mjj_vbs_AK4NotFat > 200 && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13)'
 
 
 """
