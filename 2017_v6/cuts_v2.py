@@ -23,7 +23,7 @@ cuts['preselection'] = '1.'
 ###############################
 #####Signal Regions 5
 ###############################
-
+""""
 cuts['SR_minimal'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton_pt[0],0.)>=25. && Alt$(Lepton_pt[1],0.)>=25.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == - 13*13 && Alt$(Lepton_pt[0],0.)>=20. && Alt$(Lepton_pt[1],0.)>=20.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4) )  && mll>80. && mll<100.  &&\
                     Alt$(CleanJet_pt[0],0.)>=80. && Alt$(CleanJet_pt[1],0.)>=50. '#detajj_vbs_AK4NotFat >2.5 &&  
 
@@ -45,7 +45,7 @@ cuts['DYJets_CR'] = '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*11 && Alt$(Lepton
 
 cuts['Top_CR'] = 'bReq && ((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13) || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13))'
 
-
+"""
 """
 cuts['Wjets_CR'] = '((Alt$(CleanFatJet_mass[0],0.)>40. && Alt$(CleanFatJet_mass[0],0.)<50.) || (Alt$(CleanFatJet_mass[0],0.)>105. && Alt$(CleanFatJet_mass[0],0.)<150.)  && bVeto'#SR cuts and msoftdrop window inverted
 """
