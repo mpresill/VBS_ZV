@@ -91,8 +91,8 @@ LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
 
 XSWeight      = 'XSWeight'
 SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
-#GenLepMatch   = 'GenLepMatch'+Nlep+'l'
-GenLepMatch   = 'PromptGenLepMatch2l'
+GenLepMatch   = 'GenLepMatch'+Nlep+'l'
+#GenLepMatch   = 'PromptGenLepMatch2l'
 ################################################
 ############   MET  FILTERS  ###################
 ################################################

@@ -17,11 +17,11 @@ aliasesFile = 'aliases.py'
 variablesFile = 'variables.py'
 
 # file with list of cuts
-cutsFile = 'cuts_v2_BR.py'
+cutsFile = 'cuts_v2.py'
 
 # file with list of samples
 #samplesFile = 'samples_sig.py'
-samplesFile = 'samples_v2.py'
+samplesFile = 'samples.py'
 
 
 # file with list of samples
