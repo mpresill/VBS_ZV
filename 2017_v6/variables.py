@@ -71,20 +71,20 @@ variables['eta2']  = {  'name': 'Lepton_eta[1]',
                         }
 
 
-variables['Zlep1']  = {  'name': '(Alt$(Lepton_eta[0],-9999.) - (Alt$(Jet_eta[0],-9999.)+Alt$(Jet_eta[1],-9999.))/2)/detajj',
-                          'range': (10,-1.5,1.5),
+variables['Zlep1']  = {  'name': '(Alt$(Lepton_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat',
+                          'range': (20,-1.5,1.5),
                           'xaxis': 'Z^{lep}_{l1}',
                           'fold': 3
                           }
 
-variables['Zlep2']  = {  'name': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(Jet_eta[0],-9999.)+Alt$(Jet_eta[1],-9999.))/2)/detajj',
-                          'range': (10,-1.5,1.5),
+variables['Zlep2']  = {  'name': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat',
+                          'range': (20,-1.5,1.5),
                           'xaxis': 'Z^{lep}_{l2}',
                           'fold': 3
                           }
 
 
-variables['Zeppll']  = {   'name': 'Zeppll(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],Jet_eta[0],Jet_eta[1],detajj)',            #   variable name    
+variables['Zeppll']  = {   'name': 'Zeppll(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],CleanJet_eta[0],CleanJet_eta[1],detajj_vbs_AK4NotFat)',            #   variable name    
                            'range' : (20,-5,5),    #   variable range
                            'xaxis' : 'Zeppenfeld_{ll}',  #   x axis name
                            'fold' :3,

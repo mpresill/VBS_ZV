@@ -69,7 +69,7 @@ groupPlot['VZ']  = {
 groupPlot['VBS_EW']  = {
                   'nameHR' : "VBS EW",
                   'color': palette["YellowOrange"], # kAzure -3  
-                  'isSignal' : 0,
+                  'isSignal' : 2,
                   'samples'  : ['VBS_VV_EW']
                   #'fill': 1001
                   }
@@ -286,7 +286,7 @@ plot['Fakes_mm']  = {
 """
 
 ############## DATA
-"""
+
 plot['DATA']  = {
                   'nameHR' : 'Data',
                   'color': 1 ,
@@ -295,7 +295,7 @@ plot['DATA']  = {
                   'isBlind'  : 0 ,
                   'scale'    : 1.0
               }
-              """
+              
 # additional options
 
 legend['lumi'] = 'L =41.5/fb'

@@ -2,7 +2,7 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_12May2020'
+date='_13May2020'
 
 tag = 'VBS_ZV'+date
 
@@ -17,7 +17,7 @@ aliasesFile = 'aliases.py'
 variablesFile = 'variables.py'
 
 # file with list of cuts
-cutsFile = 'cuts_v2.py'
+cutsFile = 'cuts_v2_BR.py'
 
 # file with list of samples
 #samplesFile = 'samples_sig.py'
