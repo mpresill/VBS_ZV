@@ -126,7 +126,7 @@ aliases['M_ZV'] = {
              'args': ("M_ZV"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]           
  }
 
@@ -135,7 +135,7 @@ aliases['mll_vbs'] = {
              'args': ("mll_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]
  }
 
@@ -144,7 +144,7 @@ aliases['mjj_vbs'] = {
              'args': ("mjj_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]
  }
 
@@ -153,7 +153,7 @@ aliases['detajj_vbs'] = {
              'args': ("detajj_vbs"),
              'linesToAdd' : [
                  'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
+                 '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]
  }
 
@@ -161,7 +161,7 @@ aliases['mjj_vbs_AK4NotFat'] = {
     'class': 'WHSS_wpt_v3',
     'args': (),
     'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/mjj_max_vbs.cc+'.format(configurations)
+        '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/mjj_max_vbs.cc+'.format(configurations)
     ]
 }
 
@@ -169,7 +169,7 @@ aliases['detajj_vbs_AK4NotFat'] = {
     'class': 'detajj',
     'args': (),
     'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/detajj_mjj_max_vbs.cc+'.format(configurations)
+        '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/detajj_mjj_max_vbs.cc+'.format(configurations)
     ]
 }
 
@@ -177,7 +177,7 @@ aliases['eta1eta2'] = {
     'class': 'eta12',
     'args': (),
     'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/eta12_mjj_max_vbs.cc+'.format(configurations)
+        '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/eta12_mjj_max_vbs.cc+'.format(configurations)
     ]
 }
 
