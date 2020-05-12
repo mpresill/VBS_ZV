@@ -3,7 +3,7 @@ supercut_vector = [##2 lepton selection:  pt >30 |eta|<2.5 (2.4) pt>30 GeV
   'mll >60. && mll <120.'
 ##jet selection: 1 FJ, pt>200 GeV, |eta|<2.4  + 2 jets with pt>30 and |eta|<5 and with mjj_vbs>200GeV and detajj_vbs>2.0
  #'nCleanFatJet == 1 && CleanFatJet_pt[0] >= 200. && fabs(Alt$(CleanFatJet_eta[0],-9999.))<2.4',
- 'nCleanJetNotFat >= 2 && fabs(Alt$(CleanJet_pt,-9999.))>30. && fabs(Alt$(CleanJet_eta,-9999.))<5.0'  ##'Sum$(CleanJet_pt>30.)>=2 && fabs(Alt$(CleanJet_eta[0],-9999.))<5.0',
+ 'nCleanJetNotFat >= 2 && fabs(Alt$(CleanJet_pt,-9999.))>30. && fabs(Alt$(CleanJet_eta,-9999.))<5.0',  ##'Sum$(CleanJet_pt>30.)>=2 && fabs(Alt$(CleanJet_eta[0],-9999.))<5.0',
  #'mjj_vbs_AK4NotFat > 200 && eta1eta2 < 0.' 
  'detajj_vbs_AK4NotFat>2.0'
 ]
