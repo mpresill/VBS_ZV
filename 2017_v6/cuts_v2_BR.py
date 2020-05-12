@@ -24,14 +24,11 @@ cuts['SR_boosted_minimal']= '2lSF &&\
 
 cuts['SR_boosted_leptons']= '2lSF &&\
                     mll >80. && mll <100. &&\
-                    Alt$(Lepton_pt[0],0.)>=40. && Zlep_1 < 1.0 && Zlep_2 < 1.0 &&\    
-                    Alt$(CleanJet_pt[0],0.)>=80. && Alt$(CleanJet_pt[1],0.)>=50.'
+                    Alt$(Lepton_pt[0],0.)>=40. && Zlep_1 < 1.0 && Zlep_2 < 1.0  && Alt$(CleanJet_pt[0],0.)>=80. && Alt$(CleanJet_pt[1],0.)>=50. '
 
 cuts['SR_boosted_j1j2']= '2lSF &&\
                     mll >80. && mll <100. &&\
-                    Alt$(Lepton_pt[0],0.)>=40. &&\    
-                    Alt$(CleanJet_pt[0],0.)>=80. && Alt$(CleanJet_pt[1],0.)>=50. &&\
-                    mjj_vbs_AK4NotFat >  300.'
+                    Alt$(Lepton_pt[0],0.)>=40.  && Alt$(CleanJet_pt[0],0.)>=80. && Alt$(CleanJet_pt[1],0.)>=50. &&  mjj_vbs_AK4NotFat >  300.'
 
 
 #############################
