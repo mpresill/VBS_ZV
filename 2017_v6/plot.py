@@ -82,20 +82,13 @@ groupPlot['VBS_QCD']  = {
                   #'fill': 1001
                   }
 
+"""
 groupPlot['Other']  = {  
                   'nameHR' : 'Other',
                   'isSignal' : 0,
                   'color':  palette["Violet"],   # kOrange + 10 
                   'samples'  : ['WW','VZ', 'VVV','WJets']
               }
-"""
-groupPlot['VV']  = {  
-                  'nameHR' : 'VV',
-                  'isSignal' : 0,
-                  'color': palette["YellowOrange"], # kAzure -9 
-                  'samples'  : ['WW','WW_ewk', 'VZ', 'ggWW']
-              }
-"""
 groupPlot['DY']  = {  
                   'nameHR' : "DY",
                   'isSignal' : 0,
@@ -103,6 +96,15 @@ groupPlot['DY']  = {
                   'samples'  : ['DY']
               }
 
+
+
+groupPlot['top']  = {  
+                  'nameHR' : 'tW and t#bar{t}',
+                  'isSignal' : 0,
+                  'color': palette["DarkBlue"],   # kYellow
+                  'samples'  : ['top']
+              }
+"""
 
 """
 groupPlot['VVV']  = {  
@@ -123,15 +125,15 @@ groupPlot['WJets']  = {
 """
 
 
-groupPlot['top']  = {  
-                  'nameHR' : 'tW and t#bar{t}',
+
+"""
+groupPlot['VV']  = {  
+                  'nameHR' : 'VV',
                   'isSignal' : 0,
-                  'color': palette["DarkBlue"],   # kYellow
-                  'samples'  : ['top']
+                  'color': palette["YellowOrange"], # kAzure -9 
+                  'samples'  : ['WW','WW_ewk', 'VZ', 'ggWW']
               }
-
-
-
+"""
 
 #groupPlot['VBS_ZV_aQGC']  = {
 #                  'nameHR' : "VBS aQGC",
@@ -286,7 +288,7 @@ plot['Fakes_mm']  = {
 """
 
 ############## DATA
-
+"""
 plot['DATA']  = {
                   'nameHR' : 'Data',
                   'color': 1 ,
@@ -295,7 +297,7 @@ plot['DATA']  = {
                   'isBlind'  : 0 ,
                   'scale'    : 1.0
               }
-              
+      """        
 # additional options
 
 legend['lumi'] = 'L =41.5/fb'

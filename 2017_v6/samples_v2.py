@@ -130,6 +130,7 @@ else:
 
 
 """
+"""
 files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-200to400') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-400to600_ext1') + \
@@ -194,7 +195,7 @@ samples['WW'] = {
     'weight' : mcCommonWeight + '*nllW',
     'FilesPerJob' : 1,
 }            
-
+"""
 """
 samples['WW_ewk'] = {
     'name' : nanoGetSampleFiles(mcDirectory, 'WpWmJJ_EWK_noTop'),
@@ -219,7 +220,8 @@ samples['ggWW'] = {
 
 
 }
-"""
+
+
 ###VZ####
 files = nanoGetSampleFiles(mcDirectory, 'ZZTo2L2Nu') + \
     nanoGetSampleFiles(mcDirectory, 'ZZTo4L') +\
@@ -232,7 +234,6 @@ samples['VZ']= {
     'FilesPerJob' : 10
 
 }
-
 
 ########## VVV #########
 
@@ -247,7 +248,7 @@ samples['VVV'] = {
 }
 
 
-
+"""
 ########VBF-V##########
 """
 files =nanoGetSampleFiles(mcDirectory, 'WLNuJJ_EWK') + \
@@ -283,6 +284,7 @@ samples['VBF-V'] = {
 #######################################################
 #########VBS backgrounds from purely SM processes
 ##########VBS QCD 
+
 samples['VBS_VV_QCD'] = {
     'name':   nanoGetSampleFiles(mcDirectory, 'WpToLNu_ZTo2J_QCD') 
              +nanoGetSampleFiles(mcDirectory, 'WpToLNu_WpTo2J_QCD')
@@ -317,7 +319,7 @@ samples['VBS_VV_EW'] = {
 ###########################################
 ################## DATA ###################
 ###########################################
-
+"""
 samples['DATA'] = {
   'name': [],
   'weight': 'METFilter_DATA * LepWPCut',
@@ -331,4 +333,4 @@ for _, sd in DataRun:
     files = nanoGetSampleFiles(dataDirectory, pd + '_' + sd)
     samples['DATA']['name'].extend(files)
     samples['DATA']['weights'].extend([DataTrig[pd]] * len(files))
-    
+"""    
