@@ -9,4 +9,6 @@ cuts['preselection'] = '1.'
 #############################
 ######### TRIGGER TEST
 #############################
-cuts['SR_plus_trigger']= '(Lepton_pdgId[0]*Lepton_pdgId[0] == - 11*11)  && (Lepton_pdgId[1]*Lepton_pdgId[1] == - 13*13) && (HLT_Photon200==1 || HLT_Ele35_WPTight_Gsf==1)'
+cuts['opposite_flavor_plus_trigger']= 'fabs(Lepton_pdgId[0]) == 11  && fabs(Lepton_pdgId[1]) == 13 && (HLT_Photon200==1 || HLT_Ele35_WPTight_Gsf==1)'
+cuts['trigger']= '(HLT_Photon200==1 || HLT_Ele35_WPTight_Gsf==1)'
+cuts['opposite_flavor']= 'fabs(Lepton_pdgId[0]) == 11  && fabs(Lepton_pdgId[1]) == 13'
