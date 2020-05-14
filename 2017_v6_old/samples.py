@@ -117,7 +117,7 @@ else:
 # Definitions in aliases.py
 
 
-#SFweight += '*btagSF'
+SFweight += '*btagSF'
 
 ################################################
 ############ DATA DECLARATION ##################

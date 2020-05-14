@@ -16,10 +16,10 @@ muWP = 'cut_Tight_HWWW'
 
 newEleWP = 'mvaFall17V1Iso_WP90_tthmva_70'
 newMuWP = 'cut_Tight_HWWW_tthmva_80'
-"""
+
 aliases['LepWPCut'] = {
-    #'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP,
-    'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP+'*( ( (abs(Lepton_pdgId[0])==11) ||  Muon_mvaTTH[Lepton_muonIdx[0]]>0.8)  && ( ( abs(Lepton_pdgId[1])==11) || Muon_mvaTTH[Lepton_muonIdx[1]]>0.8) )',
+    'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP,
+    #'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP+'*( ( (abs(Lepton_pdgId[0])==11) ||  Muon_mvaTTH[Lepton_muonIdx[0]]>0.8)  && ( ( abs(Lepton_pdgId[1])==11) || Muon_mvaTTH[Lepton_muonIdx[1]]>0.8) )',
     'samples': mc + ['DATA']
 }
 
@@ -33,7 +33,7 @@ aliases['Top_pTrw'] = {
     'expr': '(topGenPt * antitopGenPt > 0.) * (TMath::Sqrt(TMath::Exp(0.0615 - 0.0005 * topGenPt) * TMath::Exp(0.0615 - 0.0005 * antitopGenPt))) + (topGenPt * antitopGenPt <= 0.)',
     'samples': ['top']
 }
-"""
+
 # B tagging
 
 aliases['bVeto'] = {
@@ -45,7 +45,7 @@ aliases['bReq'] = {
 }
 
 # B tag scale factors
-"""
+
 aliases['bVetoSF'] = {
     'expr': 'TMath::Exp(Sum$(TMath::Log((CleanJet_pt>20 && abs(CleanJet_eta)<2.5)*Jet_btagSF_shape[CleanJet_jetIdx]+1*(CleanJet_pt<20 || abs(CleanJet_eta)>2.5))))',
     'samples': mc
@@ -62,6 +62,7 @@ aliases['btagSF'] = {
     'samples': mc
 }
 
+"""
 for shift in ['jes', 'lf', 'hf', 'lfstats1', 'lfstats2', 'hfstats1', 'hfstats2', 'cferr1', 'cferr2']:
     for targ in ['bVeto', 'bReq']:
         alias = aliases['%sSF%sup' % (targ, shift)] = copy.deepcopy(aliases['%sSF' % targ])
@@ -95,14 +96,14 @@ aliases['PUJetIdSF'] = {
 ######################################################
 ####################### data/MC scale factors
 ######################################################
-""""
 aliases['SFweight'] = {
-    'expr': ' * '.join(['SFweight2l', 'LepSF2l__ele_' + eleWP + '__mu_' + muWP, 'LepWPCut', 'btagSF', 'PrefireWeight','PUJetIdSF']),
+    'expr': ' * '.join(['SFweight2l', 'LepSF2l__ele_' + eleWP + '__mu_' + muWP, 'LepWPCut', 'btagSF', 'PrefireWeight']),#,'PUJetIdSF']),
     'samples': mc
 }
 ######################################################
 ################# variations
 ######################################################
+"""
 aliases['SFweightEleUp'] = {
     'expr': 'LepSF2l__ele_'+eleWP+'__Up',
     'samples': mc
@@ -206,5 +207,4 @@ aliases['Zlep_1'] = {
 aliases['Zlep_2'] = {
     'expr': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(CleanJet_eta[1],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat'
 }
-
 """
