@@ -92,8 +92,8 @@ LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
 ################################################
 
 XSWeight      = 'XSWeight'
-#SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
-SFweight      = 'SFweight2l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
+SFweight      = 'SFweight'+Nlep+'l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
+#SFweight      = 'SFweight2l*'+LepWPweight+'*'+LepWPCut+'*PrefireWeight'
 #GenLepMatch   = 'GenLepMatch'+Nlep+'l'
 GenLepMatch   = 'PromptGenLepMatch2l'
 ################################################
@@ -117,7 +117,7 @@ else:
 ################################################
 
 # Definitions in aliases.py
-SFweight += '*a'
+SFweight += '*btagSF'
 
 # Also updated jet PUid SF
 #SFweight += '*PUJetIdSF' #FIX: add this
