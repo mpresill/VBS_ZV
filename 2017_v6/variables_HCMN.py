@@ -11,8 +11,8 @@ variables['events']  = {   'name': '1',
 
 
 variables['nvtx']  = {   'name': 'PV_npvsGood',      
-                        'range' : (100,0,100),  
-                        'xaxis' : 'nvtx', 
+                         'range' : (100,0,100),  
+                         'xaxis' : 'nvtx', 
                          'fold' : 3
                       }
 

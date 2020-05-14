@@ -22,13 +22,13 @@ aliases['LepWPCut'] = {
     'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP+'*( ( (abs(Lepton_pdgId[0])==11) ||  Muon_mvaTTH[Lepton_muonIdx[0]]>0.8)  && ( ( abs(Lepton_pdgId[1])==11) || Muon_mvaTTH[Lepton_muonIdx[1]]>0.8) )',
     'samples': mc + ['DATA']
 }
-"""
+
 # gen-matching to prompt only (GenLepMatch2l matches to *any* gen lepton)
 aliases['PromptGenLepMatch2l'] = {
     'expr': 'Alt$(Lepton_promptgenmatched[0]*Lepton_promptgenmatched[1], 0)',
     'samples': mc
 }
-"""
+
 aliases['Top_pTrw'] = {
     'expr': '(topGenPt * antitopGenPt > 0.) * (TMath::Sqrt(TMath::Exp(0.0615 - 0.0005 * topGenPt) * TMath::Exp(0.0615 - 0.0005 * antitopGenPt))) + (topGenPt * antitopGenPt <= 0.)',
     'samples': ['top']
@@ -45,7 +45,7 @@ aliases['bReq'] = {
 }
 
 # B tag scale factors
-
+"""
 aliases['bVetoSF'] = {
     'expr': 'TMath::Exp(Sum$(TMath::Log((CleanJet_pt>20 && abs(CleanJet_eta)<2.5)*Jet_btagSF_shape[CleanJet_jetIdx]+1*(CleanJet_pt<20 || abs(CleanJet_eta)>2.5))))',
     'samples': mc
@@ -91,7 +91,7 @@ aliases['PUJetIdSF'] = {
     'args': (puidSFSource, '2017', 'loose'),
     'samples': mc
 }
-
+"""
 ######################################################
 ####################### data/MC scale factors
 ######################################################
