@@ -13,4 +13,4 @@ cuts['preselection'] = '1.'
 #############################
 ######### TRIGGER TEST
 #############################
-cuts['SR_plus_trigger']= 'HLT_Photon200==1 || HLT_Ele35_WPTight_Gsf==1'
+#cuts['SR_plus_trigger']= 'HLT_Photon200==1 || HLT_Ele35_WPTight_Gsf==1'
