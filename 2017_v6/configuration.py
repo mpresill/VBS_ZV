@@ -14,7 +14,8 @@ outputDir = 'rootFile'+date
 aliasesFile = 'aliases.py'
 
 # file with list of variables
-variablesFile = 'variables.py'
+#variablesFile = 'variables.py'
+variablesFile = 'variables_HCMN.py'
 
 # file with list of cuts
 #cutsFile = 'cuts_v2.py'
