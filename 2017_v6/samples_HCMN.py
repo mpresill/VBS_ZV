@@ -82,10 +82,10 @@ eleWP='mvaFall17V1Iso_WP90'
 muWP='cut_Tight_HWWW'
 
 
-#LepWPCut        = 'LepCut'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
-#LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
-LepWPCut        = 'LepCut2l__ele_'+eleWP+'__mu_'+muWP
-LepWPweight     = 'LepSF2l__ele_'+eleWP+'__mu_'+muWP
+LepWPCut        = 'LepCut'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
+LepWPweight     = 'LepSF'+Nlep+'l__ele_'+eleWP+'__mu_'+muWP
+#LepWPCut        = 'LepCut2l__ele_'+eleWP+'__mu_'+muWP
+#LepWPweight     = 'LepSF2l__ele_'+eleWP+'__mu_'+muWP
 
 ################################################
 ############ BASIC MC WEIGHTS ##################
@@ -117,7 +117,7 @@ else:
 ################################################
 
 # Definitions in aliases.py
-SFweight += '*btagSF'
+SFweight += '*a'
 
 # Also updated jet PUid SF
 #SFweight += '*PUJetIdSF' #FIX: add this
@@ -178,6 +178,7 @@ else:
     addSampleWeight(samples,'DY','DYJetsToLL_M-50',ptllDYW_NLO)
     addSampleWeight(samples,'DY','DYJetsToLL_M-10to50-LO',ptllDYW_LO)
 """
+
 files= nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-100to200') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-200to400') + \
                                      nanoGetSampleFiles(mcDirectory,'DYJetsToLL_M-50_HT-400to600_ext1') + \
