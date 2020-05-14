@@ -16,24 +16,24 @@ muWP = 'cut_Tight_HWWW'
 
 newEleWP = 'mvaFall17V1Iso_WP90_tthmva_70'
 newMuWP = 'cut_Tight_HWWW_tthmva_80'
-
+"""
 aliases['LepWPCut'] = {
     #'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP,
     'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP+'*( ( (abs(Lepton_pdgId[0])==11) ||  Muon_mvaTTH[Lepton_muonIdx[0]]>0.8)  && ( ( abs(Lepton_pdgId[1])==11) || Muon_mvaTTH[Lepton_muonIdx[1]]>0.8) )',
     'samples': mc + ['DATA']
 }
-
+"""
 # gen-matching to prompt only (GenLepMatch2l matches to *any* gen lepton)
 aliases['PromptGenLepMatch2l'] = {
     'expr': 'Alt$(Lepton_promptgenmatched[0]*Lepton_promptgenmatched[1], 0)',
     'samples': mc
 }
-
+"""
 aliases['Top_pTrw'] = {
     'expr': '(topGenPt * antitopGenPt > 0.) * (TMath::Sqrt(TMath::Exp(0.0615 - 0.0005 * topGenPt) * TMath::Exp(0.0615 - 0.0005 * antitopGenPt))) + (topGenPt * antitopGenPt <= 0.)',
     'samples': ['top']
 }
-
+"""
 # B tagging
 
 aliases['bVeto'] = {
@@ -91,9 +91,11 @@ aliases['PUJetIdSF'] = {
     'args': (puidSFSource, '2017', 'loose'),
     'samples': mc
 }
+
 ######################################################
 ####################### data/MC scale factors
 ######################################################
+""""
 aliases['SFweight'] = {
     'expr': ' * '.join(['SFweight2l', 'LepSF2l__ele_' + eleWP + '__mu_' + muWP, 'LepWPCut', 'btagSF', 'PrefireWeight','PUJetIdSF']),
     'samples': mc
@@ -117,7 +119,7 @@ aliases['SFweightMuDown'] = {
     'expr': 'LepSF2l__mu_'+muWP+'__Do',
     'samples': mc
 }
-
+"""
 ############################################################
 #############additional variables
 ############################################################
@@ -195,7 +197,7 @@ aliases['2lSF'] = {
 aliases['2lOF'] = {
     'expr': '((Lepton_pdgId[0]*Lepton_pdgId[1] == - 11*13 && Alt$(Lepton_pt[0],0.)>=25. && Alt$(Lepton_pt[1],0.)>=25.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.5 && fabs(Alt$(Lepton_eta[1],-9999.))<2.5)  || (Lepton_pdgId[0]*Lepton_pdgId[1] == 11*13 && Alt$(Lepton_pt[0],0.)>=25. && Alt$(Lepton_pt[1],0.)>=20.  && fabs(Alt$(Lepton_eta[0],-9999.))<2.4 && fabs(Alt$(Lepton_eta[1],-9999.))<2.4 ) )'
 }
-"""
+
 
 aliases['Zlep_1'] = {
     'expr': '(Alt$(Lepton_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat'
@@ -205,3 +207,4 @@ aliases['Zlep_2'] = {
     'expr': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(CleanJet_eta[1],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat'
 }
 
+"""

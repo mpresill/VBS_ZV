@@ -3,6 +3,13 @@
 
 #variables = {}
 
+ variables['events']  = {   'name': '1',
+                           'range' : (1,0,2),
+                           'xaxis' : 'events',
+                           'fold' : 3
+                     }
+
+
 variables['nvtx']  = {   'name': 'PV_npvsGood',      
                         'range' : (100,0,100),  
                         'xaxis' : 'nvtx', 
@@ -17,7 +24,7 @@ variables['nLepton'] = {   'name': '1*(Alt$(Lepton_pt[0],0.)>20) + 1*(Alt$(Lepto
                         }
 
 variables['mll'] = {   'name': 'mll',            #   variable name
-                           'range' : (80,50,120),    #   variable range
+                           'range' : (60,300,1000),    #   variable range
                            'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                            'fold' : 0
                         }
@@ -64,27 +71,6 @@ variables['eta2']  = {  'name': 'Lepton_eta[1]',
                         'fold'  : 0                         
                         }
 
-
-variables['Zlep1']  = {  'name': '(Alt$(Lepton_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat',
-                          'range': (20,-1.5,1.5),
-                          'xaxis': 'Z^{lep}_{l1}',
-                          'fold': 3
-                          }
-
-variables['Zlep2']  = {  'name': '(Alt$(Lepton_eta[1],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs_AK4NotFat',
-                          'range': (20,-1.5,1.5),
-                          'xaxis': 'Z^{lep}_{l2}',
-                          'fold': 3
-                          }
-
-
-variables['Zeppll']  = {   'name': 'Zeppll(Lepton_pt[0],Lepton_phi[0],Lepton_eta[0],Lepton_pt[1],Lepton_phi[1],Lepton_eta[1],CleanJet_eta[0],CleanJet_eta[1],detajj_vbs_AK4NotFat)',            #   variable name    
-                           'range' : (20,-5,5),    #   variable range
-                           'xaxis' : 'Zeppenfeld_{ll}',  #   x axis name
-                           'fold' :3,
-                           'linesToAdd' : ['.L /afs/cern.ch/work/m/mpresill/Latino_workdir/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/2017/Zeppll.C+']
-                           }
-
 #
 # jets
 #
@@ -99,19 +85,6 @@ variables['eta_jet2']  = {  'name': 'CleanJet_eta[1]',
                         'xaxis' : '#eta 2nd jet',
                         'fold'  : 0                         
                         }
-
-
-variables['mjj_vbs'] = {   'name': 'mjj_vbs',            #   variable name
-                           'range' : (50,300,2500),    #   variable range
-                           'xaxis' : 'm_{jj} [GeV]',  #   x axis name
-                           'fold' : 0
-                        }
-
-variables['mjj_vbs_AK4NotFat'] = {   'name': 'mjj_vbs_AK4NotFat',            #   variable name
-                           'range' : (50,300,2500),    #   variable range
-                           'xaxis' : 'm_{jj} [GeV] (cleaned)',  #   x axis name
-                          'fold' : 0
-                       }
 
 variables['jetpt1'] = { 'name': 'Alt$(CleanJet_pt[0],-9999.)',
                         'range': (30,0.,500),
@@ -174,26 +147,6 @@ variables['nCleanJetNotFat']  = {
                         }
 
 
-variables['detajj_vbs']  = {  'name': 'detajj_vbs',
-                          'range': (32,0.0,8.0),
-                          'xaxis': '\Delta \eta (jj)',
-                          'fold': 0
-                          }
-
-variables['detajj_vbs_AK4NotFat']  = {  'name': 'detajj_vbs_AK4NotFat',
-                          'range': (32,0.0,8.0),
-                          'xaxis': '\Delta \eta (jj) (cleaned)',
-                          'fold': 0
-                          }
-
-
-variables['eta1eta2'] = {  'name': 'eta1eta2',
-                          'range': (40,-20.0,20.0),
-                          'xaxis': '\eta_{j1} * \eta_{j2} (jj) (cleaned)',
-                          'fold': 0
-                          }
-
-
 #
 # MET
 #
@@ -204,50 +157,3 @@ variables['puppimet']  = {
                         'xaxis' : 'puppimet [Gev]',
                         'fold'  : 3
                         }
-
-variables['M_ZV'] = { 'name': "M_ZV",
-                             'range': ([0,250,500,750,1000,1200,1500,2000,2500,3000],),  #for 0  < mVV < 3000
-                             'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 0
-                            }#function implemented in aliases.py and in M_leplepBjets_class.cc
-
-"""
-variables['M_ZV_v0'] = { 'name': "M_ZV",
-                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
-                             'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 0
-                          }
-
-variables['M_ZV_fold1'] = { 'name': "M_ZV",
-                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
-                             'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 1
-                        }
-variables['M_ZV_fold2'] = { 'name': "M_ZV",
-                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
-                             'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 2
-                          }
-
-variables['M_ZV_fold3'] = { 'name': "M_ZV",
-                             'range': ([500,600,700,800,900,1000,1250,1500,1750,2000,2250,2500],),  #for 0  < mVV < 3000
-                             'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 3
-                          }
-
-"""                          
-
-
-variables['ZlepV']  = {  'name': '(Alt$(CleanFatJet_eta[0],-9999.) - (Alt$(CleanJet_eta[0],-9999.)+Alt$(CleanJet_eta[1],-9999.))/2)/detajj_vbs',
-                          'range': (15,-1.5,1.5),
-                          'xaxis': 'z_{V}',
-                          'fold': 3
-                          }
-
-"""
-variables['WH2l_pTW'] = { 'name': 'WH2l_pTW',
-                               'range' : (60,0,1200),
-                             'xaxis' : 'WH2l_pTW [GeV]',
-                             'fold' : 1
-                         }
-"""
