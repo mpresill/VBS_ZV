@@ -2,10 +2,10 @@
 treeName= 'Events'
 
 #date='_Nov252018_ptll'
-date='_13May2020'
+date='_14May2020'
 
-tag = 'VBS_ZV'+date
-
+#tag = 'VBS_ZV'+date
+tag = 'HCMN'+date
 
 # used by mkShape to define output directory for root files
 outputDir = 'rootFile'+date
@@ -17,7 +17,8 @@ aliasesFile = 'aliases.py'
 variablesFile = 'variables.py'
 
 # file with list of cuts
-cutsFile = 'cuts_v2.py'
+#cutsFile = 'cuts_v2.py'
+cutsFile = 'cuts_HCMN_check.py'
 
 # file with list of samples
 #samplesFile = 'samples_sig.py'
@@ -30,11 +31,12 @@ plotFile = 'plot.py'
 
 
 # luminosity to normalize to (in 1/fb)
-lumi = 41.5
+lumi = 4.8
 
 # used by mkPlot to define output directory for plots
 # different from "outputDir" to do things more tidy
-outputDirPlots = 'PlotsVBS_ZV'+date
+#outputDirPlots = 'PlotsVBS_ZV'+date
+outputDirPlots = 'PlotsHCMN'+date
 
 
 # used by mkDatacards to define output directory for datacards
