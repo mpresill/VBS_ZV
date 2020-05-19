@@ -36,3 +36,6 @@ Theory documentation:
 - Which EFT (Rattazzi): https://arxiv.org/pdf/1902.05936.pdf
 - HEFT vs SMEFT (Merlo): https://link.springer.com/content/pdf/10.1007/JHEP07(2019)021.pdf
 - unitarization effects in VBS (Roberto): https://arxiv.org/pdf/1907.06668.pdf
+
+Systematics:
+-JET/MET recomandations from SMP: https://indico.cern.ch/event/911459/contributions/3846962/attachments/2041329/3418925/UpdateForSMP19May.pdf
