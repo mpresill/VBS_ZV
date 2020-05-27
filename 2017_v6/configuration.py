@@ -11,13 +11,13 @@ tag = 'VBS_ZV'+date
 outputDir = 'rootFile'+date
 
 # file with TTree aliases
-aliasesFile = 'aliases_HCMN.py'
+aliasesFile = 'aliases.py'
 
 # file with list of variables
 variablesFile = 'variables_HCMN.py'
 
 # file with list of cuts
-cutsFile = 'cuts_HCMN_check.py'
+cutsFile = 'cuts.py'
 
 # file with list of samples
 #samplesFile = 'samples_sig.py'
