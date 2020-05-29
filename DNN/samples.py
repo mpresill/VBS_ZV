@@ -199,8 +199,8 @@ samples['DY'] = {    'name'   :   files,
 
 
 ###### Top #######
-
-Top_pTrw = '(TMath::Sqrt( TMath::Exp(0.0615-0.0005*topGenPt) * TMath::Exp(0.0615-0.0005*antitopGenPt) ) )'
+#should we consider this weight? Davide does not...
+#Top_pTrw = '(TMath::Sqrt( TMath::Exp(0.0615-0.0005*topGenPt) * TMath::Exp(0.0615-0.0005*antitopGenPt) ) )'
 
 
 files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel') + \
@@ -208,18 +208,19 @@ files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel') + \
     nanoGetSampleFiles(mcDirectory, 'ST_t-channel_top') + \
     nanoGetSampleFiles(mcDirectory, 'ST_tW_antitop') + \
     nanoGetSampleFiles(mcDirectory, 'ST_tW_top') + \
-    nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') 
-    #nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \  
-    #nanoGetSampleFiles(mcDirectory, 'TTWjets') + \ 
-    #nanoGetSampleFiles(mcDirectory, 'TTZjets') + \ 
+    nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \
+    nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') +\
+    nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \  
+    nanoGetSampleFiles(mcDirectory, 'TTWjets') + \ 
+    nanoGetSampleFiles(mcDirectory, 'TTZjets') 
 
 samples['top'] = {
     'name': files,
     'weight': mcCommonWeight,
-    'FilesPerJob': 1,
+    'FilesPerJob': 3,
 }
 
-addSampleWeight(samples,'top','TTTo2L2Nu',Top_pTrw)
+#addSampleWeight(samples,'top','TTTo2L2Nu',Top_pTrw)
 
 
 ######WJets#####
@@ -292,7 +293,8 @@ files = nanoGetSampleFiles(mcDirectory, 'ZZZ') + \
 
 samples['VVV'] = {
     'name': files,
-    'weight': mcCommonWeight
+    'weight': mcCommonWeight ,
+    'FilesPerJob': 5
 }
 
 
