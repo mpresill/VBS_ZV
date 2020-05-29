@@ -210,7 +210,6 @@ files = nanoGetSampleFiles(mcDirectory, 'ST_s-channel') + \
     nanoGetSampleFiles(mcDirectory, 'ST_tW_top') + \
     nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \
     nanoGetSampleFiles(mcDirectory, 'TTTo2L2Nu') + \
-    nanoGetSampleFiles(mcDirectory, 'TTToSemiLeptonic') + \
     nanoGetSampleFiles(mcDirectory, 'TTWjets') + \
     nanoGetSampleFiles(mcDirectory, 'TTZjets') 
 
