@@ -3,8 +3,8 @@
 cuts["supercut"] ={
     'expr': '( \
                   ( nLepton == 2. \
-                    && ( (  (AbsVec(Lepton_pdgId[0])==11) && (Lepton_pt[0]>25) && (Lepton_pt[1]>20)  ) || \
-                    (  (AbsVec(Lepton_pdgId[0])==13) && (Lepton_pt[0]>25) && (Lepton_pt[0]>20) )  )  \
+                    && ( (  (Lepton_pdgId[0]*Lepton_pdgId[1]== - 11*11) && (Lepton_pt[0]>25) && (Lepton_pt[1]>20)  ) || \
+                    (  (Lepton_pdgId[0]*Lepton_pdgId[1]== - 13*13) && (Lepton_pt[0]>25) && (Lepton_pt[0]>20) )  )  \
                     && mll >60. && mll <120. \
                     && nCleanJet >= 2 && AbsVec(CleanJet_pt)>30. && AbsVec(CleanJet_eta)<5.0  \
                     && mjj > 250. && detajj > 2.0 \
@@ -56,8 +56,8 @@ cuts["res_sig"] = {
             && nCleanJet >= 4 \
             && Sum(AbsVec(CleanJet_eta)<5.0)==2 \
             && mll >80. && mll <100. \
-            && bVeto \    
-            ',
+            && bVeto \
+                ',
     'parent' : 'supercut',
     'doVars': True,
     'doNumpy': True
