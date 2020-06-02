@@ -26,7 +26,6 @@ cuts["supercut"] ={
 
 cuts["boos_sig"] = {
     'expr': ' nCleanFatJet == 1 \
-            && AbsVec(CleanFatJet_eta[0])<2.4\
             && nCleanJetNotFat >= 2 \
             && mll >80. && mll <100. \
             && bVeto \
