@@ -13,6 +13,8 @@ https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolBeijing
 https://github.com/latinos/PlotsConfigurations (here sample list and details on the Latino Tree)
 https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolPisa2019ScalarToWW
 
+https://github.com/sebsiebert/PlotsConfigurations/tree/ssiebert-HighMass/Configurations/HWWSemiLepHighMass/Full2017
+
 Nice talks on the topic:
 - SMP-VV VBS semileptonic by Davide: 
 https://indico.cern.ch/event/901949/
