@@ -3,6 +3,9 @@
 Documentation: 
 - AN: https://gitlab.cern.ch/tdr/notes/AN-20-076
 
+Output folder: http://mpresill.web.cern.ch/mpresill/VBS/
+
+
 DNN instructions: https://unimib-analyses.docs.cern.ch/ml_tutorial/introduction/
 ref on DNN: http://www.deeplearningbook.org
 
