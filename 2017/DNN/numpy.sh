@@ -7,5 +7,5 @@ python3 latinoRDF_numpy_exporter.py\
   --cut SR_boosted_minimal\
   --outputdir /eos/home-a/ahakimi/www/ZV_analysis/Numpy\
   --vers v1\
-  --samples top\
+  --samples ZZ ZW DY WJets WW WW_ewk ggWW VZ VVV VBF-V VBS_VV_QCD top\
   --debug 

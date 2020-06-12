@@ -117,7 +117,7 @@ variables['FatJeteta'] = {'name': 'CleanFatJet_eta[0]',
                            }
 
 
-variables['FatJet_mass'] = {   'name': 'CleanFatJet_mass',
+variables['FatJet_mass'] = {   'name': 'CleanFatJet_mass[0]',
 	                       'range': (35,0,220),
                                'xaxis': 'FJ softdrop mass',
 			       'fold': 3
