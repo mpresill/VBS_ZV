@@ -8,7 +8,7 @@ supercut = '   nLepton == 2 \
             && mll >60. && mll <120. \
             && abs(Lepton_eta[0])<2.5 && abs(Lepton_eta[1])<2.5 \
             && nCleanJet >= 2 && fabs(Alt$(CleanJet_pt,-9999.))>30. && fabs(Alt$(CleanJet_eta,-9999.))<5.0 \
-            && mjj > 300 \
+            && mjj > 200 \
             && detajj > 2.0 \
            '
 
