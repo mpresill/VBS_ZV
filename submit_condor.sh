@@ -1,8 +1,8 @@
 #! /bin/bash
 #DATE=3May2020 #change date 
 #mkShapesMulti.py --pycfg=configuration.py --batchSplit=Samples,Files
-
-mkShapesMulti.py --pycfg=2018_v6/configuration.py --doBatch=1 --batchSplit=Samples,Files --batchQueue=longlunch  #espresso #longlunch #--dry-run
+cd 2018_v6
+mkShapesMulti.py --pycfg=configuration.py --doBatch=1 --batchSplit=Samples,Files --batchQueue=longlunch #--dry-run #espresso #longlunch #--dry-run
 
 ##mkShapesMulti.py --pycfg=configuration.py --doHadd=1 --batchSplit=Samples,Files --doNotCleanup --nThreads=10 #to hadd files
 

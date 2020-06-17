@@ -1,2 +1,3 @@
 #!/bin/bash
-mkShapesMulti.py --pycfg=2018_v6/configuration.py --batchSplit=Samples,Files
+cd 2018_v6
+mkShapesMulti.py --pycfg=configuration.py --batchSplit=Samples,Files

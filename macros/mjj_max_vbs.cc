@@ -64,7 +64,7 @@ WHSS_wpt_v3::evaluate(unsigned)
       for (unsigned int jjet=0 ; jjet<njet ; jjet++){
         if (ijet==jjet) continue;
         TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),Jet_mass->At(CleanJet_jetId->At(ijet)));   
-        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(jjet), CleanJet_eta->At(jjet),CleanJet_phi->At(jjet),Jet_mass->At(CleanJet_jetId->At(jjet))); 
+        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),Jet_mass->At(CleanJet_jetId->At(jjet))); 
         Mjj_tmp = (jet0 + jet1).M();
         if(Mjj_tmp>=Mjj_max){
           Mjj_max=Mjj_tmp;

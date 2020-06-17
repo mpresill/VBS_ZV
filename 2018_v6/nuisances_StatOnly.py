@@ -17,7 +17,6 @@ nuisances['stat']  = {
 
 
 
-
 # Differnt type of uncentainties: type->ln N: (modify only event yeld) use a lognorm distributions with sigma = uncertainty. For normalization rateParam
                                         # can be used--> use a uniform distribution;
                                       # Shape: modify not only the events yelds but the event selection too (the shape) will run the varied shapes
