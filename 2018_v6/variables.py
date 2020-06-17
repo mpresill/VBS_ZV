@@ -99,7 +99,7 @@ variables['FatJet_softdropmass'] = {   'name': 'Alt$(CleanFatJet_mass[0],0.)',
 ##this is the softdrop mass
 
                                                                                                                         
-variables['FatJet_tau21'] = {   'name': 'CleanFatJet_tau21',
+variables['FatJet_tau21'] = {   'name': 'CleanFatJet_tau21[0]',
                         'range' : (50,0,1),
                         'xaxis' : '#tau_{21}',
                         'fold' : 3

@@ -62,7 +62,8 @@ groupPlot['Vg']  = {
                   'nameHR' : "V#gamma+V#gamma*",
                   'isSignal' : 0,
                   'color'    : 409,   # kOrange + 10
-                  'samples'  : ['Vg','VgS']
+                  'samples'  : ['Vg','VgS'],
+                  'fill': 1001
               }
 
 groupPlot['DY']  = {  
@@ -116,7 +117,7 @@ plot['VVV']  = {
                   }
 
 
-plot['VV']  = {
+plot['VZ']  = {
                   'color': colors['kGreen']+3,  
                   'isSignal' : 0,
                   'isData'   : 0,
@@ -138,14 +139,14 @@ plot['Vg']  = {
                   'isData'   : 0,
                   'scale'    : 1.0
                   }
-
+"""
 plot['VgS'] = { 
                   'color'    : 617,   # kViolet + 1  
                   'isSignal' : 0,
                   'isData'   : 0,
                   'scale'    : 1.0
                   }
-
+"""
 plot['VBF-V']  = {
                   'color': colors['kYellow']+3,  
                   'isSignal' : 0,
