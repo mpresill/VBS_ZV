@@ -33,6 +33,7 @@ https://indico.cern.ch/event/893430/contributions/3778012/attachments/2004831/33
 https://indico.cern.ch/event/893430/contributions/3771908/attachments/2004731/3347834/CMS_SMP-VV_Daniele_Brambilla_17-03-2020.pdf
 
 - Known issues in MC central production: https://twiki.cern.ch/twiki/bin/viewauth/CMS/MCKnownIssues
+- All existing V+Jets samples in CMS: https://docs.google.com/spreadsheets/d/1J6vBYIsyxv2qAB2JAGktw2sVa8HtwZoKaZBXdraXL3U/edit#gid=0
 
 Latino framework tutorial DAS school:
 https://twiki.cern.ch/twiki/bin/viewauth/CMS/SWGuideCMSDataAnalysisSchoolPisa2019ScalarToWW
