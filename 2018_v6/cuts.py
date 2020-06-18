@@ -14,11 +14,11 @@ supercut = '   nLepton == 2 \
 #
 #   BOOSTED CATEGORY
 #
-cuts['BR_top']  = 'mjj > 200 && detajj > 2.0 && nCleanFatJet==1 && Alt$(FatJet_mass[0],0.)>65 && Alt$(FatJet_mass[0],0.)<105 && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*13)'
-cuts['BR_top_mjjmax']  = 'mjj_vbs_AK4NotFat > 200 && detajj_vbs_AK4NotFat > 2.0 && nCleanFatJet==1 && Alt$(FatJet_mass[0],0.)>65 && Alt$(FatJet_mass[0],0.)<105 && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*13)'
+cuts['BR_top']  = 'mjj > 200 && detajj > 3.5 && nCleanFatJet==1 && Alt$(CleanFatJet_mass[0],0.)>65 && Alt$(CleanFatJet_mass[0],0.)<105 && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*13)'
+#cuts['BR_top_mjjmax']  = 'mjj_vbs_AK4NotFat > 200 && detajj_vbs_AK4NotFat > 2.0 && nCleanFatJet==1 && Alt$(FatJet_mass[0],0.)>65 && Alt$(FatJet_mass[0],0.)<105 && bReq && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*13)'
 
-cuts['BR_DY']  = 'mjj > 200 && detajj > 2.0 && nCleanFatJet==1 && (Alt$(FatJet_mass[0],0.)<65 || Alt$(FatJet_mass[0],0.)>105) && bVeto && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)'
-cuts['BR_DY_mjjmax']  = 'mjj_vbs_AK4NotFat > 200 && detajj_vbs_AK4NotFat > 2.0 && nCleanFatJet==1 && (Alt$(FatJet_mass[0],0.)<65 || Alt$(FatJet_mass[0],0.)>105) && bVeto && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)'
+cuts['BR_DY']  = 'mjj > 200 && detajj > 3.5 && nCleanFatJet==1 && (Alt$(CleanFatJet_mass[0],0.)<65 || Alt$(CleanFatJet_mass[0],0.)>105) && bVeto && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)'
+#cuts['BR_DY_mjjmax']  = 'mjj_vbs_AK4NotFat > 200 && detajj_vbs_AK4NotFat > 2.0 && nCleanFatJet==1 && (Alt$(FatJet_mass[0],0.)<65 || Alt$(FatJet_mass[0],0.)>105) && bVeto && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)'
 
 
 """
