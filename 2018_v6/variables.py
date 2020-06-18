@@ -167,19 +167,19 @@ variables['Zepp2']  = {   'name': 'Lepton_eta[1]-0.5*(CleanJet_eta[0]+CleanJet_e
 #AK4 variables with Latino variables
 
 variables['mjj']  = {   'name': 'mjj',            #   variable name    
-                        'range' : (50,200,2500),    #   variable range
+                        'range' : (20,200,2500),    #   variable range
                         'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                         'fold' :3
                         }
 
 variables['detajj']  = {   'name': 'detajj',            #   variable name    
-                           'range' : (10,2.0,8.5),    #   variable range
+                           'range' : (5,3.0,8.0),    #   variable range
                            'xaxis' : '#Delta #eta jj',  #   x axis name
                            'fold' :3
                            }
 
 #AK4 variables with class definition
-
+"""
 
 variables['mjj_vbs_AK4NotFat'] = {   'name': 'mjj_vbs_AK4NotFat',            #   variable name
                            'range' : (50,200,2500),    #   variable range
@@ -193,7 +193,7 @@ variables['detajj_vbs_AK4NotFat']  = {  'name': 'detajj_vbs_AK4NotFat',
                           'xaxis': '#Delta #eta jj',
                           'fold': 3
                           }
-
+"""
 
 
 #
