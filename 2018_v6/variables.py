@@ -163,12 +163,6 @@ variables['Zepp2']  = {   'name': 'Lepton_eta[1]-0.5*(CleanJet_eta[0]+CleanJet_e
                            'fold' :0
                            }       
 
-variables['Zeppll']  = {   'name': 'Zll[0]',            #   variable name    
-                           'range' : (10,0,5),    #   variable range
-                           'xaxis' : 'Zeppenfeld_ll',  #   x axis name
-                           'fold' :0
-                           }            
-
 
 #AK4 variables with Latino variables
 

@@ -133,9 +133,9 @@ aliases['centralVeto'] = {
 }
 
 
-aliases['Zll'] = {
-            'expr' : '0.5*abs((Lepton_eta[0]+Lepton_eta[1])-(CleanJet_eta[0]+CleanJet_eta[1]))'
-}
+#aliases['Zll'] = {
+#            'expr' : '0.5*abs((Lepton_eta[0]+Lepton_eta[1])-(CleanJet_eta[0]+CleanJet_eta[1]))'
+#}
 
 aliases['bVeto'] = {
     'expr': 'Sum$(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) == 0'
@@ -196,9 +196,15 @@ aliases['bReqSF'] = {
 }
 
 aliases['btagSF'] = {
-    'expr': '(bVeto || (topcr && zeroJet))*bVetoSF + (topcr && !zeroJet)*bReqSF',
+    'expr': '(bVeto*bVetoSF + bReq*bReqSF + ( (!bVeto) && (!bReq) ))',
     'samples': mc
 }
+
+
+#aliases['btagSF'] = {
+#    'expr': '(bVeto || (topcr && zeroJet))*bVetoSF + (topcr && !zeroJet)*bReqSF',
+#    'samples': mc
+#}
 
 for shift in ['jes','lf','hf','lfstats1','lfstats2','hfstats1','hfstats2','cferr1','cferr2']:
 
@@ -271,26 +277,6 @@ aliases['M_ZV'] = {
              ]           
  }
 
-"""
-aliases['mjj_vbs'] = {
-             'class': 'VBSvar_AK4',
-             'args': ("mjj_vbs"),
-             'linesToAdd' : [
-                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
-             ]
- }
-
-aliases['detajj_vbs'] = {
-             'class': 'VBSvar_AK4',
-             'args': ("detajj_vbs"),
-             'linesToAdd' : [
-                 'gSystem->Load("libLatinoAnalysisMultiDraw.so")',
-                 '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
-             ]
- }
- """
-
 aliases['mjj_vbs_AK4NotFat'] = {
     'class': 'WHSS_wpt_v3',
     'args': (),
@@ -306,12 +292,3 @@ aliases['detajj_vbs_AK4NotFat'] = {
         '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/detajj_mjj_max_vbs.cc+'.format(configurations)
     ]
 }
-"""
-aliases['eta1eta2'] = {
-    'class': 'eta12',
-    'args': (),
-    'linesToAdd': [
-        '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/eta12_mjj_max_vbs.cc+'.format(configurations)
-    ]
-}
-"""

@@ -284,7 +284,7 @@ nuisances['UE']  = {
                 'AsLnN'      : '1',
                 'synchronized': False
 }
-"""
+
 ####### Generic "cross section uncertainties"
 
 apply_on = {
@@ -327,7 +327,7 @@ nuisances['VZ'] = {
         'VgS_H': '1.16'
     }
 }
-
+"""
 ###### pdf uncertainties
 
 
