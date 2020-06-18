@@ -29,55 +29,6 @@ aliases['LepWPCut'] = {
     'samples': mc + ['DATA']
 }
 
-aliases['gstarLow'] = {
-    'expr': 'Gen_ZGstar_mass >0 && Gen_ZGstar_mass < 4',
-    'samples': 'VgS'
-}
-
-aliases['gstarHigh'] = {
-    'expr': 'Gen_ZGstar_mass <0 || Gen_ZGstar_mass > 4',
-    'samples': 'VgS'
-}
-
-# Fake leptons transfer factor 
-aliases['fakeW'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP,
-    'samples': ['Fake']
-}
-# And variations - already divided by central values in formulas !
-aliases['fakeWEleUp'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_EleUp',
-    'samples': ['Fake']
-}
-aliases['fakeWEleDown'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_EleDown',
-    'samples': ['Fake']
-}
-aliases['fakeWMuUp'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_MuUp',
-    'samples': ['Fake']
-}
-aliases['fakeWMuDown'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_MuDown',
-    'samples': ['Fake']
-}
-aliases['fakeWStatEleUp'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_statEleUp',
-    'samples': ['Fake']
-}
-aliases['fakeWStatEleDown'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_statEleDown',
-    'samples': ['Fake']
-}
-aliases['fakeWStatMuUp'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_statMuUp',
-    'samples': ['Fake']
-}
-aliases['fakeWStatMuDown'] = {
-    'expr': 'fakeW2l_ele_'+eleWP+'_mu_'+muWP+'_statMuDown',
-    'samples': ['Fake']
-}
-
 # gen-matching to prompt only (GenLepMatch2l matches to *any* gen lepton)
 aliases['PromptGenLepMatch2l'] = {
     'expr': 'Alt$(Lepton_promptgenmatched[0]*Lepton_promptgenmatched[1], 0)',
@@ -104,37 +55,11 @@ aliases['Top_pTrw'] = {
 # Jet bins
 # using Alt$(CleanJet_pt[n], 0) instead of Sum$(CleanJet_pt >= 30) because jet pt ordering is not strictly followed in JES-varied samples
 
-#bjet
-# No jet with pt > 30 GeV
-aliases['zeroJet'] = {
-    'expr': 'Alt$(CleanJet_pt[0], 0) < 30.'
-}
-
-# ==1 jet with pt > 30 GeV
-aliases['oneJet'] = {
-    'expr': 'Alt$(CleanJet_pt[0], 0) >= 30. && Alt$(CleanJet_pt[1], 0) < 30.'
-}
-
-# ==2 jets with pt > 30 GeV
-aliases['twoJet'] = {
-    'expr': 'Alt$(CleanJet_pt[0], 0) >= 30. && Alt$(CleanJet_pt[1], 0) >= 30. && Alt$(CleanJet_pt[2], 0) < 30.'
-}
-
-# >=2 jets with pt > 30 GeV
-aliases['multiJet'] = {
-    'expr': 'Alt$(CleanJet_pt[0], 0) >= 30. && Alt$(CleanJet_pt[1], 0) >= 30.'
-}
-
 
 #bVeto and central veto
 
-aliases['centralVeto'] = {
-    'expr': 'Sum$(CleanJet_pt > 30 && CleanJet_eta > TMath::Min(CleanJet_eta[0], CleanJet_eta[1]) && CleanJet_eta < TMath::Max(CleanJet_eta[0], CleanJet_eta[1]) && abs(CleanJet_eta - CleanJet_eta[0]) > 1 && abs(CleanJet_eta - CleanJet_eta[1]) > 1)==0'
-}
-
-
-#aliases['Zll'] = {
-#            'expr' : '0.5*abs((Lepton_eta[0]+Lepton_eta[1])-(CleanJet_eta[0]+CleanJet_eta[1]))'
+#aliases['centralVeto'] = {
+#    'expr': 'Sum$(CleanJet_pt > 30 && CleanJet_eta > TMath::Min(CleanJet_eta[0], CleanJet_eta[1]) && CleanJet_eta < TMath::Max(CleanJet_eta[0], CleanJet_eta[1]) && abs(CleanJet_eta - CleanJet_eta[0]) > 1 && abs(CleanJet_eta - CleanJet_eta[1]) > 1)==0'
 #}
 
 aliases['bVeto'] = {
@@ -149,40 +74,6 @@ aliases['bReq'] = {
     #'expr': 'Sum$(CleanJet_pt > 30. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.4184) >= 1'
 }
 
-
-
-# B tagging
-aliases['btag0'] = {
-    'expr': 'zeroJet && !bVeto'
-}
-
-aliases['btag1'] = {
-    'expr': 'oneJet && bReq'
-}
-
-aliases['btag2'] = {
-    'expr': 'twoJet && bReq'
-}
-
-# CR definitions
-
-aliases['topcr'] = {
-    'expr': 'mll>50 && ((zeroJet && !bVeto) || bReq)'
-}
-
-aliases['dycr'] = {
-    'expr': 'mth<60 && mll>70 && mll<120 && bVeto'
-}
-
-aliases['wwcr'] = {
-    'expr': 'mth>60 && mtw2>30 && mll>100 && bVeto'
-}
-
-# SR definition
-
-aliases['sr'] = {
-    'expr': 'mth>60 && bVeto'
-}
 
 # B tag scale factors
 aliases['bVetoSF'] = {
@@ -276,7 +167,7 @@ aliases['M_ZV'] = {
                  '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/vbs_variables_class_AK4.cc+'.format(configurations)
              ]           
  }
-
+"""
 aliases['mjj_vbs_AK4NotFat'] = {
     'class': 'WHSS_wpt_v3',
     'args': (),
@@ -292,3 +183,4 @@ aliases['detajj_vbs_AK4NotFat'] = {
         '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/detajj_mjj_max_vbs.cc+'.format(configurations)
     ]
 }
+"""
