@@ -4,16 +4,17 @@
 set -e 
 
 DIR=$PWD
-JOB="/afs/cern.ch/work/s/shoh/analysis/WH-Study/my-latino/nanov6/jobs"
-#QUEUE="longlunch" #
+JOB="/afs/cern.ch/work/m/mpresill/Latino/jobs"
+QUEUE="longlunch" #
 #QUEUE="workday" 
-QUEUE="testmatch"
+#QUEUE="testmatch"
 
-for year in Full2017nano_STXS_1p1 Full2018nano_STXS_1p1 #Full2016nano_STXS_1p1 Full2017nano_STXS_1p1 Full2018nano_STXS_1p1
-do
-    YEAR=`echo $year | awk -F "Full" '{print $2}' | awk -F "nano" '{print $1}'`
-    echo " --> $year"
-    cd $DIR; cd $year
+#for year in Full2017nano_STXS_1p1 Full2018nano_STXS_1p1 #Full2016nano_STXS_1p1 Full2017nano_STXS_1p1 Full2018nano_STXS_1p1
+#do
+#    YEAR=`echo $year | awk -F "Full" '{print $2}' | awk -F "nano" '{print $1}'`
+#    echo " --> $year"
+#    cd $DIR; cd $year
+    cd $JOB 
 
     for i in ${JOB}/mkShapes__WHSS_${YEAR}_v6_STXS/*jid
     do 
@@ -22,11 +23,13 @@ do
         then
             echo "CONGRATULATION ALL JOB FINISH FOR $year"
         else    
-	    echo "sed -i \"s/${QUEUE}/tomorrow/g\" ${i/jid/jds}"
-	    #sed -i "s/${QUEUE}/tomorrow/g" ${i/jid/jds}
-	    #condor_submit ${i/jid/jds}
+	    #echo "sed -i \"s/${QUEUE}/tomorrow/g\" ${i/jid/jds}"
+	    sed -i "s/${QUEUE}/tomorrow/g" ${i/jid/jds}
+	    condor_submit ${i/jid/jds}
 	fi
     done
-done
+#done
 
+        cd $DIR
+        
 condor_q

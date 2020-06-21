@@ -21,8 +21,8 @@ configurations = os.path.dirname(configurations) # Configurations
 # samples, signals
 mc = [skey for skey in samples if skey not in ('Fake', 'DATA')]
 
-eleWP='mvaFall17V1Iso_WP90'
-muWP='cut_Tight_HWWW'
+eleWP='mva_90p_Iso2016'
+muWP='cut_Tight80x'
 
 aliases['LepWPCut'] = {
     'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP,
@@ -56,6 +56,8 @@ aliases['Top_pTrw'] = {
 # using Alt$(CleanJet_pt[n], 0) instead of Sum$(CleanJet_pt >= 30) because jet pt ordering is not strictly followed in JES-varied samples
 
 
+
+#Veto events with loose b-tagged jets (btagDeepB > 0.1241)?
 #bVeto 
 aliases['bVeto'] = {
     'expr': 'Sum$(CleanJet_pt > 20. && abs(CleanJet_eta) < 2.5 && Jet_btagDeepB[CleanJet_jetIdx] > 0.1522) == 0'
