@@ -45,6 +45,7 @@ public:
 
 protected:
   enum ReturnType {
+    vbs_category, 
     vbs_jet_0,
     vbs_jet_1, 
     v_jet_0,
@@ -118,7 +119,9 @@ jets_cat::jets_cat( char const* _type, const char* year):
    TTreeFunction(){
      
     std::string type(_type);
-    if (type ==  "vbs_jet_0")
+    if (type ==  "vbs_category")
+      returnVar_ = vbs_category;
+    else if (type ==  "vbs_jet_0")
       returnVar_ = vbs_jet_0;
     else if (type == "vbs_jet_1")
       returnVar_ = vbs_jet_1;
@@ -298,7 +301,7 @@ jets_cat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   returnValues[mjj_max]= Mjj_tmp;
   returnValues[detajj_mjjmax] = detajj_mjj_max;
   returnValues[Vjet_mass] = Vjet_mass_tmp;
-  
+  returnValues[vbs_category] = category;
 
 }
 
