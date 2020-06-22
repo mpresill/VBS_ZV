@@ -207,7 +207,7 @@ jets_cat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   //first part: compute the mjj_max of all the AK4 (CleanedNotFat)
   float Mjj_tmp=0;
   float Mjj_max=0;
-  float deltamass_Vjet=1000;
+  float deltamass_Vjet=1e5;
   float detajj_tmp=0;
   float detajj_mjj_max=0;
   float Vjet_mass_tmp = 0.;
