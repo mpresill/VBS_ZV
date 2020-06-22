@@ -35,8 +35,8 @@ float deltaEta(float eta1, float eta2) {
 
 class jets_cat : public multidraw::TTreeFunction {
 public:
-  jets_cat( char const* _type);
-  jets_cat( unsigned type);
+  jets_cat( char const* _type, const char* year);
+  jets_cat( unsigned type, const char* year);
 
   char const* getName() const override { return "jets_cat"; }
   TTreeFunction* clone() const override { return new jets_cat(returnVar_,year_.c_str() ); }
@@ -116,7 +116,7 @@ std::array<double, jets_cat::nVarTypes> jets_cat::returnValues{};
 // function Helper ---
 
 
-jets_cat::jets_cat( char const* _type):
+jets_cat::jets_cat( char const* _type, const char* year):
    TTreeFunction(){
      
     std::string type(_type);
@@ -143,7 +143,7 @@ jets_cat::jets_cat( char const* _type):
 
 }
 
-jets_cat::jets_cat( unsigned type):
+jets_cat::jets_cat( unsigned type, const char* year):
 TTreeFunction(), returnVar_(type){
   jets_cat::year_ = year;
 }
