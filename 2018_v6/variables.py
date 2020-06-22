@@ -18,13 +18,7 @@ variables['VARIABLE']  = {
 #
 # leptons
 #
-"""
-variables['ptlep']  = {   'name': 'Alt$(Lepton_pt,-9999.)',
-                        'range' : (20,0.,200),
-                        'xaxis' : 'p_{T} lep [GeV]',
-                        'fold' :3
-                        }
-"""
+
 variables['pt1']  = {   'name': 'Alt$(Lepton_pt[0],-9999.)',
                         'range' : (20,0.,200),
                         'xaxis' : 'p_{T} 1st lep [GeV]',
@@ -57,131 +51,60 @@ variables['mll-peak']  = {   'name': 'mll',            #   variable name
 
 
 #
-# jets AK8
-#
-"""
-variables['nFatJet']  = {
-                        'name': 'nCleanFatJet',     
-                        'range' : (6,0,6),   
-                        'xaxis' : 'Number of FatJets w/ p_{T}>200 GeV',
-                        'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
-                        }
-
-
-variables['FatJet_pt']  = {
-                        'name': 'CleanFatJet_pt[0]',     
-                        'range' : (30,150,800),   
-                        'xaxis' : 'FatJet p_{T}',
-                        'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
-                        }
-
-variables['FatJeteta'] = {'name': 'CleanFatJet_eta[0]',
-                           'range' : (25,-2.7,2.7),
-                           'xaxis' : '\eta FatJet',
-                           'fold'  : 3
-                           }
-variables['FatJet_softdropmass'] = {   'name': 'Alt$(CleanFatJet_mass[0],0.)',
-                               'range': (50,0.,200),
-                               'xaxis': 'AK8 jet softdrop mass',
-                               'fold': 3
-                               }
-##this is the softdrop mass
-                                                                                                                     
-variables['FatJet_tau21'] = {   'name': 'CleanFatJet_tau21[0]',
-                        'range' : (50,0,1),
-                        'xaxis' : '#tau_{21}',
-                        'fold' : 3
-                        }
-"""
-
-#
 # jet AK4
 #
-"""
-variables['nCleanJet']  = {   'name': 'nCleanJet',            #   variable name    
-                        'range' : (10,0,10),    #   variable range
-                        'xaxis' : 'Number of jets',  #   x axis name
-                        'fold' : 3
-                        }
 
-variables['nCleanJetNotFat']  = {
-                        'name': 'nCleanJetNotFat',     
-                        'range' : (10,0,10),   
-                        'xaxis' : 'Number of jets (cleaned)',
-                        'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
-                        }
-"""
-variables['jeteta1'] = {  'name': 'Alt$(CleanJet_eta[0],-9999.)',
+variables['jeteta1'] = {  'name': 'Alt$(CleanJet_eta[vbs_jet_0],-9999.)',
                         'range': (30,-5,5),
                         'xaxis': '#eta 1st VBS jet',
                         'fold' : 3
                         }
-variables['jeteta2'] = {  'name': 'Alt$(CleanJet_eta[1],-9999.)',
+variables['jeteta2'] = {  'name': 'Alt$(CleanJet_eta[vbs_jet_1],-9999.)',
                         'range': (30,-5,5),
                         'xaxis': '#eta 2nd VBS jet',
                         'fold' : 3
                         }
 
-variables['jetpt1']  = {   'name': 'Alt$(CleanJet_pt[0],-9999.)',            #   variable name    
-                        'range' : (20,0,300),    #   variable range
+variables['jetpt1']  = {   'name': 'Alt$(CleanJet_pt[vbs_jet_0],-9999.)',            #   variable name    
+                        'range' : (30,0,400),    #   variable range
                         'xaxis' : 'p_{T} 1st VBS jet [GeV]',  #   x axis name
                         'fold' : 3
                         }
-variables['jetpt2']  = {   'name': 'Alt$(CleanJet_pt[1],-9999.)',            #   variable name    
-                        'range' : (20,0,300),    #   variable range
+variables['jetpt2']  = {   'name': 'Alt$(CleanJet_pt[vbs_jet_1],-9999.)',            #   variable name    
+                        'range' : (30,0,400),    #   variable range
                         'xaxis' : 'p_{T} 2nd VBS jet [GeV]',  #   x axis name
                         'fold' : 3
                         }
 
 
-#AK4 variables with Latino variables
 
-variables['mjj']  = {   'name': 'mjj',            #   variable name    
-                        'range' : (20,200,2500),    #   variable range
+# new variables
+
+variables['mjj_max']  = {   'name': 'mjj_max',            #   variable name    
+                        'range' : (20,200,4000),    #   variable range
                         'xaxis' : 'm_{jj} [GeV]',  #   x axis name
                         'fold' :3
                         }
 
-variables['detajj']  = {   'name': 'detajj',            #   variable name    
-                           'range' : (5,3.0,8.0),    #   variable range
+variables['detajj_mjjmax']  = {   'name': 'detajj_mjjmax',            #   variable name    
+                           'range' : (12,2.0,8.0),    #   variable range
                            'xaxis' : '#Delta #eta jj',  #   x axis name
                            'fold' :3
                            }
 
-#AK4 variables with class definition
-"""
-
-variables['mjj_vbs_AK4NotFat'] = {   'name': 'mjj_vbs_AK4NotFat',            #   variable name
-                           'range' : (50,200,2500),    #   variable range
-                           'xaxis' : 'm_{jj} [GeV]',  #   x axis name
-                          'fold' : 3
-                       }
 
 
-variables['detajj_vbs_AK4NotFat']  = {  'name': 'detajj_vbs_AK4NotFat',
-                          'range': (32,2.0,8.5),
-                          'xaxis': '#Delta #eta jj',
-                          'fold': 3
-                          }
-"""
+#Zeppenfeld variables
 
-
-"""
-variables['M_ZV'] = { 'name': "M_ZV",
-                             'range': ([0,250,500,750,1000,1200,1500,2000,2500,3000],),  #for 0  < mVV < 3000
-                             'xaxis': 'M_{ZV} [GeV]',
-                             'fold': 3
-                            }#function implemented in aliases.py and in M_leplepBjets_class.cc
-"""
-
-
-
-#--- 2D variables --
-
-"""
-variables['Mjj_vs_Mzv']  = {   'name': 'mjj:M_ZV',            #   variable name    
-                        'range' : ([100,250,400,600,1000],[100,250,400,600,1000],),    #   variable range
-                        'xaxis' : 'mjj:M_ZV',  #   x axis name
+variables['Zlep_1'] = {   'name': '( Lepton_eta[0]-0.5*(CleanJet_eta[vbs_jet_0]+CleanJet_eta[vbs_jet_1]) )/detajj_mjjmax',      
+                        'range' : (40,-1.5,1.5),  
+                        'xaxis' : 'Z^{lep}_{l1}', 
                         'fold' : 3
                         }
-"""
+
+variables['Zlep_2'] = {   'name': '( Lepton_eta[1]-0.5*(CleanJet_eta[vbs_jet_0]+CleanJet_eta[vbs_jet_1]) )/detajj_mjjmax',      
+                        'range' : (40,-1.5,1.5),  
+                        'xaxis' : 'Z^{lep}_{l2}', 
+                        'fold' : 3
+                        }
+

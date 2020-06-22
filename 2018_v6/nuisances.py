@@ -62,67 +62,7 @@ nuisances['lumi_CurrCalib'] = {
     'samples': dict((skey, '1.002') for skey in mc if skey not in ['WW', 'top', 'DY'])
 }
 
-#### FAKES
 
-## FIXME: check the 30% lnN
-"""
-nuisances['fake_syst_em'] = {
-    'name': 'CMS_fake_syst_em',
-    'type': 'lnN',
-    'samples': {
-        'Fake_em': '1.3'
-    },
-   'cutspost': lambda self, cuts: [cut for cut in cuts if '20me' not in cut],
-   'perRecoBin': True
-}
-
-nuisances['fake_syst_me'] = {
-    'name': 'CMS_fake_syst_me',
-    'type': 'lnN',
-    'samples': {
-        'Fake_me': '1.3'
-    },
-   'cutspost': lambda self, cuts: [cut for cut in cuts if '20em' not in cut],
-   'perRecoBin': True
-}
-
-
-nuisances['fake_ele'] = {
-    'name': 'CMS_fake_e_2018',
-    'kind': 'weight',
-    'type': 'shape',
-    'samples': {
-        'Fake': ['fakeWEleUp', 'fakeWEleDown'],
-    }
-}
-
-nuisances['fake_ele_stat'] = {
-    'name': 'CMS_fake_stat_e_2018',
-    'kind': 'weight',
-    'type': 'shape',
-    'samples': {
-        'Fake': ['fakeWStatEleUp', 'fakeWStatEleDown']
-    }
-}
-
-nuisances['fake_mu'] = {
-    'name': 'CMS_fake_m_2018',
-    'kind': 'weight',
-    'type': 'shape',
-    'samples': {
-        'Fake': ['fakeWMuUp', 'fakeWMuDown'],
-    }
-}
-
-nuisances['fake_mu_stat'] = {
-    'name': 'CMS_fake_stat_m_2018',
-    'kind': 'weight',
-    'type': 'shape',
-    'samples': {
-        'Fake': ['fakeWStatMuUp', 'fakeWStatMuDown'],
-    }
-}
-"""
 ##### B-tagger
 
 for shift in ['jes', 'lf', 'hf', 'hfstats1', 'hfstats2', 'lfstats1', 'lfstats2', 'cferr1', 'cferr2']:
@@ -257,7 +197,7 @@ nuisances['UE']  = {
 }
 """
 ####### Generic "cross section uncertainties"
-
+"""
 apply_on = {
     'top': [
         'isSingleTop * 1.0816 + isTTbar',
@@ -272,9 +212,9 @@ nuisances['singleTopToTTbar'] = {
     'type': 'shape',
     'samples': apply_on
 }
-
-## Top pT reweighting uncertainty
-
+"""
+## Top pT reweighting uncertainty TO BE FIXED
+"""
 nuisances['TopPtRew'] = {
     'name': 'CMS_topPtRew',   # Theory uncertainty
     'kind': 'weight',
@@ -282,7 +222,7 @@ nuisances['TopPtRew'] = {
     'samples': {'top': ["1.", "1./Top_pTrw"]},
     'symmetrize': True
 }
-
+"""
 
 
 
