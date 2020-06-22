@@ -51,31 +51,55 @@ variables['mll-peak']  = {   'name': 'mll',            #   variable name
 
 
 #
-# jet AK4
+# VBS jet AK4
 #
 
-variables['jeteta1'] = {  'name': 'Alt$(CleanJet_eta[vbs_jet_0],-9999.)',
+variables['VBS_jet_eta1'] = {  'name': 'Alt$(CleanJet_eta[vbs_jet_0],-9999.)',
                         'range': (30,-5,5),
                         'xaxis': '#eta 1st VBS jet',
                         'fold' : 3
                         }
-variables['jeteta2'] = {  'name': 'Alt$(CleanJet_eta[vbs_jet_1],-9999.)',
+variables['VBS_jet_eta2'] = {  'name': 'Alt$(CleanJet_eta[vbs_jet_1],-9999.)',
                         'range': (30,-5,5),
                         'xaxis': '#eta 2nd VBS jet',
                         'fold' : 3
                         }
 
-variables['jetpt1']  = {   'name': 'Alt$(CleanJet_pt[vbs_jet_0],-9999.)',            #   variable name    
+variables['VBS_jet_pt1']  = {   'name': 'Alt$(CleanJet_pt[vbs_jet_0],-9999.)',            #   variable name    
                         'range' : (30,0,400),    #   variable range
                         'xaxis' : 'p_{T} 1st VBS jet [GeV]',  #   x axis name
                         'fold' : 3
                         }
-variables['jetpt2']  = {   'name': 'Alt$(CleanJet_pt[vbs_jet_1],-9999.)',            #   variable name    
+variables['VBS_jet_pt2']  = {   'name': 'Alt$(CleanJet_pt[vbs_jet_1],-9999.)',            #   variable name    
                         'range' : (30,0,400),    #   variable range
                         'xaxis' : 'p_{T} 2nd VBS jet [GeV]',  #   x axis name
                         'fold' : 3
                         }
 
+#
+# V- jet(s) #
+
+variables['V_jet_eta1'] = {  'name': 'Alt$(CleanJet_eta[v_jet_0],-9999.)',
+                        'range': (30,-5,5),
+                        'xaxis': '#eta 1st VBS jet',
+                        'fold' : 3
+                        }
+variables['V_jet_eta2'] = {  'name': 'Alt$(CleanJet_eta[v_jet_1],-9999.)',
+                        'range': (30,-5,5),
+                        'xaxis': '#eta 2nd VBS jet',
+                        'fold' : 3
+                        }
+
+variables['V_jet_pt1']  = {   'name': 'Alt$(CleanJet_pt[v_jet_0],-9999.)',            #   variable name    
+                        'range' : (60,0,800),    #   variable range
+                        'xaxis' : 'p_{T} 1st VBS jet [GeV]',  #   x axis name
+                        'fold' : 3
+                        }
+variables['V_jet_pt2']  = {   'name': 'Alt$(CleanJet_pt[v_jet_1],-9999.)',            #   variable name    
+                        'range' : (30,0,400),    #   variable range
+                        'xaxis' : 'p_{T} 2nd VBS jet [GeV]',  #   x axis name
+                        'fold' : 3
+                        }
 
 
 # new variables

@@ -211,7 +211,7 @@ samples['top'] = {
 addSampleWeight(samples,'top','TTTo2L2Nu','Top_pTrw')
 
 ######WJets#####
-
+"""
 files = nanoGetSampleFiles(mcDirectory, 'WJetsToLNu_HT100_200') + \
     nanoGetSampleFiles(mcDirectory, 'WJetsToLNu_HT200_400') + \
     nanoGetSampleFiles(mcDirectory, 'WJetsToLNu_HT400_600') + \
@@ -227,7 +227,7 @@ samples['WJets'] = {
     'FilesPerJob': 2
 }
 
-
+"""
 ###### WW ########
 
 samples['WW'] = {
@@ -269,7 +269,7 @@ addSampleWeight(samples, 'Vg', 'Zg', '0.448')
 
 
 ######## VgS ########
-
+"""
 files = nanoGetSampleFiles(mcDirectory, 'Wg_MADGRAPHMLM') + \
     nanoGetSampleFiles(mcDirectory, 'Zg') + \
     nanoGetSampleFiles(mcDirectory, 'WZTo3LNu_mllmin01')
@@ -286,7 +286,7 @@ samples['VgS'] = {
 addSampleWeight(samples, 'VgS', 'Wg_MADGRAPHMLM', '(Gen_ZGstar_mass > 0 && Gen_ZGstar_mass < 0.1)')
 addSampleWeight(samples, 'VgS', 'Zg', '(Gen_ZGstar_mass > 0)*0.448')
 addSampleWeight(samples, 'VgS', 'WZTo3LNu_mllmin01', '(Gen_ZGstar_mass > 0.1)')
-
+"""
 
 ############ VZ ############
 

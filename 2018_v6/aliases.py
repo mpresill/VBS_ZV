@@ -60,6 +60,25 @@ aliases['vbs_jet_1'] = {
     'args': ('vbs_jet_1','2018')
 }
 
+aliases['v_jet_0'] = {
+    'linesToAdd': [
+        'gSystem->AddIncludePath("-I%s/src");' % os.getenv('CMSSW_BASE'),
+        '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/jets_cat.cc+'.format(configurations)
+    ],
+    'class': 'jets_cat',
+    'args': ('v_jet_0','2018')
+}
+
+aliases['v_jet_1'] = {
+    'linesToAdd': [
+        'gSystem->AddIncludePath("-I%s/src");' % os.getenv('CMSSW_BASE'),
+        '.L /afs/cern.ch/work/m/mpresill/Latino/CMSSW_10_6_4/src/PlotsConfigurations/Configurations/VBS_ZV/macros/jets_cat.cc+'.format(configurations)
+    ],
+    'class': 'jets_cat',
+    'args': ('v_jet_1','2018')
+}
+
+
 aliases['mjj_max'] = {
     'linesToAdd': [
         'gSystem->AddIncludePath("-I%s/src");' % os.getenv('CMSSW_BASE'),
