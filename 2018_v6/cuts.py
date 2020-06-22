@@ -7,8 +7,8 @@ supercut = '   nLepton == 2 \
             && mll >60. && mll <120. \
             && abs(Lepton_eta[0])<2.5 && abs(Lepton_eta[1])<2.5 \
             && nCleanJetNotFat >= 2 && fabs(Alt$(CleanJet_pt[CleanJetNotFat_jetIdx],-9999.))>50. && fabs(Alt$(CleanJet_eta[CleanJetNotFat_jetIdx],-9999.))<5.0 \
-            && mjj_max > 200 && detajj_mjjmax > 2.0 \    
-           '
+            && mjj_max > 200 && detajj_mjjmax > 2.0 \
+            '
 #I have considered all CleanedJetNotFat, i.e. cleaned from AK8, since in the case in which nCleanFatJet==0 => nCleanJetNotFat = NCleanJet
 
 #cuts['preselection'] = '1.'
