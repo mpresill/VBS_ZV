@@ -1,5 +1,6 @@
 /*
 This macrol computes the AK4 jets categorization in the VBS event:   
+    - the category of the event (1FJ, 0FJ or more than 1FJ)
     - mjj as the maximum of all the AK4 jets couples masses
     - their detajj
     - the indices of these VBS-jets
