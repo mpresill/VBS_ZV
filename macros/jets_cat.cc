@@ -4,6 +4,9 @@ This macrol computes the AK4 jets categorization in the VBS event:
     - their detajj
     - the indices of these VBS-jets
     - in the resolved case (4jets and no FJ), the inv mass of the other two jets (Vjets_mass)
+
+Note that according to the definition in ll. 147, 149 we use the CleanJetNotFat indecing 
+
 */
 
 
@@ -191,22 +194,20 @@ jets_cat::setValues(UInt_t _run, UInt_t _luminosityBlock, ULong64_t _event)
   unsigned int nFJ{*nFatJet->Get()};
   std::vector<std::pair<int,float>> VBS_jets_Id;
   
-
-
   if (njet>=2){
     for (unsigned int ijet=0 ; ijet<njet ; ijet++){
       for (unsigned int jjet=0 ; jjet<njet ; jjet++){
         if (ijet==jjet) continue;
-        TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),Jet_mass->At(CleanJet_jetId->At(ijet)));   
-        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(ijet), CleanJet_eta->At(ijet),CleanJet_phi->At(ijet),Jet_mass->At(CleanJet_jetId->At(jjet))); 
+        TLorentzVector jet0; jet0.SetPtEtaPhiM(CleanJet_pt->At(CleanJet_jetId->At(ijet)), CleanJet_eta->At(CleanJet_jetId->At(ijet)),CleanJet_phi->At(CleanJet_jetId->At(ijet)),Jet_mass->At(CleanJet_jetId->At(ijet)));   
+        TLorentzVector jet1; jet1.SetPtEtaPhiM(CleanJet_pt->At(CleanJet_jetId->At(ijet)), CleanJet_eta->At(CleanJet_jetId->At(ijet)),CleanJet_phi->At(CleanJet_jetId->At(ijet)),Jet_mass->At(CleanJet_jetId->At(jjet))); 
         Mjj_tmp = (jet0 + jet1).M();
-        detajj_tmp = deltaEta(CleanJet_eta->At(ijet),CleanJet_eta->At(jjet));
+        detajj_tmp = deltaEta(CleanJet_eta->At(CleanJet_jetId->At(ijet)),CleanJet_eta->At(CleanJet_jetId->At(jjet)));
         if(Mjj_tmp>=Mjj_max){
           Mjj_max=Mjj_tmp;
           detajj_mjj_max=detajj_tmp;
           //qui in qualche modo bisogna estrarre l'indice dei due VBS-jets
-          VBS_jets_Id=push_back(ijet);    //non sono affatto convinto vada bene
-          VBS_jets_Id=push_back(jjet);    //non sono affatto convinto vada bene
+          VBS_jets_Id=push_back(CleanJet_jetId->At(ijet));    //non sono affatto convinto vada bene
+          VBS_jets_Id=push_back(CleanJet_jetId->At(jjet));    //non sono affatto convinto vada bene
           }
         else{
           if(njet==4 && nFJ==0 ){ 
