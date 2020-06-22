@@ -14,17 +14,17 @@ QUEUE="longlunch" #
 #    YEAR=`echo $year | awk -F "Full" '{print $2}' | awk -F "nano" '{print $1}'`
 #    echo " --> $year"
 #    cd $DIR; cd $year
-    cd $JOB 
+    cd $JOB/mkShapes__VBS_ZV${DATE} 
 
-    for i in ${JOB}/mkShapes__VBS_ZV${DATE}/*jid
+    for i in *jid
     do 
 	CHECK=`echo "$i" | awk -F "/" '{print $NF}'`
         if [ ${CHECK} == "*jid" ]
         then
-            echo "CONGRATULATION ALL JOB FINISH FOR $year"
+            echo "CONGRATULATION ALL JOB FINISHED"
         else    
 	    #echo "sed -i \"s/${QUEUE}/tomorrow/g\" ${i/jid/jds}"
-	    sed -i "s/${QUEUE}/tomorrow/g" ${i/jid/jds}
+	    sed -i "s/${QUEUE}/workday/g" ${i/jid/jds}
 	    condor_submit ${i/jid/jds}
 	fi
     done
