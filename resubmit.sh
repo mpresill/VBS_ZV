@@ -2,7 +2,7 @@
 #!/bin/bash
 
 set -e 
-
+DATE=_20June2020
 DIR=$PWD
 JOB="/afs/cern.ch/work/m/mpresill/Latino/jobs"
 QUEUE="longlunch" #
@@ -16,7 +16,7 @@ QUEUE="longlunch" #
 #    cd $DIR; cd $year
     cd $JOB 
 
-    for i in ${JOB}/mkShapes__WHSS_${YEAR}_v6_STXS/*jid
+    for i in ${JOB}/mkShapes__VBS_ZV${DATE}/*jid
     do 
 	CHECK=`echo "$i" | awk -F "/" '{print $NF}'`
         if [ ${CHECK} == "*jid" ]
@@ -33,3 +33,6 @@ QUEUE="longlunch" #
         cd $DIR
         
 condor_q
+
+
+#for i in *jid; do sed -i "s/longlunch/microcentury/g" ${i/jid/jds}; condor_submit ${i/jid/jds}; done
