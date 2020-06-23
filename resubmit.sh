@@ -2,7 +2,7 @@
 #!/bin/bash
 
 set -e 
-DATE=_20June2020
+DATE=_22June2020
 DIR=$PWD
 JOB="/afs/cern.ch/work/m/mpresill/Latino/jobs"
 QUEUE="longlunch" #
@@ -23,9 +23,9 @@ QUEUE="longlunch" #
         then
             echo "CONGRATULATION ALL JOB FINISHED"
         else    
-	    #echo "sed -i \"s/${QUEUE}/tomorrow/g\" ${i/jid/jds}"
-	    sed -i "s/${QUEUE}/workday/g" ${i/jid/jds}
-	    condor_submit ${i/jid/jds}
+	    echo "sed -i \"s/${QUEUE}/workday/g\" ${i/jid/jds}"
+	    #sed -i "s/${QUEUE}/workday/g" ${i/jid/jds}
+	    #condor_submit ${i/jid/jds}
 	fi
     done
 #done
