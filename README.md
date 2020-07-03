@@ -1,5 +1,12 @@
 # VBS_ZV
 
+THIS FOLDER IS DEPRECATED!
+PLEASE REFER TO THE FOLLOWING GITHUB FOLDER
+https://github.com/mpresill/PlotsConfigurations/tree/master/Configurations/VBS_ZV
+
+
+
+
 Documentation: 
 - AN: https://gitlab.cern.ch/tdr/notes/AN-20-076
 
