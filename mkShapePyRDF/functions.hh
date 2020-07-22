@@ -46,13 +46,9 @@ float deltaEta(float eta1, float eta2) {
   return std::abs(eta1 - eta2);
 }
 
+RVec<float> jets_cat(int nCleanJet,int  nFatJet,RVec<float> & CleanJet_pt, RVec<int> & CleanJetNotFat_jetId, RVec<float> & CleanJet_phi, RVec<float> & CleanJet_eta, RVec<float> & Jet_mass, RVec<int> &CleanJet_jetId){
 
-//jets cat function returns an array of [category, vbs_jet_0, vbs_jet_1, V_jet_0, V_jet_1]
 
-int * jets_cat(int nCleanJet,int  nFatJet,Rvec<float> & CleanJet_pt, Rvec<int> & CleanJetNotFat_jetId, Rvec<float> & CleanJet_phi, Rvec<float> & CleanJet_eta, Rvec<float> & Jet_mass, Rvec<int> &CleanJet_jetId){
-
-//declare return array
-static float cat[5];
 
 //first part: compute the mjj_max of all the AK4 (CleanedNotFat)
 float Mjj_tmp=0;
@@ -130,19 +126,16 @@ category = -1;
 }
 
 
-//store variables in cat array
+//create vec [category, vbsjet1, vbsjet2, vjet1, vjet2, mjjmax,detajjmjjmax,vjetmass]
+
+RVec<float> cat{category, -999,-999,-999,-999, Mjj_tmp,detajj_mjj_max,Vjet_mass_tmp }
 cat[0]=category;
-if (VBS_jets[0] != -999) cat[1]= CleanJetNotFat_jetId->At(VBS_jets[0]);
-    else                 cat[1]= -999;
-if (VBS_jets[1] != -999) cat[2]= CleanJetNotFat_jetId->At(VBS_jets[1]);
-    else                 cat[2]= -999;
-if (V_jets[0] != -999)   cat[3]= CleanJetNotFat_jetId->At(V_jets[0]);
-    else                 cat[3]= -999;
-if (V_jets[1] != -999)   cat[4]= CleanJetNotFat_jetId->At(V_jets[1]);
-    else                 cat[4]= -999;
+if (VBS_jets[0] != -999) jets_cat[1]= CleanJetNotFat_jetId->At(VBS_jets[0]);
+if (VBS_jets[1] != -999) jets_cat[2]= CleanJetNotFat_jetId->At(VBS_jets[1]);
+if (V_jets[0] != -999)   jets_cat[3]= CleanJetNotFat_jetId->At(V_jets[0]);
+if (V_jets[1] != -999)   jets_cat[4]= CleanJetNotFat_jetId->At(V_jets[1]);
 
 return cat;
 }
-
 
 #endif

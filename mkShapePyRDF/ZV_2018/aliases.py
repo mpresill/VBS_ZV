@@ -92,27 +92,35 @@ aliases['SFweight'] = {
     'samples': mc
 }
 
-aliases['cat']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)"
 
-}
 aliases['category']={
-    'expr': "Take(jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx),0)"
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[0]"
     }
 
 
 aliases['vbs_jet_0']={
-    'expr': "Take(jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx),1)"
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[1]"
     }
 
 aliases['vbs_jet_1']={
-    'expr': "Take(jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx),2)"
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[2]"
     }
 
 aliases['V_jet_0']={
-    'expr': "Take(jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx),3)"
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[3]"
     }
 
 aliases['V_jet_1']={
-    'expr': "Take(jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx),4)"
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[4]"
     }
+
+aliases['Mjj_max']={
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[5]"
+    }
+aliases['detajj_mjjmax']= {
+      'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[6]"
+}
+
+aliases['V_jet_mass']= {
+      'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[7]"
+}

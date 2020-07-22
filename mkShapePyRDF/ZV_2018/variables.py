@@ -86,3 +86,19 @@ variables['V_jet_eta2']  = {   'name': 'Alt(Take(CleanJet_eta,V_jet_1),0,-999)',
                         'xaxis' : '#eta 2nd V jet [GeV]',
                         'fold' :3
                         }
+variables['mjj_max']  = {   'name': 'Mjj_max',            #   variable name    
+                        'range' : (20,200,4000),    #   variable range
+                        'xaxis' : 'm_{jj} [GeV]',  #   x axis name
+                        'fold' :3
+                        }
+variables['detajj_mjjmax']  = {   'name': 'detajj_mjjmax',            #   variable name    
+                           'range' : (12,2.0,8.0),    #   variable range
+                           'xaxis' : '#Delta #eta jj',  #   x axis name
+                           'fold' :3
+                           }
+
+variables['V_jet_mass']  = {   'name': 'V_jet_mass',            #   variable name    
+                           'range' : (35,0,220),    #   variable range
+                           'xaxis' : 'V_jet_mass',  #   x axis name
+                           'fold' :3
+                           }
