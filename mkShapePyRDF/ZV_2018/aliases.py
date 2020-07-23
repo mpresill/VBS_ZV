@@ -71,15 +71,15 @@ aliases['bReq'] = {
 
 # B tag scale factors
 aliases['bVetoSF'] = {
-    'expr': 'TMath::Exp(Sum(LogVec((CleanJet_pt>20 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<20 || AbsVec(CleanJet_eta)>2.5))))',
+    'expr': '1',
     'samples': mc
 }
-
+#'TMath::Exp(Sum(LogVec((CleanJet_pt>20 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<20 || AbsVec(CleanJet_eta)>2.5))))'
 aliases['bReqSF'] = {
-    'expr': 'TMath::Exp(Sum(LogVec((CleanJet_pt>30 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<30 || AbsVec(CleanJet_eta)>2.5))))',
+    'expr': '1',
     'samples': mc
 }
-
+#TMath::Exp(Sum(LogVec((CleanJet_pt>30 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<30 || AbsVec(CleanJet_eta)>2.5))))
 aliases['btagSF'] = {
     'expr': '(bVeto*bVetoSF + bReq*bReqSF + ( (!bVeto) && (!bReq) ))',
     'samples': mc
@@ -92,7 +92,12 @@ aliases['SFweight'] = {
     'samples': mc
 }
 
+aliases['jets_cat']={
+    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx, FatJet_mass)",
+    }
 
+
+"""
 aliases['category']={
     'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[0]"
     }
@@ -123,4 +128,4 @@ aliases['detajj_mjjmax']= {
 
 aliases['V_jet_mass']= {
       'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[7]"
-}
+}"""
