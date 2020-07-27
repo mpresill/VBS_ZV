@@ -14,13 +14,7 @@ cuts["supercut"] = {
 }
 #I have considered all CleanedJetNotFat, i.e. cleaned from AK8, since in the case in which nCleanFatJet==0 => nCleanJetNotFat = NCleanJet
 
-cuts['Resolved_SR'] = {
-    'expr': 'nLepton == 2',
-    'parent' : 'supercut',
-    'doVars' : True,
-    'doNumpy': True
-    }
-'''
+
 #######################################
 #
 #   BOOSTED CATEGORY
@@ -43,4 +37,4 @@ cuts['Resolved_SR'] = {
     'doVars' : True,
     'doNumpy': True
     }
-'''
+

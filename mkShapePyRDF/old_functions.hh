@@ -38,32 +38,30 @@ float detajj_mjj_max=0;
 float Vjet_mass_tmp = 0.;
 unsigned int njet=nCleanJet;
 unsigned int nFJ=nFatJet;
-unsigned int njetNotFat=CleanJetNotFat_jetId.size();
 
 // Index in the collection of CleanJetNotFat
-int VBS_jets[2] = {999,999};
-int V_jets[2]   = {999,999};
-float category = 999;  // 0 fatjet, 1 resolved, -1 none
+int VBS_jets[2] = {-999,-999};
+int V_jets[2]   = {-999,-999};
+float category = -999;  // 0 fatjet, 1 resolved, -1 none
 
 // Load all the quadrivectors for performance reason
 std::vector<TLorentzVector> vectors; 
-for (unsigned int ijet=0 ; ijet<njetNotFat ; ijet++){
+for (unsigned int ijet=0 ; ijet<njet ; ijet++){
 TLorentzVector jet0; 
-//if ijet < len(CleanJetNotFat_jet_id)
-jet0.SetPtEtaPhiM(CleanJet_pt.at(CleanJetNotFat_jetId.at(ijet)), CleanJet_eta.at(CleanJetNotFat_jetId.at(ijet)),CleanJet_phi.at(CleanJetNotFat_jetId.at(ijet)),Jet_mass.at(CleanJet_jetId.at(CleanJetNotFat_jetId.at(ijet)))); 
+jet0.SetPtEtaPhiM(CleanJet_pt[CleanJetNotFat_jetId[ijet]], CleanJet_eta[CleanJetNotFat_jetId[ijet]],CleanJet_phi[CleanJetNotFat_jetId[ijet]],Jet_mass[CleanJet_jetId][CleanJetNotFat_jetId[ijet]]); 
 vectors.push_back(jet0);
 }
 
 if (njet>=2){
 // Calculate max mjj invariant pair on CleanJetNotFat to exclude the correct jets
-for (unsigned int ijet=0 ; ijet<njetNotFat ; ijet++){
-    for (unsigned int jjet= ijet+1 ; jjet<njetNotFat ; jjet++){
+for (unsigned int ijet=0 ; ijet<njet ; ijet++){
+    for (unsigned int jjet= ijet+1 ; jjet<njet ; jjet++){
     if (ijet==jjet) continue;
     TLorentzVector jet0 = vectors.at(ijet);
     TLorentzVector jet1 = vectors.at(jjet); 
 
     Mjj_tmp = (jet0 + jet1).M();
-    detajj_tmp = deltaEta(CleanJet_eta.at(CleanJetNotFat_jetId.at(ijet)),CleanJet_eta.at(CleanJetNotFat_jetId.at(jjet)));
+    detajj_tmp = deltaEta(CleanJet_eta[CleanJetNotFat_jetId[ijet]],CleanJet_eta[CleanJetNotFat_jetId[jjet]]);
     if( Mjj_tmp >= Mjj_max ){
         Mjj_max=Mjj_tmp;
         detajj_mjj_max=detajj_tmp;
@@ -83,10 +81,9 @@ if (nFJ >= 1){
 }else if (njet>=4)
 { 
     category = 1;
-    for (unsigned int ijet=0 ; ijet<njetNotFat ; ijet++){
-    for (unsigned int jjet= ijet+1 ; jjet<njetNotFat ; jjet++){
-        if (VBS_jets[0] == ijet || VBS_jets[1] == ijet || VBS_jets[0] == jjet || VBS_jets[1] == jjet) continue;
-        else{
+    for (unsigned int ijet=0 ; ijet<njet ; ijet++){
+    for (unsigned int jjet= ijet+1 ; jjet<njet ; jjet++){
+        if (VBS_jets[0] == ijet || VBS_jets[1] == ijet || VBS_jets[0] == jjet || VBS_jets[1] == jjet){
         TLorentzVector jet0 = vectors.at(ijet);
         TLorentzVector jet1 = vectors.at(jjet); 
         float mvjet = (jet0+jet1).M();
@@ -112,13 +109,13 @@ category = -1;
 
 //create vec [category, vbsjet1, vbsjet2, vjet1, vjet2, mjjmax,detajjmjjmax,vjetmass]
 
-RVec<float> cat{category, 999,999,999,999, Mjj_tmp,detajj_mjj_max,Vjet_mass_tmp };
+RVec<float> cat{category, -999,-999,-999,-999, Mjj_tmp,detajj_mjj_max,Vjet_mass_tmp };
 
 cat[0]=category;
-if (VBS_jets[0] != 999) cat[1]= CleanJetNotFat_jetId.at(VBS_jets[0]);
-if (VBS_jets[1] != 999) cat[2]= CleanJetNotFat_jetId.at(VBS_jets[1]);
-if (V_jets[0] != 999)   cat[3]= CleanJetNotFat_jetId.at(V_jets[0]);
-if (V_jets[1] != 999)   cat[4]= CleanJetNotFat_jetId.at(V_jets[1]);
+if (VBS_jets[0] != -999) cat[1]= CleanJetNotFat_jetId[VBS_jets[0]];
+if (VBS_jets[1] != -999) cat[2]= CleanJetNotFat_jetId[VBS_jets[1]];
+if (V_jets[0] != -999)   cat[3]= CleanJetNotFat_jetId[V_jets[0]];
+if (V_jets[1] != -999)   cat[4]= CleanJetNotFat_jetId[V_jets[1]];
 
 return cat;
 }

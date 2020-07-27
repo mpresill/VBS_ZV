@@ -71,12 +71,12 @@ aliases['bReq'] = {
 
 # B tag scale factors
 aliases['bVetoSF'] = {
-    'expr': '1',
+    'expr': 'TMath::Exp(Sum(LogVec((CleanJet_pt>20 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<20 || AbsVec(CleanJet_eta)>2.5))))',
     'samples': mc
 }
 #'TMath::Exp(Sum(LogVec((CleanJet_pt>20 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<20 || AbsVec(CleanJet_eta)>2.5))))'
 aliases['bReqSF'] = {
-    'expr': '1',
+    'expr': 'TMath::Exp(Sum(LogVec((CleanJet_pt>30 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<30 || AbsVec(CleanJet_eta)>2.5))))',
     'samples': mc
 }
 #TMath::Exp(Sum(LogVec((CleanJet_pt>30 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_shape,CleanJet_jetIdx)+1*(CleanJet_pt<30 || AbsVec(CleanJet_eta)>2.5))))
@@ -92,40 +92,41 @@ aliases['SFweight'] = {
     'samples': mc
 }
 
-aliases['jets_cat']={
+aliases['cat']={
     'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx, FatJet_mass)",
     }
 
 
-"""
+
 aliases['category']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[0]"
+    'expr': "cat[0]"
     }
 
-
+#jets: problem if -999
 aliases['vbs_jet_0']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[1]"
+    'expr': "cat[1]"
     }
 
 aliases['vbs_jet_1']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[2]"
+    'expr': "cat[2]"
     }
 
 aliases['V_jet_0']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[3]"
+    'expr': "cat[3]"
     }
 
 aliases['V_jet_1']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[4]"
+    'expr': "cat[4]"
     }
 
 aliases['Mjj_max']={
-    'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[5]"
+    'expr': "cat[5]"
     }
 aliases['detajj_mjjmax']= {
-      'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[6]"
+      'expr': "cat[6]"
 }
 
 aliases['V_jet_mass']= {
-      'expr': "jets_cat(nCleanJet, nFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx)[7]"
-}"""
+      'expr': "cat[7]"
+}
+
