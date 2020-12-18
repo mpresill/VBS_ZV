@@ -18,5 +18,9 @@ Eos folder with output from Matteo:
 (web link: https://cernbox.cern.ch/index.php/s/VViWSf3FNs6Tdea)
 
 
-## Logbook 
-- 2017 is the directory currently used for future studies.
+# mkShapePyRDF
+This folder contains the files need to convert samples to python data
+
+
+# MVA
+This folder contains the notebook to train and optimize the MVA models, BDT or DNN
