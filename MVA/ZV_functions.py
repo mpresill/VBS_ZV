@@ -51,7 +51,7 @@ def prep_data(year, cut, vers,  dir):
         if 'DY' in sample: samples_group.append('DY')
         elif 'top' in sample: samples_group.append('top')
         elif 'VBS_ZV' in sample: samples_group.append('signal')
-        elif 'Fake' in sample: samples_group.append('fake')
+        #elif 'Fake' in sample: samples_group.append('fake')
         else : samples_group.append('other')
 
     samples_df=[]
@@ -62,12 +62,14 @@ def prep_data(year, cut, vers,  dir):
     for i,name in enumerate(files):
         samples_df.append(pd.read_pickle(samples_dir+'\\'+files[i]))
         samples_df[i]['sample']= samples_name[i]
-        samples_df[i]['group']=samples_group[i]
+        samples_df[i]['group'] = samples_group[i]
+        samples_df[i]['year'] = year
         df=df.append(samples_df[i], sort=False)
     df['signal'] = df['group'] == 'signal'
     df.replace(999,-999,inplace=True)
     df.replace(np.inf, -999,inplace=True)
     df.replace(-np.inf, -999, inplace=True)
+    df.dropna(inplace=True)
     df.to_pickle(dir+year+'\\'+cut+'{}_{}_df.pkl')
     #save full dataframe to pkl in base_dir
     
@@ -144,7 +146,7 @@ def groupplot_var(dir,df,var,xmin=0, xmax=1000,nbins=50, weight='std'):
 
 
 def plot_distrib(var_list, xlims, base_dir, year, cut):
-    df = pd.read_pickle(base_dir + year + '\\'+cut+'{}_{}_df.pkl ')
+    df = pd.read_pickle(base_dir + year + '\\'+cut+'_df.pkl ')
     
     fig_dir=base_dir+year+'\\'+cut+'\\data_figs'
     
@@ -157,6 +159,98 @@ def plot_distrib(var_list, xlims, base_dir, year, cut):
         else :
             groupplot_var(fig_dir, df,var,xmin=xlims[i][0],xmax=xlims[i][1])
     print('plots saved to {}'.format(fig_dir))
+
+
+#for fusing mutliple years
+def prep_data_multi(years, version,cut, vers,  dir):
+    #set up directories
+    
+    df=pd.DataFrame()
+    for year in years:
+        print(year)
+        
+        data_dir=dir+version+'\\'+cut+'\\data'+vers
+        if not os.path.exists(data_dir):
+            os.makedirs(data_dir)
+        fig_dir=dir+version+'\\'+cut+'\\data_figs'
+        if not os.path.exists(fig_dir):
+            os.makedirs(fig_dir)
+
+        samples_dir=dir+'Numpy\\ZV_'+year+'\\'+cut+'\\samples\\v1'
+        files=os.listdir(samples_dir)
+        samples_name=[file[:-10] for file in files]
+
+        features=pd.read_pickle(samples_dir+'\\'+files[0]).keys().drop('weight_')
+
+        samples_group=[]
+        #group samples by 'class'
+        for sample in samples_name:
+            if 'DY' in sample: samples_group.append('DY')
+            elif 'top' in sample: samples_group.append('top')
+            elif 'VBS_ZV' in sample: samples_group.append('signal')
+            #elif 'Fake' in sample: samples_group.append('fake')
+            else : samples_group.append('other')
+
+        samples_df=[]
+
+
+
+        # preparing the sfigamples for later
+        for i,name in enumerate(files):
+            samples_df.append(pd.read_pickle(samples_dir+'\\'+files[i]))
+            samples_df[i]['sample']= samples_name[i]
+            samples_df[i]['group']=samples_group[i]
+            samples_df[i]['year'] = year
+            #multiply weights by lumi
+            if '2018' in year:
+                samples_df[i]['weight_'] *= 59.74
+            elif '2017' in year:
+                samples_df[i]['weight_'] *= 41.53
+            elif '2016' in year:
+                samples_df[i]['weight_'] *= 35.867
+
+            df=df.append(samples_df[i], sort=False)
+            
+    df['signal'] = df['group'] == 'signal'
+    df.replace(999,-999,inplace=True)
+    df.replace(np.inf, -999,inplace=True)
+    df.replace(-np.inf, -999, inplace=True)
+    df.dropna(inplace=True)
+
+    df.to_pickle(dir+version+'\\'+cut+'_df.pkl')
+        #save full dataframe to pkl in base_dir
+
+    
+    #data preparation for BDT
+    BDT_dir=dir+version+'\\'+cut+'\\BDT_res'+vers
+    if not os.path.exists(BDT_dir):
+        os.makedirs(BDT_dir)  
+    
+
+    x = df[features]
+    for key in features:
+        print(key, x[key].mean(), x[key].std())
+    # Normalize features to optimize performance (min max scaler)
+    scaler = preprocessing.StandardScaler()
+    X = scaler.fit_transform(x)
+    X=pd.DataFrame(X, columns=features)
+    #dump scaler
+    pickle.dump(scaler, open(f"{data_dir}/scaler_model.pkl", "wb"))
+
+
+    y=df[['year','signal','sample','group','weight_']]
+    y['signal']=y['signal'].astype('int32')
+    #X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
+    
+
+    normalize(y)
+    print('saving files')
+    np.save(data_dir+'\\X_{}_{}{}'.format(version,cut,vers),X)
+    np.save(data_dir+'\\y_{}_{}{}'.format(version,cut,vers),y)
+    print('Data prepared, X and y saved to {}.'.format(data_dir))
+    return X, y, features
+
+
 
 def plot_scatter(var_list, base_dir, year, cut):
     df = pd.read_pickle(base_dir + year + '\\'+cut+'{} _{} _df.pkl ')
