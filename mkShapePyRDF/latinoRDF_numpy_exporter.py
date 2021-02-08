@@ -25,7 +25,7 @@ args = parser.parse_args()
 
 keep_negative_weights = not args.discard_negative_weights
 
-R.ROOT.EnableImplicitMT() # only for ROOT rdf
+#R.ROOT.EnableImplicitMT() # only for ROOT rdf
 print(f"Running with {R.ROOT.GetImplicitMTPoolSize()} threads")
 
 R.gInterpreter.ProcessLine(".L headers.hh")
