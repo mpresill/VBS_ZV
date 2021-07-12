@@ -37,7 +37,7 @@ cuts['Boosted_SR'] = {
     }
 """
 cuts['Boosted_DYcr']  = {
-	'expr' : 'category==0 && nCleanFatJet==1 && bVeto && ( V_jet_mass<65 || V_jet_mass>105) && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)',
+	'expr' : 'category==0 && nCleanFatJet==1 && ( V_jet_mass<65 || V_jet_mass>105) && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)',
 	'parent' : 'supercut',
     	'doVars' : True,
     	'doNumpy': True
@@ -70,7 +70,7 @@ cuts['Resolved_SR'] = {
     }
 """
 cuts['Resolved_DYcr']  = {
-	'expr':'category==1 && bVeto && ( V_jet_mass<65 || V_jet_mass>105) && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)',
+	'expr':'category==1 && ( V_jet_mass<65 || V_jet_mass>105) && (Lepton_pdgId[0]*Lepton_pdgId[1] == -11*11 || Lepton_pdgId[0]*Lepton_pdgId[1] == -13*13)',
   'parent' : 'supercut',
     'doVars' : True,
     'doNumpy': True

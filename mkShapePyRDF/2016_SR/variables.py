@@ -43,15 +43,8 @@ variables['Zepp_ll']= {   'name': 'Zepp_ll',            #   variable name
 #
 
 variables['nFatJet']  = {
-                        'name': 'nCleanFatJet',     
+                        'name': 'nFatJet',     
                         'range' : (6,0,6),   
-                        'xaxis' : 'Number of FatJets',
-                        'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
-                        }
-
-variables['nCleanFatJet']  = {
-                        'name': 'nCleanFatJet',
-                        'range' : (10,0,10),
                         'xaxis' : 'Number of FatJets',
                         'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
@@ -197,7 +190,7 @@ variables['FatJet_qgl'] = {   'name': 'FatJet_qgl',
                         'range' : (40,-1.5,1.5),
                         }
 variables['nbtag'] = {        'name' : 'nbtag',
-			'range' : (10, 0, 10)
+			'range' : (10, 0, 9)
 }
 variables['lepton_id'] = {'name' : 'Alt(AbsVec(Lepton_pdgId), 0, -999)',
 			'range': (2, 11, 13),

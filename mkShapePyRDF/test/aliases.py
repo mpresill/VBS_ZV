@@ -21,8 +21,8 @@ configurations = os.path.dirname(configurations) # current year
 # samples, signals
 mc = [skey for skey in samples if skey not in ('Fake', 'DATA')]
 
-eleWP = 'mvaFall17V1Iso_WP90'  #should change to 2018?
-muWP='cut_Tight_HWWW'
+eleWP = 'mva_90p_Iso2016'  #should change to 2018?
+muWP='cut_Tight80x'
 
 aliases['LepWPCut'] = {
     'expr': 'LepCut2l__ele_'+eleWP+'__mu_'+muWP,
@@ -145,8 +145,14 @@ aliases['bReqTight'] = {
     'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.7527) >= 1'
    
 }
+"""
+aliases['istZq'] = {
+	'expr': 'Sum(AbsVec(GenPart_pdgId) == 6) >=1',
+	'samples': ['VBS_ZV', 'tZq']
 
 
+}
+"""
 # B tag scale factors
 aliases['bVetoSF'] = {
     'expr': 'TMath::Exp(Sum(LogVec((CleanJet_pt>20 && AbsVec(CleanJet_eta)<2.5)*Take(Jet_btagSF_deepcsv_shape,CleanJet_jetIdx)+1*(CleanJet_pt<=20 || AbsVec(CleanJet_eta)>=2.5))))',
@@ -329,7 +335,7 @@ aliases['PUJetIdSF'] = {
 
 # data/MC scale factors
 aliases['SFweight'] = {
-    'expr': ' * '.join(['SFweight2l', 'LepSF2l__ele_' + eleWP + '__mu_' + muWP, 'LepWPCut', 'btagSF', 'PUJetIdSF']),
+    'expr': ' * '.join(['SFweight2l', 'LepSF2l__ele_' + eleWP + '__mu_' + muWP, 'LepWPCut', 'PUJetIdSF']),
     'samples': mc
 }
 # variations

@@ -1,7 +1,7 @@
 # example of configuration file
 treeName= 'Events'
 
-tag = '2018'
+tag = '2017'
 
 
 # used by mkShape to define output directory for root files
@@ -18,7 +18,7 @@ cutsFile = 'cuts.py'
 
 # file with list of samples
 #samplesFile = 'samples.py' 
-samplesFile = 'samples.py' 
+samplesFile = 'samples_v2.py' 
 
 # file with list of samples
 #plotFile = 'plot.py' 
@@ -27,7 +27,7 @@ plotFile = 'plot.py'
 
 
 # luminosity to normalize to (in 1/fb)
-lumi = 59.74
+lumi = 41.5
 #
 
 

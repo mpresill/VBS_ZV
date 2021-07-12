@@ -94,7 +94,6 @@ int VBS_jets[2] = {999,999};
 int V_jets[2]   = {999,999};
 int _nbtag=0;
 float btagcut = 0;
-float etacut= 2.4;
 float category = 999;  // 0 fatjet, 1 resolved, -1 none
 std::vector<int> vectors_id;
 if (year == 2018) btagcut = 0.1241;
@@ -153,23 +152,21 @@ if (nFJ >= 1){
 
 }else if (njet>=4)
 { 
-    //cout << "Resolved" <<endl;
+    category = 1;
+//cout << "Resolved" <<endl;
     for (unsigned int ijet=0 ; ijet<(njet-1) ; ijet++){
 //cout << "test1" << endl;
     	for (unsigned int jjet= ijet+1 ; jjet<njet ; jjet++){
         	if (VBS_jets[0] == ijet || VBS_jets[1] == ijet || VBS_jets[0] == jjet || VBS_jets[1] == jjet) continue;
         	else{
         		TLorentzVector jet0 = vectors.at(ijet);
-			if (std::abs(vectors.at(ijet).Eta())>etacut) continue;
         		TLorentzVector jet1 = vectors.at(jjet); 
-			if (std::abs(vectors.at(jjet).Eta())>etacut) continue;
         		float mvjet = (jet0+jet1).M();
         		float dmass = abs( mvjet - 85.7863 );
         		if (dmass < deltamass_Vjet){
             		// Index in the collection of CleanJetNotFat
             		V_jets[0] = ijet;
             		V_jets[1] = jjet;
-			category = 1;
             		deltamass_Vjet = dmass;
             		Vjet_mass_tmp = mvjet;
         		}

@@ -131,18 +131,18 @@ aliases['Top_pTrw'] = {
 
 #bVeto 
 aliases['bVeto'] = {
-    'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) <2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.1241) == 0'
+    'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.1522) == 0'
 
 }
 
 #bReq
 aliases['bReq'] = {
-    'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.1241) >= 1'
+    'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.1522) >= 1'
  
 }
 
 aliases['bReqTight'] = {
-    'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.7527) >= 1'
+    'expr': 'Sum(CleanJet_pt > 30. && AbsVec(CleanJet_eta) < 2.5 && Take(Jet_btagDeepB,CleanJet_jetIdx) > 0.8001) >= 1'
    
 }
 
@@ -191,7 +191,7 @@ aliases['SFweight'] = {
 }
 """
 aliases['cat']={
-    'expr': "jets_cat(nCleanJetNotFat, nCleanFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx, CleanFatJet_mass,nLepton, Lepton_eta, CleanFatJet_eta, Jet_qgl, CleanFatJet_jetIdx, Jet_btagDeepB, 2018)",
+    'expr': "jets_cat(nCleanJetNotFat, nCleanFatJet, CleanJet_pt, CleanJetNotFat_jetIdx, CleanJet_phi, CleanJet_eta, Jet_mass, CleanJet_jetIdx, CleanFatJet_mass,nLepton, Lepton_eta,  CleanFatJet_eta, Jet_qgl, CleanFatJet_jetIdx, Jet_btagDeepB,2017)",
     }
 
 
@@ -256,13 +256,14 @@ aliases['nbtag'] = {
 }
 """
 aliases['ptllDYW_NLO'] = {
-    'expr': '(0.87*(gen_ptll<10)+(0.379119+0.099744*gen_ptll-0.00487351*gen_ptll*gen_ptll+9.19509e-05*gen_ptll*gen_ptll*gen_ptll-6.0212e-07*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll>=10 && gen_ptll<45)+(9.12137e-01+1.11957e-04*gen_ptll-3.15325e-06*gen_ptll*gen_ptll-4.29708e-09*gen_ptll*gen_ptll*gen_ptll+3.35791e-11*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll>=45 && gen_ptll<200) + 1*(gen_ptll>200))'
+    'expr': '(((0.623108 + 0.0722934*gen_ptll - 0.00364918*gen_ptll*gen_ptll + 6.97227e-05*gen_ptll*gen_ptll*gen_ptll - 4.52903e-07*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll<45)*(gen_ptll>0) + 1*(gen_ptll>=45))*(abs(gen_mll-90)<3) + (abs(gen_mll-90)>3))'
 }
 aliases['ptllDYW_LO'] = {
     'expr': '((0.632927+0.0456956*gen_ptll-0.00154485*gen_ptll*gen_ptll+2.64397e-05*gen_ptll*gen_ptll*gen_ptll-2.19374e-07*gen_ptll*gen_ptll*gen_ptll*gen_ptll+6.99751e-10*gen_ptll*gen_ptll*gen_ptll*gen_ptll*gen_ptll)*(gen_ptll>0)*(gen_ptll<100)+(1.41713-0.00165342*gen_ptll)*(gen_ptll>=100)*(gen_ptll<300)+1*(gen_ptll>=300))'
-}
 
+}
 """
+
 # variations
 aliases['SFweightEleUp'] = {
     'expr': 'LepSF2l__ele_'+eleWP+'__Up',
@@ -293,6 +294,8 @@ aliases['getGenZpt_OTF'] = {
     'expr' : 'getGenZpt(nGenPart, GenPart_pt, GenPart_pdgId, GenPart_genPartIdxMother, GenPart_statusFlags, gen_ptll)',
     'samples': ['DY']
 }
+
+
 DYrew={
     '2016': {
         'NLO': "1.062955818914*((-0.0775395733886*TMath::Erf((x-14.4141170861)/7.10247643949)-0.00091236718546*x-(-0.0775395733886*TMath::Erf((40.0-14.4141170861)/7.10247643949)-0.00091236718546*40.0)+0.853848155607)*(x<40.0)+0.853848155607*(x>=40.0))",
@@ -308,11 +311,11 @@ DYrew={
     },
 }
 aliases['DY_NLO_pTllrw'] = {
-    'expr': '('+DYrew['2018']['NLO'].replace('x', 'getGenZpt_OTF')+')*(nCleanGenJet == 0)+1.0*(nCleanGenJet > 0)',
+    'expr': '('+DYrew['2017']['NLO'].replace('x', 'getGenZpt_OTF')+')*(nCleanGenJet == 0)+1.0*(nCleanGenJet > 0)',
     'samples': ['DY']
 }
 aliases['DY_LO_pTllrw'] = {
-    'expr': '('+DYrew['2018']['LO'].replace('x', 'getGenZpt_OTF')+')*(nCleanGenJet == 0)+1.0*(nCleanGenJet > 0)',
+    'expr': '('+DYrew['2017']['LO'].replace('x', 'getGenZpt_OTF')+')*(nCleanGenJet == 0)+1.0*(nCleanGenJet > 0)',
     'samples': ['DY']
 }
 
@@ -323,7 +326,7 @@ aliases['DY_LO_pTllrw'] = {
 #puidSFSource = '{}/patches/PUID_81XTraining_EffSFandUncties.root'.format(configurations)
 
 aliases['PUJetIdSF'] = {
-    'expr' : 'PUJetIdEventSF("/afs/cern.ch/user/a/ahakimi/ZV_analysis/mkShapePyRDF/patches/PUID_81XTraining_EffSFandUncties.root", "2018", "loose", nJet, nLepton, Lepton_eta, Lepton_phi, Jet_pt, Jet_eta, Jet_phi, Jet_jetId, Jet_genJetIdx, Jet_puId)',
+    'expr' : 'PUJetIdEventSF("/afs/cern.ch/user/a/ahakimi/ZV_analysis/mkShapePyRDF/patches/PUID_81XTraining_EffSFandUncties.root", "2017", "loose", nJet, nLepton, Lepton_eta, Lepton_phi, Jet_pt, Jet_eta, Jet_phi, Jet_jetId, Jet_genJetIdx, Jet_puId)',
     'samples': mc
 }
 

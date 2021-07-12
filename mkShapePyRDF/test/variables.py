@@ -1,5 +1,16 @@
+variables['run'] ={'name' : 'run',
+                        'range': (10,0,1),
+}
 
+variables['event'] ={'name' : 'event',
+                        'range': (10,0,1),
+}
 ##leptons
+
+variables['nLepton'] = {'name' : 'nLepton',
+			'range' : (10,0,9),
+}
+
 variables['Lep_pt1']  = {   'name': 'Alt(Lepton_pt,0,-9999.)',
                         'range' : (20,0.,200),
                         'xaxis' : 'p_{T} 1st lep [GeV]',
@@ -29,7 +40,7 @@ variables['mll']  = {   'name': 'mll',            #   variable name
                         'xaxis' : 'm_{ll} [GeV]',  #   x axis name
                         'fold' :3
                         }
-
+"""
 variables['Zepp_ll']= {   'name': 'Zepp_ll',            #   variable name    
                         'range' : (40,-1.5,1.5),    #   variable range
                         'xaxis' : 'Zepp_{ll} ',  #   x axis name
@@ -43,18 +54,12 @@ variables['Zepp_ll']= {   'name': 'Zepp_ll',            #   variable name
 #
 
 variables['nFatJet']  = {
-                        'name': 'nCleanFatJet',     
+                        'name': 'nFatJet',     
                         'range' : (6,0,6),   
                         'xaxis' : 'Number of FatJets',
                         'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
                         }
-
-variables['nCleanFatJet']  = {
-                        'name': 'nCleanFatJet',
-                        'range' : (10,0,10),
-                        'xaxis' : 'Number of FatJets',
-                        'fold' : 3   # 0 = not fold (default), 1 = fold underflowbin, 2 = fold overflow bin, 3 = fold underflow and overflow
-                        }
+"""
 variables['FatJet_pt']  = {
                         'name': 'Alt(CleanFatJet_pt,0,-999)',     
                         'range' : (30,150,800),   
@@ -66,13 +71,14 @@ variables['FatJeteta'] = {'name': 'Alt(CleanFatJet_eta,0,-999)',
                            'xaxis' : '\eta FatJet',
                            'fold'  : 3
                            }
+"""
 variables['FatJet_softdropmass'] = {   'name': 'Alt(CleanFatJet_mass,0,0.)',
                                'range': (50,0.,200),
                                'xaxis': 'AK8 jet softdrop mass',
                                'fold': 3
                                }
 ##this is the softdrop mass
-                                                                                                                     
+"""                                                                                                                     
 variables['FatJet_tau21'] = {   'name': 'Alt(CleanFatJet_tau21,0,-999)',
                         'range' : (50,0,1),
                         'xaxis' : '#tau_{21}',
@@ -82,7 +88,7 @@ variables['FatJet_tau21'] = {   'name': 'Alt(CleanFatJet_tau21,0,-999)',
 
 
 #Zeppenfeld variables
-
+"""
 variables['Zlep_1'] = {   'name': 'Zlep_1',      
                         'range' : (40,-1.5,1.5),  
                         'xaxis' : 'Z^{lep}_{l1}', 
@@ -102,6 +108,8 @@ variables['category'] = {'name' : 'category',
                          'xaxis' : 'category',
                          'fold' : 3
                         }
+"""
+
 
 variables['vbs_jet_pt1']  = {   'name': 'vbs_jet_pt1',
                         'range' : (20,0.,300),
@@ -161,7 +169,8 @@ variables['detajj_mjjmax']  = {   'name': 'detajj_mjjmax',            #   variab
                            'range' : (12,2.0,8.0),    #   variable range
                            'xaxis' : '#Delta #eta jj',  #   x axis name
                            'fold' :3
-                           }
+                         }
+
 variables['dphijj_mjjmax']  = {   'name': 'dphijj_mjjmax',            #   variable name    
                            'range' : (12,0,),    #   variable range
                            'xaxis' : '#Delta #eta jj',  #   x axis name
@@ -173,6 +182,7 @@ variables['V_jet_mass']  = {   'name': 'V_jet_mass',            #   variable nam
                            'xaxis' : 'V_jet_mass',  #   x axis name
                            'fold' :3
                         }   
+
 variables['njet'] = {	'name': 'nCleanJet30',
 			'range' : (10,0,9),
 			}
@@ -196,9 +206,24 @@ variables['V_jet_qgl2'] = {   'name': 'V_jet_qgl2',
 variables['FatJet_qgl'] = {   'name': 'FatJet_qgl',
                         'range' : (40,-1.5,1.5),
                         }
+
 variables['nbtag'] = {        'name' : 'nbtag',
-			'range' : (10, 0, 10)
+			'range' : (10, 0, 9)
 }
 variables['lepton_id'] = {'name' : 'Alt(AbsVec(Lepton_pdgId), 0, -999)',
 			'range': (2, 11, 13),
+
 }
+
+
+variables['category'] = { 'name' : 'category',
+			'range': (3,-1,1)
+}
+
+variables['FatJet_tau21'] = {   'name': 'Alt(CleanFatJet_tau21,0,-999)',
+                        'range' : (50,0,1),
+                        'fold' : 0,
+                        
+                                }
+ 
+                       
